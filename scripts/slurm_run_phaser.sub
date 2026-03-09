@@ -1,0 +1,29 @@
+#!/bin/bash
+#SBATCH --job-name=phaser
+#SBATCH --mail-user=cl2696@cornell.edu       # Where to send mail
+#SBATCH --nodes=1                            # number of nodes requested
+#SBATCH --nodelist=c0003                     # Specify nodes
+#SBATCH --ntasks=1                           # number of tasks to run in parallel
+#SBATCH --cpus-per-task=4                    # number of CPUs required for each task. 4 for 10GB, 8 for 20GB, 32 for 80GB of A100.
+#SBATCH --gres=gpu:2g.20gb:1                 # request a GPU #gpu:a100:1, gpu:2g.20gb:1
+#SBATCH --time=336:00:00                     # Time limit hrs:min:sec
+#SBATCH --output=logs/log_job_%j_phaser_20GB_table_tBL_WSe2.txt  # Standard output and error log
+
+pwd; hostname; date
+
+module load cuda/12.9
+
+source activate bench_phaser # phaser install from PyPi
+
+## Set the params_path variable
+# PARAMS_PATH="params/phaser_table_tBL_WSe2.yml"
+# echo params_path = ${PARAMS_PATH}
+
+## Making sure we are under repo root and calling `sbatch scripts/slurm_run_phaser.sub`
+cd ~/workspace/ptycho_benchmark; pwd; 
+
+unset LD_LIBRARY_PATH # This unset path seems to be needed for jaxlib to correctly identify the cuSPARSE as mentioned https://github.com/jax-ml/jax/issues/28929
+# python -u ./scripts/run_phaser_loop.py --params_path "${PARAMS_PATH}" 2>&1
+python -u ./scripts/run_phaser_loop.py 2>&1
+
+date
