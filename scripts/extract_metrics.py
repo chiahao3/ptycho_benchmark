@@ -25,6 +25,18 @@ PACKAGE_CONFIGS = {
         "success": re.compile(r"Engine finished!|Reconstruction finished!"),
         "error": re.compile(r"RESOURCE_EXHAUSTED|Out of memory", re.IGNORECASE),
     },
+    "ptyshv": {
+        "marker": re.compile(r"Running \((.*?)\)\s*=\s*\((.*?)\)"),
+        "iteration": re.compile(r"Time per one iteration\s+([0-9.]+)\s*s"),
+        "success": re.compile(r"Elapsed time is\s+[0-9.]+\s*seconds"),
+        "error": re.compile(r"Error using|Out of memory|OOM", re.IGNORECASE),
+    },
+    "py4dstem": {
+        "marker": re.compile(r"Running \((.*?)\)\s*=\s*\((.*?)\)"),
+        "iteration": re.compile(r"Iter:\s*\d+,.*?in\s+((?:\d+\s*min\s+)?[0-9.]+)\s*sec"),
+        "success": re.compile(r"Finished \d+ iterations"),
+        "error": re.compile(r"error|CUDA out of memory|OOM|Out of memory", re.IGNORECASE),
+    },
 }
 
 PREFERRED_ORDER = [
