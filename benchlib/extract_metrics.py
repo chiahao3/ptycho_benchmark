@@ -25,12 +25,15 @@ PACKAGE_CONFIGS = {
         "success": re.compile(r"Engine finished!|Reconstruction finished!"),
         "error": re.compile(r"RESOURCE_EXHAUSTED|Out of memory", re.IGNORECASE),
     },
+    # CHL: Legacy version based on https://github.com/chiahao3/fold_slice_work, the marker line may change as I refine the repo
     "ptyshv": {
         "marker": re.compile(r"Running \((.*?)\)\s*=\s*\((.*?)\)"),
         "iteration": re.compile(r"Time per one iteration\s+([0-9.]+)\s*s"),
         "success": re.compile(r"Elapsed time is\s+[0-9.]+\s*seconds"),
         "error": re.compile(r"Error using|Out of memory|OOM", re.IGNORECASE),
     },
+    # CHL: Legacy version based on https://github.com/chiahao3/py4DSTEM/tree/benchmark and https://github.com/chiahao3/ptyrad_paper, 
+    # the marker line may change as I refine the repo, although the original team has moved onto "quantem"
     "py4dstem": {
         "marker": re.compile(r"Running \((.*?)\)\s*=\s*\((.*?)\)"),
         "iteration": re.compile(r"Iter:\s*\d+,.*?in\s+((?:\d+\s*min\s+)?[0-9.]+)\s*sec"),

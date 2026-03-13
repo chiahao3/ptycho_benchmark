@@ -274,3 +274,6 @@ def print_packages_info():
             print(f"{display_name} imported, but no __version__ attribute found.")
         except Exception as e:
             print(f"Error retrieving version for {display_name}: {e}")
+
+if __name__ == "__main__":
+    print_system_info()
