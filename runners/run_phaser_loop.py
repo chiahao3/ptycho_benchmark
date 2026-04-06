@@ -1,5 +1,5 @@
 # Python script to run phaser
-# Updated by Chia-Hao Lee on 2026.03.11
+# Updated by Chia-Hao Lee on 2026.04.05
 
 import argparse
 import gc
@@ -33,6 +33,8 @@ if __name__ == "__main__":
     parser.add_argument("--slices", type=int, nargs='+', default=[1, 3, 6, 12], help="List of slice counts")
     parser.add_argument("--niter", type=int, default=20, help="Number of iterations")
     parser.add_argument("--save", type=int, default=10000, help="Number of iterations to save the result")
+    parser.add_argument("--buffer_n_groups", type=int, default=8, help="Number of grouped diffraction patterns to buffer, default is 8")
+    parser.add_argument("--unroll_slices", type=int, default=10, help="Number of slices to unroll during multislice propagation, default is 10")
     args = parser.parse_args()
     
     # Calculate the total size of the benchmark grid
@@ -92,6 +94,8 @@ if __name__ == "__main__":
                         "probe_modes": pmode,
                         "niter": args.niter,
                         "grouping": batch,
+                        "buffer_n_groups": args.buffer_n_groups,
+                        "jit_unroll_slices": args.unroll_slices,
                         "bwlim_frac": 1.0,
                         "noise_model": {
                             "type": "anscombe",

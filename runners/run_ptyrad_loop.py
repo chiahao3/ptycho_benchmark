@@ -1,5 +1,5 @@
 # Python script to run PtyRAD
-# Updated by Chia-Hao Lee on 2026.03.11
+# Updated by Chia-Hao Lee on 2026.04.05
 
 import argparse
 import gc
@@ -34,6 +34,7 @@ if __name__ == "__main__":
     parser.add_argument("--slices", type=int, nargs='+', default=[1, 3, 6, 12], help="List of slice counts")
     parser.add_argument("--niter", type=int, default=20, help="Number of iterations")
     parser.add_argument("--save", type=int, default=10000, help="Number of iterations to save the result")
+    parser.add_argument("--stream", action="store_true", help="Stream data to GPU, default is False (preload full dataset to VRAM)")
     parser.add_argument(
         "--compile", 
         nargs="?",         # Consumes 0 or 1 arguments
@@ -110,6 +111,7 @@ if __name__ == "__main__":
             params['recon_params']['BATCH_SIZE']['size'] = batch
             params['recon_params']['recon_dir_affixes'] = 'minimal'
             params['recon_params']['prefix_time'] = False
+            params['model_params']['preload_data'] = not args.stream
             
             if args.compile:
                 compiler_configs = {'enable': True, 'mode': args.compile}
