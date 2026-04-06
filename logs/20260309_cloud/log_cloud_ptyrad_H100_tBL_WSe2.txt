@@ -1,0 +1,2197 @@
+### System information ###
+Platform: Linux-6.8.0-1040-nvidia-x86_64-with-glibc2.39
+Operating System: Linux 6.8.0-1040-nvidia
+OS Version: #43~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Fri Sep 19 23:28:27 UTC 2
+Machine: x86_64
+Processor: x86_64
+Available CPU cores: 52
+Total Memory: 442.65 GB
+Available Memory: 426.94 GB
+ 
+### GPU information ###
+--- PyTorch Backend ---
+CUDA Available: True
+CUDA Version: 12.8
+Available CUDA GPUs: ['NVIDIA H100 80GB HBM3']
+CUDA Compute Capability: ['9.0']
+  INFO: For torch.compile with Triton, you'll need CUDA GPU with Compute Capability >= 7.0.
+        In addition, Triton does not directly support Windows.
+        For Windows users, please follow the instruction and download `triton-windows` from https://github.com/woct0rdho/triton-windows.
+MIG (Multi-Instance GPU) mode = False
+  INFO: MIG splits a physical GPU into multiple GPU slices, but multiGPU does not support these MIG slices.
+        In addition, multiGPU is currently only available on Linux due to the limited NCCL support.
+      -> If you're doing normal reconstruction/hypertune, you can safely ignore this.
+      -> If you want to do multiGPU, you must provide multiple 'full' GPUs that are not in MIG mode.
+--- JAX Backend ---
+Not installed in this environment.
+ 
+### Python information ###
+Python Executable: /venv/bench_ptyrad/bin/python
+Python Version: 3.12.13 | packaged by conda-forge | (main, Mar  5 2026, 16:50:00) [GCC 14.3.0]
+ 
+### Packages information ###
+Numpy Version (metadata): 2.3.5
+Cupy not found in the environment.
+Jax not found in the environment.
+PyTorch Version (metadata): 2.7.1+cu128
+Optuna Version (metadata): 4.7.0
+Accelerate Version (metadata): 1.13.0
+PtyRAD Version (ptyrad/__init__.py): 0.1.0b13.post1
+PtyRAD is located at: /venv/bench_ptyrad/lib/python3.12/site-packages/ptyrad/__init__.py
+phaser not found locally
+py4DSTEM not found locally
+quantem not found locally
+ 
+2026-03-10 02:40:50,709 - ### PtyRAD LoggingManager configuration ###
+2026-03-10 02:40:50,709 - log_file       = 'ptyrad_log.txt'. If log_file = None, no log file will be created.
+2026-03-10 02:40:50,709 - log_dir        = 'auto'. If log_dir = 'auto', then log will be saved to `output_path` or 'logs/'.
+2026-03-10 02:40:50,709 - flush_file     = True. Automatically set to True if `log_file is not None`
+2026-03-10 02:40:50,709 - prefix_time    = datetime. If true, preset strings ('date', 'time', 'datetime'), or a string of time format, a datetime str is prefixed to the `log_file`.
+2026-03-10 02:40:50,709 - prefix_jobid   = '0'. If not 0, it'll be prefixed to the log file. This is used for hypertune mode with multiple GPUs.
+2026-03-10 02:40:50,709 - append_to_file = True. If true, logs will be appended to the existing file. If false, the log file will be overwritten.
+2026-03-10 02:40:50,709 - show_timestamp = True. If true, the printed information will contain a timestamp.
+2026-03-10 02:40:50,709 -  
+2026-03-10 02:40:50,709 - ### Loading params file ###
+2026-03-10 02:40:50,709 - params_path = params/ptyrad_table_tBL_WSe2.yml
+2026-03-10 02:40:50,744 - WARNING: For constraint_params, 'freq' is depracated since PtyRAD v0.1.0b11 and is automatically converted to 'step'.
+2026-03-10 02:40:50,744 - WARNING: Probe aberrations '['probe_defocus', 'probe_c3', 'probe_c5']' in 'init_params' are depracated since PtyRAD v0.1.0b13 and are automatically converted to 'probe_aberrations' dict.
+2026-03-10 02:40:50,744 - validate = True: Filling defaults and validating the params file...
+2026-03-10 02:40:50,745 - Success! Params file validated and defaults applied.
+2026-03-10 02:40:50,745 -  
+2026-03-10 02:40:50,745 - ### Setting GPU Device ###
+2026-03-10 02:40:50,745 - Selected GPU device: cuda:0 (NVIDIA H100 80GB HBM3)
+2026-03-10 02:40:50,745 -  
+### Running (round_idx, batch, pmode, slice) = (1, 512, 6, 6) ###
+2026-03-10 02:40:50,745 - ### Initializing Initializer ###
+2026-03-10 02:40:50,746 - init_params are displayed below:
+2026-03-10 02:40:50,746 -   random_seed: None
+2026-03-10 02:40:50,746 -   probe_illum_type: electron
+2026-03-10 02:40:50,746 -   probe_kv: 80.0
+2026-03-10 02:40:50,746 -   probe_conv_angle: 24.9
+2026-03-10 02:40:50,746 -   probe_aberrations: {}
+2026-03-10 02:40:50,746 -   beam_kev: None
+2026-03-10 02:40:50,746 -   probe_dRn: None
+2026-03-10 02:40:50,746 -   probe_Rn: None
+2026-03-10 02:40:50,746 -   probe_D_H: None
+2026-03-10 02:40:50,746 -   probe_D_FZP: None
+2026-03-10 02:40:50,746 -   probe_Ls: None
+2026-03-10 02:40:50,746 -   meas_Npix: 128
+2026-03-10 02:40:50,746 -   pos_N_scans: 16384
+2026-03-10 02:40:50,746 -   pos_N_scan_slow: 128
+2026-03-10 02:40:50,746 -   pos_N_scan_fast: 128
+2026-03-10 02:40:50,746 -   pos_scan_step_size: 0.429
+2026-03-10 02:40:50,746 -   meas_calibration: {'mode': 'dx', 'value': 0.1494}
+2026-03-10 02:40:50,746 -   probe_pmode_max: 6
+2026-03-10 02:40:50,746 -   probe_pmode_init_pows: [0.02]
+2026-03-10 02:40:50,746 -   obj_omode_max: 1
+2026-03-10 02:40:50,746 -   obj_omode_init_occu: {'occu_type': 'uniform', 'init_occu': None}
+2026-03-10 02:40:50,746 -   obj_Nlayer: 6
+2026-03-10 02:40:50,746 -   obj_slice_thickness: 2.0
+2026-03-10 02:40:50,746 -   meas_permute: None
+2026-03-10 02:40:50,746 -   meas_reshape: None
+2026-03-10 02:40:50,746 -   meas_flipT: [1, 0, 0]
+2026-03-10 02:40:50,746 -   meas_crop: None
+2026-03-10 02:40:50,746 -   meas_pad: {'mode': None, 'padding_type': 'power', 'target_Npix': 256, 'value': 0.0, 'threshold': 70}
+2026-03-10 02:40:50,746 -   meas_resample: {'mode': None, 'scale_factors': [2.0, 2.0]}
+2026-03-10 02:40:50,746 -   meas_add_source_size: None
+2026-03-10 02:40:50,746 -   meas_add_detector_blur: None
+2026-03-10 02:40:50,746 -   meas_remove_neg_values: {'mode': 'clip_neg', 'value': None, 'force': False}
+2026-03-10 02:40:50,746 -   meas_normalization: {'mode': 'max_at_one', 'value': None}
+2026-03-10 02:40:50,746 -   meas_add_poisson_noise: None
+2026-03-10 02:40:50,746 -   meas_export: None
+2026-03-10 02:40:50,746 -   probe_permute: None
+2026-03-10 02:40:50,746 -   probe_z_shift: None
+2026-03-10 02:40:50,746 -   probe_normalization: {'mode': 'mean_total_ints', 'value': None}
+2026-03-10 02:40:50,746 -   pos_scan_flipT: None
+2026-03-10 02:40:50,746 -   pos_scan_affine: [1.0, 0.0, -3.0, 0.0]
+2026-03-10 02:40:50,746 -   pos_scan_rand_std: 0.0
+2026-03-10 02:40:50,746 -   obj_z_crop: None
+2026-03-10 02:40:50,746 -   obj_z_pad: None
+2026-03-10 02:40:50,746 -   obj_z_resample: None
+2026-03-10 02:40:50,746 -   meas_source: file
+2026-03-10 02:40:50,746 -   meas_params: {'path': 'data/tBL_WSe2/Panel_g-h_Themis/scan_x128_y128.raw', 'key': None, 'shape': None, 'offset': None, 'gap': None}
+2026-03-10 02:40:50,746 -   probe_source: simu
+2026-03-10 02:40:50,746 -   probe_params: None
+2026-03-10 02:40:50,746 -   pos_source: simu
+2026-03-10 02:40:50,747 -   pos_params: None
+2026-03-10 02:40:50,747 -   obj_source: simu
+2026-03-10 02:40:50,747 -   obj_params: None
+2026-03-10 02:40:50,747 -   tilt_source: simu
+2026-03-10 02:40:50,747 -   tilt_params: {'tilt_type': 'all', 'init_tilts': [[0.0, 0.0]]}
+2026-03-10 02:40:50,747 -  
+2026-03-10 02:40:50,747 - ### Initializing cache ###
+2026-03-10 02:40:50,747 - use_cached_obj   = False
+2026-03-10 02:40:50,747 - use_cached_probe = False
+2026-03-10 02:40:50,747 - use_cached_pos   = False
+2026-03-10 02:40:50,747 -  
+2026-03-10 02:40:50,747 - ### Initializing measurements ###
+2026-03-10 02:40:50,747 - Loading measurements from source = 'file'
+2026-03-10 02:40:50,747 - Detected measurement file type = '.raw'
+2026-03-10 02:40:50,747 - WARNING: Couldn't find the 'shape' in 'meas_params' with file type = '.raw'.
+2026-03-10 02:40:50,747 - It is strongly recommended to provide an explicit shape to better load from .raw files
+2026-03-10 02:40:50,747 - PtyRAD will still try to load the dataset based on the provided 'init_params', but you may consider setting 'shape': (N_scans, Npix, Npix) inside your 'meas_params' dict.
+2026-03-10 02:40:51,054 - Original measurements dtype is float32, casting to float32 (single precision) for computational efficiency.
+2026-03-10 02:40:51,054 - Imported meausrements shape / dtype = (16384, 128, 128), dtype = float32
+2026-03-10 02:40:51,355 - Imported meausrements int. statistics (min, mean, max) = (-30.8785, 1814.7078, 99441.8047)
+2026-03-10 02:40:51,355 - Flipping measurements with [flipud, fliplr, transpose] = [1, 0, 0]
+2026-03-10 02:40:51,674 - Removing negative values in measurement with method = clip_neg and value = None
+2026-03-10 02:40:51,792 - Minimum value = -30.8785, negative values are clipped to 0 due to the positive px value constraint of measurements
+2026-03-10 02:40:53,410 - Normalizing measurements with mode = 'max_at_one' and value = 'None'
+2026-03-10 02:40:53,547 - Normalizing by max of the 2D mean pattern intensity: 67097.391
+2026-03-10 02:40:53,635 - meausrements shape / dtype = (16384, 128, 128), dtype = float32
+2026-03-10 02:40:54,035 - meausrements int. statistics (min, mean, max) = (0.0000, 0.0271, 1.4821)
+2026-03-10 02:40:54,238 - No negative values found in measurements. Skipping non-neg correction.
+2026-03-10 02:40:54,537 - Pattern total int. statistics (min, mean, max)        = (438.8489, 443.3112, 447.6965), with min/max = 98.0%
+2026-03-10 02:40:54,921 - Global meausrements int. statistics (min, mean, max)  = (0.0000, 0.0271, 1.4821)
+2026-03-10 02:40:54,921 - measurements                              (N, Ky, Kx) = float32, (16384, 128, 128)
+2026-03-10 02:40:54,921 -  
+2026-03-10 02:40:54,921 - ### Setting up calibration ###
+2026-03-10 02:40:54,921 - meas_calibration mode = 'dx', value = 0.1494
+2026-03-10 02:40:54,921 - Using loaded raw averaged measurement (before crop/pad/resample) to fit RBF as a part of the meas calibration
+2026-03-10 02:40:54,921 - Radius of fitted bright field disk (RBF) = 11.64 px with Npix = 128
+2026-03-10 02:40:54,921 - Suggested probe_mask_k radius (RBF*2/Npix) > 0.1819
+2026-03-10 02:40:54,921 - Fitting raw averaged measurement with center, radius, and Gaussian blur std as a sanity check
+2026-03-10 02:40:54,921 - Note that the fitted Gaussian blur std (detector blur) would be affected by overlapping Bragg disks
+2026-03-10 02:40:55,038 - Initial guess: center=(63.78, 63.93), radius=11.64, Gaussian blur std=0.50
+2026-03-10 02:40:55,047 - Final fit: center=(63.78, 63.93), radius=11.64, Gaussian blur std=0.54
+2026-03-10 02:40:55,047 - Using init_params, the inferred RBF (conv_angle / 1e3 * Npix * dx / wavelength) = 11.40 px with Npix = 128
+2026-03-10 02:40:55,047 - dx (real space pixel size of probe and object) set to 0.1494 Ang with Npix = 128
+2026-03-10 02:40:55,047 -  
+2026-03-10 02:40:55,047 - ### Setting init_variables dict ###
+2026-03-10 02:40:55,047 - Derived values given input init_params:
+2026-03-10 02:40:55,047 -   kv          = 80.0 kV
+2026-03-10 02:40:55,047 -   wavelength  = 0.0418 Ang
+2026-03-10 02:40:55,047 -   conv_angle  = 24.9 mrad
+2026-03-10 02:40:55,047 -   Npix        = 128 px
+2026-03-10 02:40:55,047 -   dk          = 0.0523 Ang^-1
+2026-03-10 02:40:55,047 -   kMax        = 3.3467 Ang^-1
+2026-03-10 02:40:55,047 -   da          = 2.1836 mrad
+2026-03-10 02:40:55,047 -   angleMax    = 139.7495 mrad
+2026-03-10 02:40:55,047 -   RBF         = 11.4033 px (Inferred from the given calibration, NOT necessarily from the loaded measurement data)
+2026-03-10 02:40:55,047 -   n_alpha     = 5.6124 (# conv_angle)
+2026-03-10 02:40:55,047 -   dx          = 0.1494 Ang, Nyquist-limited dmin = 2*dx = 0.2988 Ang
+2026-03-10 02:40:55,047 -   Rayleigh-limited resolution  = 1.0230 Ang (0.61*lambda/alpha for focused probe )
+2026-03-10 02:40:55,047 -   Real space probe extent = 19.1232 Ang
+2026-03-10 02:40:55,047 -  
+2026-03-10 02:40:55,047 - ### Initializing probe ###
+2026-03-10 02:40:55,047 - Loading probe from source = 'simu'
+2026-03-10 02:40:55,047 - Using experimental parameters specified by 'init_params' for initial probe simulation.
+2026-03-10 02:40:55,048 - Start simulating STEM probe
+2026-03-10 02:40:55,048 -   kv          = 80.0 kV
+2026-03-10 02:40:55,048 -   wavelength  = 0.0418 Ang
+2026-03-10 02:40:55,048 -   conv_angle  = 24.9 mrad
+2026-03-10 02:40:55,048 -   Npix        = 128 px
+2026-03-10 02:40:55,048 -   dk          = 0.0523 Ang^-1
+2026-03-10 02:40:55,048 -   kMax        = 3.3467 Ang^-1
+2026-03-10 02:40:55,048 -   alpha_max   = 139.7495 mrad
+2026-03-10 02:40:55,048 -   dx          = 0.1494 Ang, Nyquist-limited dmin = 2*dx = 0.2988 Ang
+2026-03-10 02:40:55,048 -   Rayleigh-limited resolution  = 1.0230 Ang (0.61*lambda/alpha for focused probe )
+2026-03-10 02:40:55,048 -   Real space probe extent = 19.1232 Ang
+2026-03-10 02:40:55,048 - Aberrations(Empty)
+2026-03-10 02:40:55,049 - Loaded probe shape = (1, 128, 128), dtype = complex128
+2026-03-10 02:40:55,049 - pmode_now: 1 and pmode_max: 6, padding the pmode.
+2026-03-10 02:40:55,049 - Creating 5 new probe modes from the major mode
+2026-03-10 02:40:55,049 - Start making mixed-state STEM probe with 6 incoherent probe modes
+2026-03-10 02:40:55,187 - Relative power of probe modes = [0.9  0.02 0.02 0.02 0.02 0.02]
+2026-03-10 02:40:55,190 - Orthogonalizing 6 pmodes
+2026-03-10 02:40:55,192 - Sorting 6 pmodes by their intensities
+2026-03-10 02:40:55,193 - Normalizing probe intensity with mode = 'mean_total_ints' and value = 'None'
+2026-03-10 02:40:55,194 - sum(|probe_data|**2) = 443.31, while meas_total_ints (min, mean, max) = (438.8489, 443.3112, 447.6965)
+2026-03-10 02:40:55,195 - probe                         (pmode, Ny, Nx) = complex64, (6, 128, 128)
+2026-03-10 02:40:55,195 -  
+2026-03-10 02:40:55,195 - ### Initializing probe positions ###
+2026-03-10 02:40:55,195 - Loading probe positions from source = 'simu'
+2026-03-10 02:40:55,195 - Using experimental parameters specified by 'init_params' (dx, scan_step size, N_scan_slow, N_scan_fast) for initial position simulation.
+2026-03-10 02:40:55,195 - Simulating probe positions with dx = 0.1494, scan_step_size = 0.4290, N_scan_fast = 128, N_scan_slow = 128
+2026-03-10 02:40:55,250 - Applying affine transformation to scan pattern with (scale, asymmetry, rotation, shear) = (1.0, 0.0, -3.0, 0.0)
+2026-03-10 02:40:55,252 - Applying Gaussian distributed random displacement with std = 0.0 px to scan positions
+2026-03-10 02:40:55,254 - crop_pos                                (N,2) = int16, (16384, 2)
+2026-03-10 02:40:55,254 - crop_pos 1st and last px coords (y,x)         = ([52, 71], [436, 417])
+2026-03-10 02:40:55,255 - crop_pos extent (Ang)                         = [57.3696 57.3696]
+2026-03-10 02:40:55,255 - probe_pos_shifts                        (N,2) = float32, (16384, 2)
+2026-03-10 02:40:55,255 -  
+2026-03-10 02:40:55,255 - ### Initializing object ###
+2026-03-10 02:40:55,255 - Loading object from source = 'simu'
+2026-03-10 02:40:55,255 - Using experimental parameters specified by 'init_params' for initial object simulation.
+2026-03-10 02:40:55,381 - omode_now: 1 and omode_max: 1, leaving the omode unchanged.
+2026-03-10 02:40:55,386 - object                    (omode, Nz, Ny, Nx) = complex64, (1, 6, 614, 614)
+2026-03-10 02:40:55,386 - object extent                 (Z, Y, X) (Ang) = [12.     91.7316 91.7316]
+2026-03-10 02:40:55,386 -  
+2026-03-10 02:40:55,386 - ### Initializing omode_occu from 'uniform' ###
+2026-03-10 02:40:55,387 - omode_occu                            (omode) = float32, (1,)
+2026-03-10 02:40:55,387 -  
+2026-03-10 02:40:55,387 - ### Initializing H (Fresnel propagator) ###
+2026-03-10 02:40:55,387 - Calculating H with probe_shape = [128. 128.] px, dx = 0.1494 Ang, slice_thickness = 2.0000 Ang, lambd = 0.0418 Ang
+2026-03-10 02:40:55,387 - H                                    (Ky, Kx) = complex64, (128, 128)
+2026-03-10 02:40:55,387 -  
+2026-03-10 02:40:55,387 - ### Initializing obj tilts from = 'simu' ###
+2026-03-10 02:40:55,387 - Initialized obj_tilts with init_tilts = [[0.0, 0.0]] (theta_y, theta_x) mrad
+2026-03-10 02:40:55,388 - obj_tilts                              (N, 2) = float32, (1, 2)
+2026-03-10 02:40:55,388 -  
+2026-03-10 02:40:55,388 - ### Checking consistency between input params with the initialized variables ###
+2026-03-10 02:40:55,388 - Npix, DP measurements, probe, and H shapes are consistent as '128'
+2026-03-10 02:40:55,388 - N_scans, len(meas), N_scan_slow*N_scan_fast, len(crop_pos), and len(probe_pos_shifts) are consistent as '16384'
+2026-03-10 02:40:55,388 - obj.shape[0] is consistent with len(omode_occu) as '1'
+2026-03-10 02:40:55,388 - obj.shape[1] is consistent with Nlayer as '6'
+2026-03-10 02:40:55,389 - crop positions (yx_min=[52 52], yx_max=[564 564]) are well contained inside object canvas (Ny,Nx) = (614, 614).
+2026-03-10 02:40:55,389 - obj_tilts is consistent with either 1 or N_scans
+2026-03-10 02:40:55,389 - Pass the consistency check of initialized variables, initialization is done!
+2026-03-10 02:40:55,389 -  
+2026-03-10 02:40:55,389 - ### Collecting reconstruction provenance ###
+2026-03-10 02:40:55,389 - Reconstruction provenance is collected and initialized.
+2026-03-10 02:40:55,389 -  
+2026-03-10 02:40:55,389 - ### Initializing loss function ###
+2026-03-10 02:40:55,389 - Active loss types:
+2026-03-10 02:40:55,389 -   loss_single : {'state': True, 'weight': 1.0, 'dp_pow': 0.5}
+2026-03-10 02:40:55,389 -  
+2026-03-10 02:40:55,389 - ### Initializing constraint function ###
+2026-03-10 02:40:55,389 - Active constraint types:
+2026-03-10 02:40:55,389 -   ortho_pmode   : {'start_iter': 1, 'step': 1, 'end_iter': None}
+2026-03-10 02:40:55,389 -   fix_probe_int : {'start_iter': 1, 'step': 1, 'end_iter': None}
+2026-03-10 02:40:55,390 -   obj_rblur     : {'start_iter': 1, 'step': 1, 'end_iter': None, 'obj_type': 'both', 'kernel_size': 5, 'std': 0.5}
+2026-03-10 02:40:55,390 -   obj_zblur     : {'start_iter': 1, 'step': 1, 'end_iter': None, 'obj_type': 'both', 'kernel_size': 5, 'std': 1.0}
+2026-03-10 02:40:55,390 -   obja_thresh   : {'start_iter': 1, 'step': 1, 'end_iter': None, 'relax': 0.0, 'thresh': [0.98, 1.02]}
+2026-03-10 02:40:55,390 -   pos_recenter  : {'start_iter': 1, 'step': 1, 'end_iter': None, 'relax': 0.0}
+2026-03-10 02:40:55,390 -  
+2026-03-10 02:40:55,390 - ### Done initializing PtyRADSolver ###
+2026-03-10 02:40:55,390 -  
+2026-03-10 02:40:55,534 - ### Starting the PtyRADSolver in reconstruct mode ###
+2026-03-10 02:40:55,534 -  
+2026-03-10 02:40:55,534 - ### Initializing PtychoModel model ###
+2026-03-10 02:40:56,307 - ### PtychoModel optimizable variables ###
+2026-03-10 02:40:56,307 - obja            : torch.Size([1, 6, 614, 614])    , torch.float32   , device:cuda:0, grad:True , lr:5e-04
+2026-03-10 02:40:56,307 - objp            : torch.Size([1, 6, 614, 614])    , torch.float32   , device:cuda:0, grad:True , lr:5e-04
+2026-03-10 02:40:56,307 - obj_tilts       : torch.Size([1, 2])              , torch.float32   , device:cuda:0, grad:False, lr:0e+00
+2026-03-10 02:40:56,307 - slice_thickness : torch.Size([])                  , torch.float32   , device:cuda:0, grad:False, lr:0e+00
+2026-03-10 02:40:56,307 - probe           : torch.Size([6, 128, 128, 2])    , torch.float32   , device:cuda:0, grad:True , lr:1e-04
+2026-03-10 02:40:56,307 - probe_pos_shifts: torch.Size([16384, 2])          , torch.float32   , device:cuda:0, grad:True , lr:5e-04
+2026-03-10 02:40:56,307 -  
+2026-03-10 02:40:56,307 - ### Optimizable variables statitsics ###
+2026-03-10 02:40:56,307 - Total measurement values  : 268,435,456
+2026-03-10 02:40:56,307 - Total optimizing variables: 4,753,328
+2026-03-10 02:40:56,307 - Overdetermined ratio      : 56.47
+2026-03-10 02:40:56,307 -  
+2026-03-10 02:40:56,307 - ### Model behavior ###
+2026-03-10 02:40:56,307 - Tilt propagator           : False
+2026-03-10 02:40:56,307 - Change slice thickness    : False
+2026-03-10 02:40:56,307 - Sub-px probe shift        : True
+2026-03-10 02:40:56,307 - Detector blur             : False
+2026-03-10 02:40:56,307 - Preload data              : True
+2026-03-10 02:40:56,307 - On-the-fly meas padding   : False
+2026-03-10 02:40:56,307 - On-the-fly meas resample  : False
+2026-03-10 02:40:56,307 -  
+2026-03-10 02:40:56,343 - ### Done initializing PtychoModel model ###
+2026-03-10 02:40:56,343 -  
+2026-03-10 02:40:56,343 - ### Creating PyTorch 'Adam' optimizer with configs = {} ###
+2026-03-10 02:40:56,344 -  
+2026-03-10 02:40:56,344 - ### Generating indices, batches, and output_path ###
+2026-03-10 02:40:56,345 - d90 = 23.000 px or 3.436 Ang
+2026-03-10 02:40:56,345 - Selecting indices with the 'full' mode 
+2026-03-10 02:40:56,843 - Generated 32 'random' groups of ~512 scan positions in 0.001 sec
+2026-03-10 02:40:56,943 - The effective batch size (i.e., how many probe positions are simultaneously used for 1 update of ptychographic parameters) is batch_size * grad_accumulation = 512 * 1 = 512
+2026-03-10 02:40:56,943 - Original recon_dir_affixes = ['default', 'optimizer', 'start_iter', 'lr', 'model', 'constraint', 'loss']
+2026-03-10 02:40:56,943 - Expanded recon_dir_affixes = ['indices', 'meas', 'batch', 'pmode', 'omode', 'nlayer', 'lr', 'model', 'constraint', 'loss', 'affine', 'tilt', 'aberrations', 'optimizer', 'start_iter']
+2026-03-10 02:40:56,952 - output_path = '/workspace/ptycho_benchmark/output/tBL_WSe2/20260309_ptyrad_cloud_table_r1/full_N16384_dp128_flipT100_random512_p6_1obj_6slice_dz2_Adam_plr1e-4_oalr5e-4_oplr5e-4_slr5e-4_orblur0.5_ozblur1.0_oathr0.98_sng1.0_aff1.00_0.00_-3.0_0.0' is generated!
+2026-03-10 02:40:57,180 -  
+2026-03-10 02:40:57,181 - ### Log file is flushed (created) as /workspace/ptycho_benchmark/output/tBL_WSe2/20260309_ptyrad_cloud_table_r1/full_N16384_dp128_flipT100_random512_p6_1obj_6slice_dz2_Adam_plr1e-4_oalr5e-4_oplr5e-4_slr5e-4_orblur0.5_ozblur1.0_oathr0.98_sng1.0_aff1.00_0.00_-3.0_0.0/20260310_024057_ptyrad_log.txt ###
+2026-03-10 02:40:57,181 -  
+2026-03-10 02:40:57,181 - ### Start the PtyRAD iterative ptycho reconstruction ###
+2026-03-10 02:40:57,182 - Setting up PyTorch compiler with {'fullgraph': False, 'dynamic': None, 'backend': 'inductor', 'mode': 'default', 'options': None, 'disable': False}
+W0310 02:41:06.209000 3589 site-packages/torch/_logging/_internal.py:1130] [1/0] Profiler function <class 'torch.autograd.profiler.record_function'> will be ignored
+2026-03-10 02:41:08,894 - Iter: 1, Total Loss: 0.7208, loss_single: 0.7208, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 10.731 sec
+2026-03-10 02:41:10,079 - Iter: 2, Total Loss: 0.5914, loss_single: 0.5914, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.184 sec
+2026-03-10 02:41:11,263 - Iter: 3, Total Loss: 0.5052, loss_single: 0.5052, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.184 sec
+2026-03-10 02:41:12,453 - Iter: 4, Total Loss: 0.4580, loss_single: 0.4580, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.189 sec
+2026-03-10 02:41:13,637 - Iter: 5, Total Loss: 0.4338, loss_single: 0.4338, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.184 sec
+2026-03-10 02:41:14,822 - Iter: 6, Total Loss: 0.4204, loss_single: 0.4204, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.184 sec
+2026-03-10 02:41:16,007 - Iter: 7, Total Loss: 0.4125, loss_single: 0.4125, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.184 sec
+2026-03-10 02:41:17,191 - Iter: 8, Total Loss: 0.4076, loss_single: 0.4076, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.184 sec
+2026-03-10 02:41:18,375 - Iter: 9, Total Loss: 0.4045, loss_single: 0.4045, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.184 sec
+2026-03-10 02:41:19,560 - Iter: 10, Total Loss: 0.4025, loss_single: 0.4025, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.184 sec
+2026-03-10 02:41:19,560 - ### Finished 10 iterations, averaged iter_t = 2.1392 with std = 2.864 ###
+2026-03-10 02:41:19,560 -  
+2026-03-10 02:41:19,561 - ### The PtyRADSolver is finished in 24.027 sec ###
+2026-03-10 02:41:19,561 -  
+2026-03-10 02:41:19,761 - ### PtyRAD LoggingManager configuration ###
+2026-03-10 02:41:19,761 - log_file       = 'ptyrad_log.txt'. If log_file = None, no log file will be created.
+2026-03-10 02:41:19,761 - log_dir        = 'auto'. If log_dir = 'auto', then log will be saved to `output_path` or 'logs/'.
+2026-03-10 02:41:19,761 - flush_file     = True. Automatically set to True if `log_file is not None`
+2026-03-10 02:41:19,761 - prefix_time    = datetime. If true, preset strings ('date', 'time', 'datetime'), or a string of time format, a datetime str is prefixed to the `log_file`.
+2026-03-10 02:41:19,761 - prefix_jobid   = '0'. If not 0, it'll be prefixed to the log file. This is used for hypertune mode with multiple GPUs.
+2026-03-10 02:41:19,761 - append_to_file = True. If true, logs will be appended to the existing file. If false, the log file will be overwritten.
+2026-03-10 02:41:19,761 - show_timestamp = True. If true, the printed information will contain a timestamp.
+2026-03-10 02:41:19,761 -  
+2026-03-10 02:41:19,761 - ### Loading params file ###
+2026-03-10 02:41:19,761 - params_path = params/ptyrad_table_tBL_WSe2.yml
+2026-03-10 02:41:19,786 - WARNING: For constraint_params, 'freq' is depracated since PtyRAD v0.1.0b11 and is automatically converted to 'step'.
+2026-03-10 02:41:19,786 - WARNING: Probe aberrations '['probe_defocus', 'probe_c3', 'probe_c5']' in 'init_params' are depracated since PtyRAD v0.1.0b13 and are automatically converted to 'probe_aberrations' dict.
+2026-03-10 02:41:19,786 - validate = True: Filling defaults and validating the params file...
+2026-03-10 02:41:19,787 - Success! Params file validated and defaults applied.
+2026-03-10 02:41:19,787 -  
+2026-03-10 02:41:19,787 - ### Setting GPU Device ###
+2026-03-10 02:41:19,787 - Selected GPU device: cuda:0 (NVIDIA H100 80GB HBM3)
+2026-03-10 02:41:19,787 -  
+### Running (round_idx, batch, pmode, slice) = (1, 256, 6, 6) ###
+2026-03-10 02:41:19,788 - ### Initializing Initializer ###
+2026-03-10 02:41:19,788 - init_params are displayed below:
+2026-03-10 02:41:19,788 -   random_seed: None
+2026-03-10 02:41:19,788 -   probe_illum_type: electron
+2026-03-10 02:41:19,788 -   probe_kv: 80.0
+2026-03-10 02:41:19,788 -   probe_conv_angle: 24.9
+2026-03-10 02:41:19,788 -   probe_aberrations: {}
+2026-03-10 02:41:19,788 -   beam_kev: None
+2026-03-10 02:41:19,788 -   probe_dRn: None
+2026-03-10 02:41:19,788 -   probe_Rn: None
+2026-03-10 02:41:19,788 -   probe_D_H: None
+2026-03-10 02:41:19,788 -   probe_D_FZP: None
+2026-03-10 02:41:19,788 -   probe_Ls: None
+2026-03-10 02:41:19,788 -   meas_Npix: 128
+2026-03-10 02:41:19,788 -   pos_N_scans: 16384
+2026-03-10 02:41:19,788 -   pos_N_scan_slow: 128
+2026-03-10 02:41:19,788 -   pos_N_scan_fast: 128
+2026-03-10 02:41:19,788 -   pos_scan_step_size: 0.429
+2026-03-10 02:41:19,788 -   meas_calibration: {'mode': 'dx', 'value': 0.1494}
+2026-03-10 02:41:19,788 -   probe_pmode_max: 6
+2026-03-10 02:41:19,788 -   probe_pmode_init_pows: [0.02]
+2026-03-10 02:41:19,788 -   obj_omode_max: 1
+2026-03-10 02:41:19,788 -   obj_omode_init_occu: {'occu_type': 'uniform', 'init_occu': None}
+2026-03-10 02:41:19,788 -   obj_Nlayer: 6
+2026-03-10 02:41:19,788 -   obj_slice_thickness: 2.0
+2026-03-10 02:41:19,788 -   meas_permute: None
+2026-03-10 02:41:19,788 -   meas_reshape: None
+2026-03-10 02:41:19,788 -   meas_flipT: [1, 0, 0]
+2026-03-10 02:41:19,788 -   meas_crop: None
+2026-03-10 02:41:19,788 -   meas_pad: {'mode': None, 'padding_type': 'power', 'target_Npix': 256, 'value': 0.0, 'threshold': 70}
+2026-03-10 02:41:19,788 -   meas_resample: {'mode': None, 'scale_factors': [2.0, 2.0]}
+2026-03-10 02:41:19,788 -   meas_add_source_size: None
+2026-03-10 02:41:19,788 -   meas_add_detector_blur: None
+2026-03-10 02:41:19,788 -   meas_remove_neg_values: {'mode': 'clip_neg', 'value': None, 'force': False}
+2026-03-10 02:41:19,788 -   meas_normalization: {'mode': 'max_at_one', 'value': None}
+2026-03-10 02:41:19,788 -   meas_add_poisson_noise: None
+2026-03-10 02:41:19,788 -   meas_export: None
+2026-03-10 02:41:19,788 -   probe_permute: None
+2026-03-10 02:41:19,788 -   probe_z_shift: None
+2026-03-10 02:41:19,788 -   probe_normalization: {'mode': 'mean_total_ints', 'value': None}
+2026-03-10 02:41:19,788 -   pos_scan_flipT: None
+2026-03-10 02:41:19,788 -   pos_scan_affine: [1.0, 0.0, -3.0, 0.0]
+2026-03-10 02:41:19,788 -   pos_scan_rand_std: 0.0
+2026-03-10 02:41:19,788 -   obj_z_crop: None
+2026-03-10 02:41:19,788 -   obj_z_pad: None
+2026-03-10 02:41:19,788 -   obj_z_resample: None
+2026-03-10 02:41:19,788 -   meas_source: file
+2026-03-10 02:41:19,788 -   meas_params: {'path': 'data/tBL_WSe2/Panel_g-h_Themis/scan_x128_y128.raw', 'key': None, 'shape': None, 'offset': None, 'gap': None}
+2026-03-10 02:41:19,788 -   probe_source: simu
+2026-03-10 02:41:19,788 -   probe_params: None
+2026-03-10 02:41:19,789 -   pos_source: simu
+2026-03-10 02:41:19,789 -   pos_params: None
+2026-03-10 02:41:19,789 -   obj_source: simu
+2026-03-10 02:41:19,789 -   obj_params: None
+2026-03-10 02:41:19,789 -   tilt_source: simu
+2026-03-10 02:41:19,789 -   tilt_params: {'tilt_type': 'all', 'init_tilts': [[0.0, 0.0]]}
+2026-03-10 02:41:19,789 -  
+2026-03-10 02:41:19,789 - ### Initializing cache ###
+2026-03-10 02:41:19,789 - use_cached_obj   = False
+2026-03-10 02:41:19,789 - use_cached_probe = False
+2026-03-10 02:41:19,789 - use_cached_pos   = False
+2026-03-10 02:41:19,789 -  
+2026-03-10 02:41:19,789 - ### Initializing measurements ###
+2026-03-10 02:41:19,789 - Loading measurements from source = 'file'
+2026-03-10 02:41:19,789 - Detected measurement file type = '.raw'
+2026-03-10 02:41:19,789 - WARNING: Couldn't find the 'shape' in 'meas_params' with file type = '.raw'.
+2026-03-10 02:41:19,789 - It is strongly recommended to provide an explicit shape to better load from .raw files
+2026-03-10 02:41:19,789 - PtyRAD will still try to load the dataset based on the provided 'init_params', but you may consider setting 'shape': (N_scans, Npix, Npix) inside your 'meas_params' dict.
+2026-03-10 02:41:20,098 - Original measurements dtype is float32, casting to float32 (single precision) for computational efficiency.
+2026-03-10 02:41:20,098 - Imported meausrements shape / dtype = (16384, 128, 128), dtype = float32
+2026-03-10 02:41:20,399 - Imported meausrements int. statistics (min, mean, max) = (-30.8785, 1814.7078, 99441.8047)
+2026-03-10 02:41:20,399 - Flipping measurements with [flipud, fliplr, transpose] = [1, 0, 0]
+2026-03-10 02:41:20,718 - Removing negative values in measurement with method = clip_neg and value = None
+2026-03-10 02:41:20,832 - Minimum value = -30.8785, negative values are clipped to 0 due to the positive px value constraint of measurements
+2026-03-10 02:41:22,441 - Normalizing measurements with mode = 'max_at_one' and value = 'None'
+2026-03-10 02:41:22,579 - Normalizing by max of the 2D mean pattern intensity: 67097.391
+2026-03-10 02:41:22,667 - meausrements shape / dtype = (16384, 128, 128), dtype = float32
+2026-03-10 02:41:23,064 - meausrements int. statistics (min, mean, max) = (0.0000, 0.0271, 1.4821)
+2026-03-10 02:41:23,268 - No negative values found in measurements. Skipping non-neg correction.
+2026-03-10 02:41:23,562 - Pattern total int. statistics (min, mean, max)        = (438.8489, 443.3112, 447.6965), with min/max = 98.0%
+2026-03-10 02:41:23,947 - Global meausrements int. statistics (min, mean, max)  = (0.0000, 0.0271, 1.4821)
+2026-03-10 02:41:23,947 - measurements                              (N, Ky, Kx) = float32, (16384, 128, 128)
+2026-03-10 02:41:23,947 -  
+2026-03-10 02:41:23,947 - ### Setting up calibration ###
+2026-03-10 02:41:23,947 - meas_calibration mode = 'dx', value = 0.1494
+2026-03-10 02:41:23,947 - Using loaded raw averaged measurement (before crop/pad/resample) to fit RBF as a part of the meas calibration
+2026-03-10 02:41:23,947 - Radius of fitted bright field disk (RBF) = 11.64 px with Npix = 128
+2026-03-10 02:41:23,947 - Suggested probe_mask_k radius (RBF*2/Npix) > 0.1819
+2026-03-10 02:41:23,947 - Fitting raw averaged measurement with center, radius, and Gaussian blur std as a sanity check
+2026-03-10 02:41:23,947 - Note that the fitted Gaussian blur std (detector blur) would be affected by overlapping Bragg disks
+2026-03-10 02:41:23,947 - Initial guess: center=(63.78, 63.93), radius=11.64, Gaussian blur std=0.50
+2026-03-10 02:41:23,955 - Final fit: center=(63.78, 63.93), radius=11.64, Gaussian blur std=0.54
+2026-03-10 02:41:23,956 - Using init_params, the inferred RBF (conv_angle / 1e3 * Npix * dx / wavelength) = 11.40 px with Npix = 128
+2026-03-10 02:41:23,956 - dx (real space pixel size of probe and object) set to 0.1494 Ang with Npix = 128
+2026-03-10 02:41:23,956 -  
+2026-03-10 02:41:23,956 - ### Setting init_variables dict ###
+2026-03-10 02:41:23,956 - Derived values given input init_params:
+2026-03-10 02:41:23,956 -   kv          = 80.0 kV
+2026-03-10 02:41:23,956 -   wavelength  = 0.0418 Ang
+2026-03-10 02:41:23,956 -   conv_angle  = 24.9 mrad
+2026-03-10 02:41:23,956 -   Npix        = 128 px
+2026-03-10 02:41:23,956 -   dk          = 0.0523 Ang^-1
+2026-03-10 02:41:23,956 -   kMax        = 3.3467 Ang^-1
+2026-03-10 02:41:23,956 -   da          = 2.1836 mrad
+2026-03-10 02:41:23,956 -   angleMax    = 139.7495 mrad
+2026-03-10 02:41:23,956 -   RBF         = 11.4033 px (Inferred from the given calibration, NOT necessarily from the loaded measurement data)
+2026-03-10 02:41:23,956 -   n_alpha     = 5.6124 (# conv_angle)
+2026-03-10 02:41:23,956 -   dx          = 0.1494 Ang, Nyquist-limited dmin = 2*dx = 0.2988 Ang
+2026-03-10 02:41:23,956 -   Rayleigh-limited resolution  = 1.0230 Ang (0.61*lambda/alpha for focused probe )
+2026-03-10 02:41:23,956 -   Real space probe extent = 19.1232 Ang
+2026-03-10 02:41:23,956 -  
+2026-03-10 02:41:23,956 - ### Initializing probe ###
+2026-03-10 02:41:23,956 - Loading probe from source = 'simu'
+2026-03-10 02:41:23,956 - Using experimental parameters specified by 'init_params' for initial probe simulation.
+2026-03-10 02:41:23,956 - Start simulating STEM probe
+2026-03-10 02:41:23,956 -   kv          = 80.0 kV
+2026-03-10 02:41:23,956 -   wavelength  = 0.0418 Ang
+2026-03-10 02:41:23,956 -   conv_angle  = 24.9 mrad
+2026-03-10 02:41:23,956 -   Npix        = 128 px
+2026-03-10 02:41:23,956 -   dk          = 0.0523 Ang^-1
+2026-03-10 02:41:23,956 -   kMax        = 3.3467 Ang^-1
+2026-03-10 02:41:23,956 -   alpha_max   = 139.7495 mrad
+2026-03-10 02:41:23,956 -   dx          = 0.1494 Ang, Nyquist-limited dmin = 2*dx = 0.2988 Ang
+2026-03-10 02:41:23,956 -   Rayleigh-limited resolution  = 1.0230 Ang (0.61*lambda/alpha for focused probe )
+2026-03-10 02:41:23,956 -   Real space probe extent = 19.1232 Ang
+2026-03-10 02:41:23,956 - Aberrations(Empty)
+2026-03-10 02:41:23,957 - Loaded probe shape = (1, 128, 128), dtype = complex128
+2026-03-10 02:41:23,957 - pmode_now: 1 and pmode_max: 6, padding the pmode.
+2026-03-10 02:41:23,958 - Creating 5 new probe modes from the major mode
+2026-03-10 02:41:23,958 - Start making mixed-state STEM probe with 6 incoherent probe modes
+2026-03-10 02:41:23,963 - Relative power of probe modes = [0.9  0.02 0.02 0.02 0.02 0.02]
+2026-03-10 02:41:23,965 - Orthogonalizing 6 pmodes
+2026-03-10 02:41:23,966 - Sorting 6 pmodes by their intensities
+2026-03-10 02:41:23,966 - Normalizing probe intensity with mode = 'mean_total_ints' and value = 'None'
+2026-03-10 02:41:23,967 - sum(|probe_data|**2) = 443.31, while meas_total_ints (min, mean, max) = (438.8489, 443.3112, 447.6965)
+2026-03-10 02:41:23,968 - probe                         (pmode, Ny, Nx) = complex64, (6, 128, 128)
+2026-03-10 02:41:23,968 -  
+2026-03-10 02:41:23,968 - ### Initializing probe positions ###
+2026-03-10 02:41:23,968 - Loading probe positions from source = 'simu'
+2026-03-10 02:41:23,968 - Using experimental parameters specified by 'init_params' (dx, scan_step size, N_scan_slow, N_scan_fast) for initial position simulation.
+2026-03-10 02:41:23,968 - Simulating probe positions with dx = 0.1494, scan_step_size = 0.4290, N_scan_fast = 128, N_scan_slow = 128
+2026-03-10 02:41:23,977 - Applying affine transformation to scan pattern with (scale, asymmetry, rotation, shear) = (1.0, 0.0, -3.0, 0.0)
+2026-03-10 02:41:23,979 - Applying Gaussian distributed random displacement with std = 0.0 px to scan positions
+2026-03-10 02:41:23,981 - crop_pos                                (N,2) = int16, (16384, 2)
+2026-03-10 02:41:23,981 - crop_pos 1st and last px coords (y,x)         = ([52, 71], [436, 417])
+2026-03-10 02:41:23,982 - crop_pos extent (Ang)                         = [57.3696 57.3696]
+2026-03-10 02:41:23,982 - probe_pos_shifts                        (N,2) = float32, (16384, 2)
+2026-03-10 02:41:23,982 -  
+2026-03-10 02:41:23,982 - ### Initializing object ###
+2026-03-10 02:41:23,982 - Loading object from source = 'simu'
+2026-03-10 02:41:23,982 - Using experimental parameters specified by 'init_params' for initial object simulation.
+2026-03-10 02:41:24,158 - omode_now: 1 and omode_max: 1, leaving the omode unchanged.
+2026-03-10 02:41:24,162 - object                    (omode, Nz, Ny, Nx) = complex64, (1, 6, 614, 614)
+2026-03-10 02:41:24,162 - object extent                 (Z, Y, X) (Ang) = [12.     91.7316 91.7316]
+2026-03-10 02:41:24,162 -  
+2026-03-10 02:41:24,162 - ### Initializing omode_occu from 'uniform' ###
+2026-03-10 02:41:24,162 - omode_occu                            (omode) = float32, (1,)
+2026-03-10 02:41:24,162 -  
+2026-03-10 02:41:24,162 - ### Initializing H (Fresnel propagator) ###
+2026-03-10 02:41:24,162 - Calculating H with probe_shape = [128. 128.] px, dx = 0.1494 Ang, slice_thickness = 2.0000 Ang, lambd = 0.0418 Ang
+2026-03-10 02:41:24,163 - H                                    (Ky, Kx) = complex64, (128, 128)
+2026-03-10 02:41:24,163 -  
+2026-03-10 02:41:24,163 - ### Initializing obj tilts from = 'simu' ###
+2026-03-10 02:41:24,163 - Initialized obj_tilts with init_tilts = [[0.0, 0.0]] (theta_y, theta_x) mrad
+2026-03-10 02:41:24,163 - obj_tilts                              (N, 2) = float32, (1, 2)
+2026-03-10 02:41:24,163 -  
+2026-03-10 02:41:24,163 - ### Checking consistency between input params with the initialized variables ###
+2026-03-10 02:41:24,163 - Npix, DP measurements, probe, and H shapes are consistent as '128'
+2026-03-10 02:41:24,163 - N_scans, len(meas), N_scan_slow*N_scan_fast, len(crop_pos), and len(probe_pos_shifts) are consistent as '16384'
+2026-03-10 02:41:24,163 - obj.shape[0] is consistent with len(omode_occu) as '1'
+2026-03-10 02:41:24,163 - obj.shape[1] is consistent with Nlayer as '6'
+2026-03-10 02:41:24,164 - crop positions (yx_min=[52 52], yx_max=[564 564]) are well contained inside object canvas (Ny,Nx) = (614, 614).
+2026-03-10 02:41:24,165 - obj_tilts is consistent with either 1 or N_scans
+2026-03-10 02:41:24,165 - Pass the consistency check of initialized variables, initialization is done!
+2026-03-10 02:41:24,165 -  
+2026-03-10 02:41:24,165 - ### Collecting reconstruction provenance ###
+2026-03-10 02:41:24,165 - Reconstruction provenance is collected and initialized.
+2026-03-10 02:41:24,165 -  
+2026-03-10 02:41:24,165 - ### Initializing loss function ###
+2026-03-10 02:41:24,165 - Active loss types:
+2026-03-10 02:41:24,165 -   loss_single : {'state': True, 'weight': 1.0, 'dp_pow': 0.5}
+2026-03-10 02:41:24,165 -  
+2026-03-10 02:41:24,165 - ### Initializing constraint function ###
+2026-03-10 02:41:24,165 - Active constraint types:
+2026-03-10 02:41:24,165 -   ortho_pmode   : {'start_iter': 1, 'step': 1, 'end_iter': None}
+2026-03-10 02:41:24,165 -   fix_probe_int : {'start_iter': 1, 'step': 1, 'end_iter': None}
+2026-03-10 02:41:24,165 -   obj_rblur     : {'start_iter': 1, 'step': 1, 'end_iter': None, 'obj_type': 'both', 'kernel_size': 5, 'std': 0.5}
+2026-03-10 02:41:24,165 -   obj_zblur     : {'start_iter': 1, 'step': 1, 'end_iter': None, 'obj_type': 'both', 'kernel_size': 5, 'std': 1.0}
+2026-03-10 02:41:24,165 -   obja_thresh   : {'start_iter': 1, 'step': 1, 'end_iter': None, 'relax': 0.0, 'thresh': [0.98, 1.02]}
+2026-03-10 02:41:24,165 -   pos_recenter  : {'start_iter': 1, 'step': 1, 'end_iter': None, 'relax': 0.0}
+2026-03-10 02:41:24,165 -  
+2026-03-10 02:41:24,165 - ### Done initializing PtyRADSolver ###
+2026-03-10 02:41:24,165 -  
+2026-03-10 02:41:24,165 - ### Starting the PtyRADSolver in reconstruct mode ###
+2026-03-10 02:41:24,165 -  
+2026-03-10 02:41:24,165 - ### Initializing PtychoModel model ###
+2026-03-10 02:41:24,606 - ### PtychoModel optimizable variables ###
+2026-03-10 02:41:24,607 - obja            : torch.Size([1, 6, 614, 614])    , torch.float32   , device:cuda:0, grad:True , lr:5e-04
+2026-03-10 02:41:24,607 - objp            : torch.Size([1, 6, 614, 614])    , torch.float32   , device:cuda:0, grad:True , lr:5e-04
+2026-03-10 02:41:24,607 - obj_tilts       : torch.Size([1, 2])              , torch.float32   , device:cuda:0, grad:False, lr:0e+00
+2026-03-10 02:41:24,607 - slice_thickness : torch.Size([])                  , torch.float32   , device:cuda:0, grad:False, lr:0e+00
+2026-03-10 02:41:24,607 - probe           : torch.Size([6, 128, 128, 2])    , torch.float32   , device:cuda:0, grad:True , lr:1e-04
+2026-03-10 02:41:24,607 - probe_pos_shifts: torch.Size([16384, 2])          , torch.float32   , device:cuda:0, grad:True , lr:5e-04
+2026-03-10 02:41:24,607 -  
+2026-03-10 02:41:24,607 - ### Optimizable variables statitsics ###
+2026-03-10 02:41:24,607 - Total measurement values  : 268,435,456
+2026-03-10 02:41:24,607 - Total optimizing variables: 4,753,328
+2026-03-10 02:41:24,607 - Overdetermined ratio      : 56.47
+2026-03-10 02:41:24,607 -  
+2026-03-10 02:41:24,607 - ### Model behavior ###
+2026-03-10 02:41:24,607 - Tilt propagator           : False
+2026-03-10 02:41:24,607 - Change slice thickness    : False
+2026-03-10 02:41:24,607 - Sub-px probe shift        : True
+2026-03-10 02:41:24,607 - Detector blur             : False
+2026-03-10 02:41:24,607 - Preload data              : True
+2026-03-10 02:41:24,607 - On-the-fly meas padding   : False
+2026-03-10 02:41:24,607 - On-the-fly meas resample  : False
+2026-03-10 02:41:24,607 -  
+2026-03-10 02:41:24,608 - ### Done initializing PtychoModel model ###
+2026-03-10 02:41:24,608 -  
+2026-03-10 02:41:24,608 - ### Creating PyTorch 'Adam' optimizer with configs = {} ###
+2026-03-10 02:41:24,608 -  
+2026-03-10 02:41:24,608 - ### Generating indices, batches, and output_path ###
+2026-03-10 02:41:24,609 - d90 = 23.000 px or 3.436 Ang
+2026-03-10 02:41:24,609 - Selecting indices with the 'full' mode 
+2026-03-10 02:41:24,610 - Generated 64 'random' groups of ~256 scan positions in 0.001 sec
+2026-03-10 02:41:24,733 - The effective batch size (i.e., how many probe positions are simultaneously used for 1 update of ptychographic parameters) is batch_size * grad_accumulation = 256 * 1 = 256
+2026-03-10 02:41:24,733 - Original recon_dir_affixes = ['default', 'optimizer', 'start_iter', 'lr', 'model', 'constraint', 'loss']
+2026-03-10 02:41:24,733 - Expanded recon_dir_affixes = ['indices', 'meas', 'batch', 'pmode', 'omode', 'nlayer', 'lr', 'model', 'constraint', 'loss', 'affine', 'tilt', 'aberrations', 'optimizer', 'start_iter']
+2026-03-10 02:41:24,734 - output_path = '/workspace/ptycho_benchmark/output/tBL_WSe2/20260309_ptyrad_cloud_table_r1/full_N16384_dp128_flipT100_random256_p6_1obj_6slice_dz2_Adam_plr1e-4_oalr5e-4_oplr5e-4_slr5e-4_orblur0.5_ozblur1.0_oathr0.98_sng1.0_aff1.00_0.00_-3.0_0.0' is generated!
+2026-03-10 02:41:25,045 -  
+2026-03-10 02:41:25,046 - ### Log file is flushed (created) as /workspace/ptycho_benchmark/output/tBL_WSe2/20260309_ptyrad_cloud_table_r1/full_N16384_dp128_flipT100_random256_p6_1obj_6slice_dz2_Adam_plr1e-4_oalr5e-4_oplr5e-4_slr5e-4_orblur0.5_ozblur1.0_oathr0.98_sng1.0_aff1.00_0.00_-3.0_0.0/20260310_024125_ptyrad_log.txt ###
+2026-03-10 02:41:25,046 -  
+2026-03-10 02:41:25,046 - ### Start the PtyRAD iterative ptycho reconstruction ###
+2026-03-10 02:41:25,046 - Setting up PyTorch compiler with {'fullgraph': False, 'dynamic': None, 'backend': 'inductor', 'mode': 'default', 'options': None, 'disable': False}
+2026-03-10 02:41:30,272 - Iter: 1, Total Loss: 0.6547, loss_single: 0.6547, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 5.224 sec
+2026-03-10 02:41:31,517 - Iter: 2, Total Loss: 0.4805, loss_single: 0.4805, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.244 sec
+2026-03-10 02:41:32,762 - Iter: 3, Total Loss: 0.4262, loss_single: 0.4262, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.244 sec
+2026-03-10 02:41:34,007 - Iter: 4, Total Loss: 0.4097, loss_single: 0.4097, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.244 sec
+2026-03-10 02:41:35,253 - Iter: 5, Total Loss: 0.4032, loss_single: 0.4032, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.245 sec
+2026-03-10 02:41:36,498 - Iter: 6, Total Loss: 0.4005, loss_single: 0.4005, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.244 sec
+2026-03-10 02:41:37,746 - Iter: 7, Total Loss: 0.3993, loss_single: 0.3993, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.248 sec
+2026-03-10 02:41:38,997 - Iter: 8, Total Loss: 0.3986, loss_single: 0.3986, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.250 sec
+2026-03-10 02:41:40,246 - Iter: 9, Total Loss: 0.3981, loss_single: 0.3981, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.249 sec
+2026-03-10 02:41:41,495 - Iter: 10, Total Loss: 0.3977, loss_single: 0.3977, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.249 sec
+2026-03-10 02:41:41,496 - ### Finished 10 iterations, averaged iter_t = 1.6441 with std = 1.193 ###
+2026-03-10 02:41:41,496 -  
+2026-03-10 02:41:41,496 - ### The PtyRADSolver is finished in 17.331 sec ###
+2026-03-10 02:41:41,496 -  
+2026-03-10 02:41:41,757 - ### PtyRAD LoggingManager configuration ###
+2026-03-10 02:41:41,757 - log_file       = 'ptyrad_log.txt'. If log_file = None, no log file will be created.
+2026-03-10 02:41:41,757 - log_dir        = 'auto'. If log_dir = 'auto', then log will be saved to `output_path` or 'logs/'.
+2026-03-10 02:41:41,757 - flush_file     = True. Automatically set to True if `log_file is not None`
+2026-03-10 02:41:41,757 - prefix_time    = datetime. If true, preset strings ('date', 'time', 'datetime'), or a string of time format, a datetime str is prefixed to the `log_file`.
+2026-03-10 02:41:41,757 - prefix_jobid   = '0'. If not 0, it'll be prefixed to the log file. This is used for hypertune mode with multiple GPUs.
+2026-03-10 02:41:41,757 - append_to_file = True. If true, logs will be appended to the existing file. If false, the log file will be overwritten.
+2026-03-10 02:41:41,757 - show_timestamp = True. If true, the printed information will contain a timestamp.
+2026-03-10 02:41:41,757 -  
+2026-03-10 02:41:41,757 - ### Loading params file ###
+2026-03-10 02:41:41,757 - params_path = params/ptyrad_table_tBL_WSe2.yml
+2026-03-10 02:41:41,782 - WARNING: For constraint_params, 'freq' is depracated since PtyRAD v0.1.0b11 and is automatically converted to 'step'.
+2026-03-10 02:41:41,782 - WARNING: Probe aberrations '['probe_defocus', 'probe_c3', 'probe_c5']' in 'init_params' are depracated since PtyRAD v0.1.0b13 and are automatically converted to 'probe_aberrations' dict.
+2026-03-10 02:41:41,782 - validate = True: Filling defaults and validating the params file...
+2026-03-10 02:41:41,783 - Success! Params file validated and defaults applied.
+2026-03-10 02:41:41,783 -  
+2026-03-10 02:41:41,783 - ### Setting GPU Device ###
+2026-03-10 02:41:41,783 - Selected GPU device: cuda:0 (NVIDIA H100 80GB HBM3)
+2026-03-10 02:41:41,783 -  
+### Running (round_idx, batch, pmode, slice) = (1, 128, 6, 6) ###
+2026-03-10 02:41:41,783 - ### Initializing Initializer ###
+2026-03-10 02:41:41,783 - init_params are displayed below:
+2026-03-10 02:41:41,784 -   random_seed: None
+2026-03-10 02:41:41,784 -   probe_illum_type: electron
+2026-03-10 02:41:41,784 -   probe_kv: 80.0
+2026-03-10 02:41:41,784 -   probe_conv_angle: 24.9
+2026-03-10 02:41:41,784 -   probe_aberrations: {}
+2026-03-10 02:41:41,784 -   beam_kev: None
+2026-03-10 02:41:41,784 -   probe_dRn: None
+2026-03-10 02:41:41,784 -   probe_Rn: None
+2026-03-10 02:41:41,784 -   probe_D_H: None
+2026-03-10 02:41:41,784 -   probe_D_FZP: None
+2026-03-10 02:41:41,784 -   probe_Ls: None
+2026-03-10 02:41:41,784 -   meas_Npix: 128
+2026-03-10 02:41:41,784 -   pos_N_scans: 16384
+2026-03-10 02:41:41,784 -   pos_N_scan_slow: 128
+2026-03-10 02:41:41,784 -   pos_N_scan_fast: 128
+2026-03-10 02:41:41,784 -   pos_scan_step_size: 0.429
+2026-03-10 02:41:41,784 -   meas_calibration: {'mode': 'dx', 'value': 0.1494}
+2026-03-10 02:41:41,784 -   probe_pmode_max: 6
+2026-03-10 02:41:41,784 -   probe_pmode_init_pows: [0.02]
+2026-03-10 02:41:41,784 -   obj_omode_max: 1
+2026-03-10 02:41:41,784 -   obj_omode_init_occu: {'occu_type': 'uniform', 'init_occu': None}
+2026-03-10 02:41:41,784 -   obj_Nlayer: 6
+2026-03-10 02:41:41,784 -   obj_slice_thickness: 2.0
+2026-03-10 02:41:41,784 -   meas_permute: None
+2026-03-10 02:41:41,784 -   meas_reshape: None
+2026-03-10 02:41:41,784 -   meas_flipT: [1, 0, 0]
+2026-03-10 02:41:41,784 -   meas_crop: None
+2026-03-10 02:41:41,784 -   meas_pad: {'mode': None, 'padding_type': 'power', 'target_Npix': 256, 'value': 0.0, 'threshold': 70}
+2026-03-10 02:41:41,784 -   meas_resample: {'mode': None, 'scale_factors': [2.0, 2.0]}
+2026-03-10 02:41:41,784 -   meas_add_source_size: None
+2026-03-10 02:41:41,784 -   meas_add_detector_blur: None
+2026-03-10 02:41:41,784 -   meas_remove_neg_values: {'mode': 'clip_neg', 'value': None, 'force': False}
+2026-03-10 02:41:41,784 -   meas_normalization: {'mode': 'max_at_one', 'value': None}
+2026-03-10 02:41:41,784 -   meas_add_poisson_noise: None
+2026-03-10 02:41:41,784 -   meas_export: None
+2026-03-10 02:41:41,784 -   probe_permute: None
+2026-03-10 02:41:41,784 -   probe_z_shift: None
+2026-03-10 02:41:41,784 -   probe_normalization: {'mode': 'mean_total_ints', 'value': None}
+2026-03-10 02:41:41,784 -   pos_scan_flipT: None
+2026-03-10 02:41:41,784 -   pos_scan_affine: [1.0, 0.0, -3.0, 0.0]
+2026-03-10 02:41:41,784 -   pos_scan_rand_std: 0.0
+2026-03-10 02:41:41,784 -   obj_z_crop: None
+2026-03-10 02:41:41,784 -   obj_z_pad: None
+2026-03-10 02:41:41,784 -   obj_z_resample: None
+2026-03-10 02:41:41,784 -   meas_source: file
+2026-03-10 02:41:41,784 -   meas_params: {'path': 'data/tBL_WSe2/Panel_g-h_Themis/scan_x128_y128.raw', 'key': None, 'shape': None, 'offset': None, 'gap': None}
+2026-03-10 02:41:41,784 -   probe_source: simu
+2026-03-10 02:41:41,784 -   probe_params: None
+2026-03-10 02:41:41,784 -   pos_source: simu
+2026-03-10 02:41:41,784 -   pos_params: None
+2026-03-10 02:41:41,784 -   obj_source: simu
+2026-03-10 02:41:41,784 -   obj_params: None
+2026-03-10 02:41:41,784 -   tilt_source: simu
+2026-03-10 02:41:41,784 -   tilt_params: {'tilt_type': 'all', 'init_tilts': [[0.0, 0.0]]}
+2026-03-10 02:41:41,784 -  
+2026-03-10 02:41:41,784 - ### Initializing cache ###
+2026-03-10 02:41:41,784 - use_cached_obj   = False
+2026-03-10 02:41:41,784 - use_cached_probe = False
+2026-03-10 02:41:41,784 - use_cached_pos   = False
+2026-03-10 02:41:41,785 -  
+2026-03-10 02:41:41,785 - ### Initializing measurements ###
+2026-03-10 02:41:41,785 - Loading measurements from source = 'file'
+2026-03-10 02:41:41,785 - Detected measurement file type = '.raw'
+2026-03-10 02:41:41,785 - WARNING: Couldn't find the 'shape' in 'meas_params' with file type = '.raw'.
+2026-03-10 02:41:41,785 - It is strongly recommended to provide an explicit shape to better load from .raw files
+2026-03-10 02:41:41,785 - PtyRAD will still try to load the dataset based on the provided 'init_params', but you may consider setting 'shape': (N_scans, Npix, Npix) inside your 'meas_params' dict.
+2026-03-10 02:41:42,089 - Original measurements dtype is float32, casting to float32 (single precision) for computational efficiency.
+2026-03-10 02:41:42,089 - Imported meausrements shape / dtype = (16384, 128, 128), dtype = float32
+2026-03-10 02:41:42,390 - Imported meausrements int. statistics (min, mean, max) = (-30.8785, 1814.7078, 99441.8047)
+2026-03-10 02:41:42,391 - Flipping measurements with [flipud, fliplr, transpose] = [1, 0, 0]
+2026-03-10 02:41:42,716 - Removing negative values in measurement with method = clip_neg and value = None
+2026-03-10 02:41:42,834 - Minimum value = -30.8785, negative values are clipped to 0 due to the positive px value constraint of measurements
+2026-03-10 02:41:44,441 - Normalizing measurements with mode = 'max_at_one' and value = 'None'
+2026-03-10 02:41:44,578 - Normalizing by max of the 2D mean pattern intensity: 67097.391
+2026-03-10 02:41:44,664 - meausrements shape / dtype = (16384, 128, 128), dtype = float32
+2026-03-10 02:41:45,057 - meausrements int. statistics (min, mean, max) = (0.0000, 0.0271, 1.4821)
+2026-03-10 02:41:45,257 - No negative values found in measurements. Skipping non-neg correction.
+2026-03-10 02:41:45,554 - Pattern total int. statistics (min, mean, max)        = (438.8489, 443.3112, 447.6965), with min/max = 98.0%
+2026-03-10 02:41:45,947 - Global meausrements int. statistics (min, mean, max)  = (0.0000, 0.0271, 1.4821)
+2026-03-10 02:41:45,948 - measurements                              (N, Ky, Kx) = float32, (16384, 128, 128)
+2026-03-10 02:41:45,948 -  
+2026-03-10 02:41:45,948 - ### Setting up calibration ###
+2026-03-10 02:41:45,948 - meas_calibration mode = 'dx', value = 0.1494
+2026-03-10 02:41:45,948 - Using loaded raw averaged measurement (before crop/pad/resample) to fit RBF as a part of the meas calibration
+2026-03-10 02:41:45,948 - Radius of fitted bright field disk (RBF) = 11.64 px with Npix = 128
+2026-03-10 02:41:45,948 - Suggested probe_mask_k radius (RBF*2/Npix) > 0.1819
+2026-03-10 02:41:45,948 - Fitting raw averaged measurement with center, radius, and Gaussian blur std as a sanity check
+2026-03-10 02:41:45,948 - Note that the fitted Gaussian blur std (detector blur) would be affected by overlapping Bragg disks
+2026-03-10 02:41:45,948 - Initial guess: center=(63.78, 63.93), radius=11.64, Gaussian blur std=0.50
+2026-03-10 02:41:45,956 - Final fit: center=(63.78, 63.93), radius=11.64, Gaussian blur std=0.54
+2026-03-10 02:41:45,956 - Using init_params, the inferred RBF (conv_angle / 1e3 * Npix * dx / wavelength) = 11.40 px with Npix = 128
+2026-03-10 02:41:45,956 - dx (real space pixel size of probe and object) set to 0.1494 Ang with Npix = 128
+2026-03-10 02:41:45,956 -  
+2026-03-10 02:41:45,956 - ### Setting init_variables dict ###
+2026-03-10 02:41:45,956 - Derived values given input init_params:
+2026-03-10 02:41:45,956 -   kv          = 80.0 kV
+2026-03-10 02:41:45,956 -   wavelength  = 0.0418 Ang
+2026-03-10 02:41:45,956 -   conv_angle  = 24.9 mrad
+2026-03-10 02:41:45,956 -   Npix        = 128 px
+2026-03-10 02:41:45,956 -   dk          = 0.0523 Ang^-1
+2026-03-10 02:41:45,956 -   kMax        = 3.3467 Ang^-1
+2026-03-10 02:41:45,956 -   da          = 2.1836 mrad
+2026-03-10 02:41:45,956 -   angleMax    = 139.7495 mrad
+2026-03-10 02:41:45,956 -   RBF         = 11.4033 px (Inferred from the given calibration, NOT necessarily from the loaded measurement data)
+2026-03-10 02:41:45,956 -   n_alpha     = 5.6124 (# conv_angle)
+2026-03-10 02:41:45,957 -   dx          = 0.1494 Ang, Nyquist-limited dmin = 2*dx = 0.2988 Ang
+2026-03-10 02:41:45,957 -   Rayleigh-limited resolution  = 1.0230 Ang (0.61*lambda/alpha for focused probe )
+2026-03-10 02:41:45,957 -   Real space probe extent = 19.1232 Ang
+2026-03-10 02:41:45,957 -  
+2026-03-10 02:41:45,957 - ### Initializing probe ###
+2026-03-10 02:41:45,957 - Loading probe from source = 'simu'
+2026-03-10 02:41:45,957 - Using experimental parameters specified by 'init_params' for initial probe simulation.
+2026-03-10 02:41:45,957 - Start simulating STEM probe
+2026-03-10 02:41:45,957 -   kv          = 80.0 kV
+2026-03-10 02:41:45,957 -   wavelength  = 0.0418 Ang
+2026-03-10 02:41:45,957 -   conv_angle  = 24.9 mrad
+2026-03-10 02:41:45,957 -   Npix        = 128 px
+2026-03-10 02:41:45,957 -   dk          = 0.0523 Ang^-1
+2026-03-10 02:41:45,957 -   kMax        = 3.3467 Ang^-1
+2026-03-10 02:41:45,957 -   alpha_max   = 139.7495 mrad
+2026-03-10 02:41:45,957 -   dx          = 0.1494 Ang, Nyquist-limited dmin = 2*dx = 0.2988 Ang
+2026-03-10 02:41:45,957 -   Rayleigh-limited resolution  = 1.0230 Ang (0.61*lambda/alpha for focused probe )
+2026-03-10 02:41:45,957 -   Real space probe extent = 19.1232 Ang
+2026-03-10 02:41:45,957 - Aberrations(Empty)
+2026-03-10 02:41:45,958 - Loaded probe shape = (1, 128, 128), dtype = complex128
+2026-03-10 02:41:45,958 - pmode_now: 1 and pmode_max: 6, padding the pmode.
+2026-03-10 02:41:45,958 - Creating 5 new probe modes from the major mode
+2026-03-10 02:41:45,958 - Start making mixed-state STEM probe with 6 incoherent probe modes
+2026-03-10 02:41:45,965 - Relative power of probe modes = [0.9  0.02 0.02 0.02 0.02 0.02]
+2026-03-10 02:41:45,967 - Orthogonalizing 6 pmodes
+2026-03-10 02:41:45,968 - Sorting 6 pmodes by their intensities
+2026-03-10 02:41:45,968 - Normalizing probe intensity with mode = 'mean_total_ints' and value = 'None'
+2026-03-10 02:41:45,969 - sum(|probe_data|**2) = 443.31, while meas_total_ints (min, mean, max) = (438.8489, 443.3112, 447.6965)
+2026-03-10 02:41:45,970 - probe                         (pmode, Ny, Nx) = complex64, (6, 128, 128)
+2026-03-10 02:41:45,970 -  
+2026-03-10 02:41:45,970 - ### Initializing probe positions ###
+2026-03-10 02:41:45,970 - Loading probe positions from source = 'simu'
+2026-03-10 02:41:45,970 - Using experimental parameters specified by 'init_params' (dx, scan_step size, N_scan_slow, N_scan_fast) for initial position simulation.
+2026-03-10 02:41:45,970 - Simulating probe positions with dx = 0.1494, scan_step_size = 0.4290, N_scan_fast = 128, N_scan_slow = 128
+2026-03-10 02:41:45,979 - Applying affine transformation to scan pattern with (scale, asymmetry, rotation, shear) = (1.0, 0.0, -3.0, 0.0)
+2026-03-10 02:41:45,981 - Applying Gaussian distributed random displacement with std = 0.0 px to scan positions
+2026-03-10 02:41:45,983 - crop_pos                                (N,2) = int16, (16384, 2)
+2026-03-10 02:41:45,983 - crop_pos 1st and last px coords (y,x)         = ([52, 71], [436, 417])
+2026-03-10 02:41:45,984 - crop_pos extent (Ang)                         = [57.3696 57.3696]
+2026-03-10 02:41:45,984 - probe_pos_shifts                        (N,2) = float32, (16384, 2)
+2026-03-10 02:41:45,984 -  
+2026-03-10 02:41:45,984 - ### Initializing object ###
+2026-03-10 02:41:45,984 - Loading object from source = 'simu'
+2026-03-10 02:41:45,984 - Using experimental parameters specified by 'init_params' for initial object simulation.
+2026-03-10 02:41:46,158 - omode_now: 1 and omode_max: 1, leaving the omode unchanged.
+2026-03-10 02:41:46,161 - object                    (omode, Nz, Ny, Nx) = complex64, (1, 6, 614, 614)
+2026-03-10 02:41:46,162 - object extent                 (Z, Y, X) (Ang) = [12.     91.7316 91.7316]
+2026-03-10 02:41:46,162 -  
+2026-03-10 02:41:46,162 - ### Initializing omode_occu from 'uniform' ###
+2026-03-10 02:41:46,162 - omode_occu                            (omode) = float32, (1,)
+2026-03-10 02:41:46,162 -  
+2026-03-10 02:41:46,162 - ### Initializing H (Fresnel propagator) ###
+2026-03-10 02:41:46,162 - Calculating H with probe_shape = [128. 128.] px, dx = 0.1494 Ang, slice_thickness = 2.0000 Ang, lambd = 0.0418 Ang
+2026-03-10 02:41:46,162 - H                                    (Ky, Kx) = complex64, (128, 128)
+2026-03-10 02:41:46,163 -  
+2026-03-10 02:41:46,163 - ### Initializing obj tilts from = 'simu' ###
+2026-03-10 02:41:46,163 - Initialized obj_tilts with init_tilts = [[0.0, 0.0]] (theta_y, theta_x) mrad
+2026-03-10 02:41:46,163 - obj_tilts                              (N, 2) = float32, (1, 2)
+2026-03-10 02:41:46,163 -  
+2026-03-10 02:41:46,163 - ### Checking consistency between input params with the initialized variables ###
+2026-03-10 02:41:46,163 - Npix, DP measurements, probe, and H shapes are consistent as '128'
+2026-03-10 02:41:46,163 - N_scans, len(meas), N_scan_slow*N_scan_fast, len(crop_pos), and len(probe_pos_shifts) are consistent as '16384'
+2026-03-10 02:41:46,163 - obj.shape[0] is consistent with len(omode_occu) as '1'
+2026-03-10 02:41:46,163 - obj.shape[1] is consistent with Nlayer as '6'
+2026-03-10 02:41:46,164 - crop positions (yx_min=[52 52], yx_max=[564 564]) are well contained inside object canvas (Ny,Nx) = (614, 614).
+2026-03-10 02:41:46,164 - obj_tilts is consistent with either 1 or N_scans
+2026-03-10 02:41:46,164 - Pass the consistency check of initialized variables, initialization is done!
+2026-03-10 02:41:46,164 -  
+2026-03-10 02:41:46,164 - ### Collecting reconstruction provenance ###
+2026-03-10 02:41:46,164 - Reconstruction provenance is collected and initialized.
+2026-03-10 02:41:46,164 -  
+2026-03-10 02:41:46,164 - ### Initializing loss function ###
+2026-03-10 02:41:46,164 - Active loss types:
+2026-03-10 02:41:46,164 -   loss_single : {'state': True, 'weight': 1.0, 'dp_pow': 0.5}
+2026-03-10 02:41:46,164 -  
+2026-03-10 02:41:46,164 - ### Initializing constraint function ###
+2026-03-10 02:41:46,164 - Active constraint types:
+2026-03-10 02:41:46,164 -   ortho_pmode   : {'start_iter': 1, 'step': 1, 'end_iter': None}
+2026-03-10 02:41:46,164 -   fix_probe_int : {'start_iter': 1, 'step': 1, 'end_iter': None}
+2026-03-10 02:41:46,164 -   obj_rblur     : {'start_iter': 1, 'step': 1, 'end_iter': None, 'obj_type': 'both', 'kernel_size': 5, 'std': 0.5}
+2026-03-10 02:41:46,165 -   obj_zblur     : {'start_iter': 1, 'step': 1, 'end_iter': None, 'obj_type': 'both', 'kernel_size': 5, 'std': 1.0}
+2026-03-10 02:41:46,165 -   obja_thresh   : {'start_iter': 1, 'step': 1, 'end_iter': None, 'relax': 0.0, 'thresh': [0.98, 1.02]}
+2026-03-10 02:41:46,165 -   pos_recenter  : {'start_iter': 1, 'step': 1, 'end_iter': None, 'relax': 0.0}
+2026-03-10 02:41:46,165 -  
+2026-03-10 02:41:46,165 - ### Done initializing PtyRADSolver ###
+2026-03-10 02:41:46,165 -  
+2026-03-10 02:41:46,165 - ### Starting the PtyRADSolver in reconstruct mode ###
+2026-03-10 02:41:46,165 -  
+2026-03-10 02:41:46,165 - ### Initializing PtychoModel model ###
+2026-03-10 02:41:46,595 - ### PtychoModel optimizable variables ###
+2026-03-10 02:41:46,596 - obja            : torch.Size([1, 6, 614, 614])    , torch.float32   , device:cuda:0, grad:True , lr:5e-04
+2026-03-10 02:41:46,596 - objp            : torch.Size([1, 6, 614, 614])    , torch.float32   , device:cuda:0, grad:True , lr:5e-04
+2026-03-10 02:41:46,596 - obj_tilts       : torch.Size([1, 2])              , torch.float32   , device:cuda:0, grad:False, lr:0e+00
+2026-03-10 02:41:46,596 - slice_thickness : torch.Size([])                  , torch.float32   , device:cuda:0, grad:False, lr:0e+00
+2026-03-10 02:41:46,596 - probe           : torch.Size([6, 128, 128, 2])    , torch.float32   , device:cuda:0, grad:True , lr:1e-04
+2026-03-10 02:41:46,596 - probe_pos_shifts: torch.Size([16384, 2])          , torch.float32   , device:cuda:0, grad:True , lr:5e-04
+2026-03-10 02:41:46,596 -  
+2026-03-10 02:41:46,596 - ### Optimizable variables statitsics ###
+2026-03-10 02:41:46,596 - Total measurement values  : 268,435,456
+2026-03-10 02:41:46,596 - Total optimizing variables: 4,753,328
+2026-03-10 02:41:46,596 - Overdetermined ratio      : 56.47
+2026-03-10 02:41:46,596 -  
+2026-03-10 02:41:46,596 - ### Model behavior ###
+2026-03-10 02:41:46,596 - Tilt propagator           : False
+2026-03-10 02:41:46,596 - Change slice thickness    : False
+2026-03-10 02:41:46,596 - Sub-px probe shift        : True
+2026-03-10 02:41:46,596 - Detector blur             : False
+2026-03-10 02:41:46,596 - Preload data              : True
+2026-03-10 02:41:46,596 - On-the-fly meas padding   : False
+2026-03-10 02:41:46,596 - On-the-fly meas resample  : False
+2026-03-10 02:41:46,596 -  
+2026-03-10 02:41:46,596 - ### Done initializing PtychoModel model ###
+2026-03-10 02:41:46,597 -  
+2026-03-10 02:41:46,597 - ### Creating PyTorch 'Adam' optimizer with configs = {} ###
+2026-03-10 02:41:46,597 -  
+2026-03-10 02:41:46,597 - ### Generating indices, batches, and output_path ###
+2026-03-10 02:41:46,597 - d90 = 23.000 px or 3.436 Ang
+2026-03-10 02:41:46,598 - Selecting indices with the 'full' mode 
+2026-03-10 02:41:46,598 - Generated 128 'random' groups of ~128 scan positions in 0.001 sec
+2026-03-10 02:41:46,783 - The effective batch size (i.e., how many probe positions are simultaneously used for 1 update of ptychographic parameters) is batch_size * grad_accumulation = 128 * 1 = 128
+2026-03-10 02:41:46,783 - Original recon_dir_affixes = ['default', 'optimizer', 'start_iter', 'lr', 'model', 'constraint', 'loss']
+2026-03-10 02:41:46,783 - Expanded recon_dir_affixes = ['indices', 'meas', 'batch', 'pmode', 'omode', 'nlayer', 'lr', 'model', 'constraint', 'loss', 'affine', 'tilt', 'aberrations', 'optimizer', 'start_iter']
+2026-03-10 02:41:46,783 - output_path = '/workspace/ptycho_benchmark/output/tBL_WSe2/20260309_ptyrad_cloud_table_r1/full_N16384_dp128_flipT100_random128_p6_1obj_6slice_dz2_Adam_plr1e-4_oalr5e-4_oplr5e-4_slr5e-4_orblur0.5_ozblur1.0_oathr0.98_sng1.0_aff1.00_0.00_-3.0_0.0' is generated!
+2026-03-10 02:41:47,269 -  
+2026-03-10 02:41:47,271 - ### Log file is flushed (created) as /workspace/ptycho_benchmark/output/tBL_WSe2/20260309_ptyrad_cloud_table_r1/full_N16384_dp128_flipT100_random128_p6_1obj_6slice_dz2_Adam_plr1e-4_oalr5e-4_oplr5e-4_slr5e-4_orblur0.5_ozblur1.0_oathr0.98_sng1.0_aff1.00_0.00_-3.0_0.0/20260310_024147_ptyrad_log.txt ###
+2026-03-10 02:41:47,271 -  
+2026-03-10 02:41:47,271 - ### Start the PtyRAD iterative ptycho reconstruction ###
+2026-03-10 02:41:47,271 - Setting up PyTorch compiler with {'fullgraph': False, 'dynamic': None, 'backend': 'inductor', 'mode': 'default', 'options': None, 'disable': False}
+2026-03-10 02:41:51,889 - Iter: 1, Total Loss: 0.5699, loss_single: 0.5699, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 4.615 sec
+2026-03-10 02:41:53,244 - Iter: 2, Total Loss: 0.4191, loss_single: 0.4191, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.354 sec
+2026-03-10 02:41:54,597 - Iter: 3, Total Loss: 0.4020, loss_single: 0.4020, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.352 sec
+2026-03-10 02:41:55,949 - Iter: 4, Total Loss: 0.3994, loss_single: 0.3994, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.351 sec
+2026-03-10 02:41:57,301 - Iter: 5, Total Loss: 0.3985, loss_single: 0.3985, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.351 sec
+2026-03-10 02:41:58,653 - Iter: 6, Total Loss: 0.3978, loss_single: 0.3978, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.351 sec
+2026-03-10 02:42:00,005 - Iter: 7, Total Loss: 0.3972, loss_single: 0.3972, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.352 sec
+2026-03-10 02:42:01,357 - Iter: 8, Total Loss: 0.3967, loss_single: 0.3967, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.351 sec
+2026-03-10 02:42:02,708 - Iter: 9, Total Loss: 0.3963, loss_single: 0.3963, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.350 sec
+2026-03-10 02:42:04,059 - Iter: 10, Total Loss: 0.3960, loss_single: 0.3960, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.351 sec
+2026-03-10 02:42:04,060 - ### Finished 10 iterations, averaged iter_t = 1.6778 with std = 0.979 ###
+2026-03-10 02:42:04,060 -  
+2026-03-10 02:42:04,061 - ### The PtyRADSolver is finished in 17.896 sec ###
+2026-03-10 02:42:04,061 -  
+2026-03-10 02:42:04,308 - ### PtyRAD LoggingManager configuration ###
+2026-03-10 02:42:04,308 - log_file       = 'ptyrad_log.txt'. If log_file = None, no log file will be created.
+2026-03-10 02:42:04,308 - log_dir        = 'auto'. If log_dir = 'auto', then log will be saved to `output_path` or 'logs/'.
+2026-03-10 02:42:04,308 - flush_file     = True. Automatically set to True if `log_file is not None`
+2026-03-10 02:42:04,308 - prefix_time    = datetime. If true, preset strings ('date', 'time', 'datetime'), or a string of time format, a datetime str is prefixed to the `log_file`.
+2026-03-10 02:42:04,308 - prefix_jobid   = '0'. If not 0, it'll be prefixed to the log file. This is used for hypertune mode with multiple GPUs.
+2026-03-10 02:42:04,308 - append_to_file = True. If true, logs will be appended to the existing file. If false, the log file will be overwritten.
+2026-03-10 02:42:04,308 - show_timestamp = True. If true, the printed information will contain a timestamp.
+2026-03-10 02:42:04,308 -  
+2026-03-10 02:42:04,308 - ### Loading params file ###
+2026-03-10 02:42:04,309 - params_path = params/ptyrad_table_tBL_WSe2.yml
+2026-03-10 02:42:04,333 - WARNING: For constraint_params, 'freq' is depracated since PtyRAD v0.1.0b11 and is automatically converted to 'step'.
+2026-03-10 02:42:04,333 - WARNING: Probe aberrations '['probe_defocus', 'probe_c3', 'probe_c5']' in 'init_params' are depracated since PtyRAD v0.1.0b13 and are automatically converted to 'probe_aberrations' dict.
+2026-03-10 02:42:04,333 - validate = True: Filling defaults and validating the params file...
+2026-03-10 02:42:04,334 - Success! Params file validated and defaults applied.
+2026-03-10 02:42:04,334 -  
+2026-03-10 02:42:04,334 - ### Setting GPU Device ###
+2026-03-10 02:42:04,334 - Selected GPU device: cuda:0 (NVIDIA H100 80GB HBM3)
+2026-03-10 02:42:04,334 -  
+### Running (round_idx, batch, pmode, slice) = (1, 64, 6, 6) ###
+2026-03-10 02:42:04,335 - ### Initializing Initializer ###
+2026-03-10 02:42:04,335 - init_params are displayed below:
+2026-03-10 02:42:04,335 -   random_seed: None
+2026-03-10 02:42:04,335 -   probe_illum_type: electron
+2026-03-10 02:42:04,335 -   probe_kv: 80.0
+2026-03-10 02:42:04,335 -   probe_conv_angle: 24.9
+2026-03-10 02:42:04,335 -   probe_aberrations: {}
+2026-03-10 02:42:04,335 -   beam_kev: None
+2026-03-10 02:42:04,335 -   probe_dRn: None
+2026-03-10 02:42:04,335 -   probe_Rn: None
+2026-03-10 02:42:04,335 -   probe_D_H: None
+2026-03-10 02:42:04,335 -   probe_D_FZP: None
+2026-03-10 02:42:04,335 -   probe_Ls: None
+2026-03-10 02:42:04,335 -   meas_Npix: 128
+2026-03-10 02:42:04,335 -   pos_N_scans: 16384
+2026-03-10 02:42:04,335 -   pos_N_scan_slow: 128
+2026-03-10 02:42:04,335 -   pos_N_scan_fast: 128
+2026-03-10 02:42:04,335 -   pos_scan_step_size: 0.429
+2026-03-10 02:42:04,335 -   meas_calibration: {'mode': 'dx', 'value': 0.1494}
+2026-03-10 02:42:04,335 -   probe_pmode_max: 6
+2026-03-10 02:42:04,335 -   probe_pmode_init_pows: [0.02]
+2026-03-10 02:42:04,335 -   obj_omode_max: 1
+2026-03-10 02:42:04,335 -   obj_omode_init_occu: {'occu_type': 'uniform', 'init_occu': None}
+2026-03-10 02:42:04,335 -   obj_Nlayer: 6
+2026-03-10 02:42:04,335 -   obj_slice_thickness: 2.0
+2026-03-10 02:42:04,335 -   meas_permute: None
+2026-03-10 02:42:04,335 -   meas_reshape: None
+2026-03-10 02:42:04,335 -   meas_flipT: [1, 0, 0]
+2026-03-10 02:42:04,335 -   meas_crop: None
+2026-03-10 02:42:04,335 -   meas_pad: {'mode': None, 'padding_type': 'power', 'target_Npix': 256, 'value': 0.0, 'threshold': 70}
+2026-03-10 02:42:04,335 -   meas_resample: {'mode': None, 'scale_factors': [2.0, 2.0]}
+2026-03-10 02:42:04,335 -   meas_add_source_size: None
+2026-03-10 02:42:04,335 -   meas_add_detector_blur: None
+2026-03-10 02:42:04,335 -   meas_remove_neg_values: {'mode': 'clip_neg', 'value': None, 'force': False}
+2026-03-10 02:42:04,335 -   meas_normalization: {'mode': 'max_at_one', 'value': None}
+2026-03-10 02:42:04,335 -   meas_add_poisson_noise: None
+2026-03-10 02:42:04,335 -   meas_export: None
+2026-03-10 02:42:04,335 -   probe_permute: None
+2026-03-10 02:42:04,335 -   probe_z_shift: None
+2026-03-10 02:42:04,335 -   probe_normalization: {'mode': 'mean_total_ints', 'value': None}
+2026-03-10 02:42:04,335 -   pos_scan_flipT: None
+2026-03-10 02:42:04,335 -   pos_scan_affine: [1.0, 0.0, -3.0, 0.0]
+2026-03-10 02:42:04,335 -   pos_scan_rand_std: 0.0
+2026-03-10 02:42:04,335 -   obj_z_crop: None
+2026-03-10 02:42:04,335 -   obj_z_pad: None
+2026-03-10 02:42:04,335 -   obj_z_resample: None
+2026-03-10 02:42:04,335 -   meas_source: file
+2026-03-10 02:42:04,335 -   meas_params: {'path': 'data/tBL_WSe2/Panel_g-h_Themis/scan_x128_y128.raw', 'key': None, 'shape': None, 'offset': None, 'gap': None}
+2026-03-10 02:42:04,335 -   probe_source: simu
+2026-03-10 02:42:04,336 -   probe_params: None
+2026-03-10 02:42:04,336 -   pos_source: simu
+2026-03-10 02:42:04,336 -   pos_params: None
+2026-03-10 02:42:04,336 -   obj_source: simu
+2026-03-10 02:42:04,336 -   obj_params: None
+2026-03-10 02:42:04,336 -   tilt_source: simu
+2026-03-10 02:42:04,336 -   tilt_params: {'tilt_type': 'all', 'init_tilts': [[0.0, 0.0]]}
+2026-03-10 02:42:04,336 -  
+2026-03-10 02:42:04,336 - ### Initializing cache ###
+2026-03-10 02:42:04,336 - use_cached_obj   = False
+2026-03-10 02:42:04,336 - use_cached_probe = False
+2026-03-10 02:42:04,336 - use_cached_pos   = False
+2026-03-10 02:42:04,336 -  
+2026-03-10 02:42:04,336 - ### Initializing measurements ###
+2026-03-10 02:42:04,336 - Loading measurements from source = 'file'
+2026-03-10 02:42:04,336 - Detected measurement file type = '.raw'
+2026-03-10 02:42:04,336 - WARNING: Couldn't find the 'shape' in 'meas_params' with file type = '.raw'.
+2026-03-10 02:42:04,336 - It is strongly recommended to provide an explicit shape to better load from .raw files
+2026-03-10 02:42:04,336 - PtyRAD will still try to load the dataset based on the provided 'init_params', but you may consider setting 'shape': (N_scans, Npix, Npix) inside your 'meas_params' dict.
+2026-03-10 02:42:04,640 - Original measurements dtype is float32, casting to float32 (single precision) for computational efficiency.
+2026-03-10 02:42:04,640 - Imported meausrements shape / dtype = (16384, 128, 128), dtype = float32
+2026-03-10 02:42:04,939 - Imported meausrements int. statistics (min, mean, max) = (-30.8785, 1814.7078, 99441.8047)
+2026-03-10 02:42:04,940 - Flipping measurements with [flipud, fliplr, transpose] = [1, 0, 0]
+2026-03-10 02:42:05,260 - Removing negative values in measurement with method = clip_neg and value = None
+2026-03-10 02:42:05,378 - Minimum value = -30.8785, negative values are clipped to 0 due to the positive px value constraint of measurements
+2026-03-10 02:42:06,976 - Normalizing measurements with mode = 'max_at_one' and value = 'None'
+2026-03-10 02:42:07,120 - Normalizing by max of the 2D mean pattern intensity: 67097.391
+2026-03-10 02:42:07,206 - meausrements shape / dtype = (16384, 128, 128), dtype = float32
+2026-03-10 02:42:07,603 - meausrements int. statistics (min, mean, max) = (0.0000, 0.0271, 1.4821)
+2026-03-10 02:42:07,802 - No negative values found in measurements. Skipping non-neg correction.
+2026-03-10 02:42:08,108 - Pattern total int. statistics (min, mean, max)        = (438.8489, 443.3112, 447.6965), with min/max = 98.0%
+2026-03-10 02:42:08,506 - Global meausrements int. statistics (min, mean, max)  = (0.0000, 0.0271, 1.4821)
+2026-03-10 02:42:08,506 - measurements                              (N, Ky, Kx) = float32, (16384, 128, 128)
+2026-03-10 02:42:08,506 -  
+2026-03-10 02:42:08,506 - ### Setting up calibration ###
+2026-03-10 02:42:08,506 - meas_calibration mode = 'dx', value = 0.1494
+2026-03-10 02:42:08,506 - Using loaded raw averaged measurement (before crop/pad/resample) to fit RBF as a part of the meas calibration
+2026-03-10 02:42:08,506 - Radius of fitted bright field disk (RBF) = 11.64 px with Npix = 128
+2026-03-10 02:42:08,506 - Suggested probe_mask_k radius (RBF*2/Npix) > 0.1819
+2026-03-10 02:42:08,506 - Fitting raw averaged measurement with center, radius, and Gaussian blur std as a sanity check
+2026-03-10 02:42:08,506 - Note that the fitted Gaussian blur std (detector blur) would be affected by overlapping Bragg disks
+2026-03-10 02:42:08,507 - Initial guess: center=(63.78, 63.93), radius=11.64, Gaussian blur std=0.50
+2026-03-10 02:42:08,515 - Final fit: center=(63.78, 63.93), radius=11.64, Gaussian blur std=0.54
+2026-03-10 02:42:08,515 - Using init_params, the inferred RBF (conv_angle / 1e3 * Npix * dx / wavelength) = 11.40 px with Npix = 128
+2026-03-10 02:42:08,515 - dx (real space pixel size of probe and object) set to 0.1494 Ang with Npix = 128
+2026-03-10 02:42:08,515 -  
+2026-03-10 02:42:08,515 - ### Setting init_variables dict ###
+2026-03-10 02:42:08,515 - Derived values given input init_params:
+2026-03-10 02:42:08,515 -   kv          = 80.0 kV
+2026-03-10 02:42:08,515 -   wavelength  = 0.0418 Ang
+2026-03-10 02:42:08,515 -   conv_angle  = 24.9 mrad
+2026-03-10 02:42:08,515 -   Npix        = 128 px
+2026-03-10 02:42:08,515 -   dk          = 0.0523 Ang^-1
+2026-03-10 02:42:08,515 -   kMax        = 3.3467 Ang^-1
+2026-03-10 02:42:08,515 -   da          = 2.1836 mrad
+2026-03-10 02:42:08,515 -   angleMax    = 139.7495 mrad
+2026-03-10 02:42:08,515 -   RBF         = 11.4033 px (Inferred from the given calibration, NOT necessarily from the loaded measurement data)
+2026-03-10 02:42:08,515 -   n_alpha     = 5.6124 (# conv_angle)
+2026-03-10 02:42:08,515 -   dx          = 0.1494 Ang, Nyquist-limited dmin = 2*dx = 0.2988 Ang
+2026-03-10 02:42:08,515 -   Rayleigh-limited resolution  = 1.0230 Ang (0.61*lambda/alpha for focused probe )
+2026-03-10 02:42:08,515 -   Real space probe extent = 19.1232 Ang
+2026-03-10 02:42:08,515 -  
+2026-03-10 02:42:08,515 - ### Initializing probe ###
+2026-03-10 02:42:08,515 - Loading probe from source = 'simu'
+2026-03-10 02:42:08,515 - Using experimental parameters specified by 'init_params' for initial probe simulation.
+2026-03-10 02:42:08,515 - Start simulating STEM probe
+2026-03-10 02:42:08,515 -   kv          = 80.0 kV
+2026-03-10 02:42:08,515 -   wavelength  = 0.0418 Ang
+2026-03-10 02:42:08,515 -   conv_angle  = 24.9 mrad
+2026-03-10 02:42:08,515 -   Npix        = 128 px
+2026-03-10 02:42:08,515 -   dk          = 0.0523 Ang^-1
+2026-03-10 02:42:08,515 -   kMax        = 3.3467 Ang^-1
+2026-03-10 02:42:08,515 -   alpha_max   = 139.7495 mrad
+2026-03-10 02:42:08,515 -   dx          = 0.1494 Ang, Nyquist-limited dmin = 2*dx = 0.2988 Ang
+2026-03-10 02:42:08,515 -   Rayleigh-limited resolution  = 1.0230 Ang (0.61*lambda/alpha for focused probe )
+2026-03-10 02:42:08,516 -   Real space probe extent = 19.1232 Ang
+2026-03-10 02:42:08,516 - Aberrations(Empty)
+2026-03-10 02:42:08,516 - Loaded probe shape = (1, 128, 128), dtype = complex128
+2026-03-10 02:42:08,517 - pmode_now: 1 and pmode_max: 6, padding the pmode.
+2026-03-10 02:42:08,517 - Creating 5 new probe modes from the major mode
+2026-03-10 02:42:08,517 - Start making mixed-state STEM probe with 6 incoherent probe modes
+2026-03-10 02:42:08,522 - Relative power of probe modes = [0.9  0.02 0.02 0.02 0.02 0.02]
+2026-03-10 02:42:08,524 - Orthogonalizing 6 pmodes
+2026-03-10 02:42:08,525 - Sorting 6 pmodes by their intensities
+2026-03-10 02:42:08,525 - Normalizing probe intensity with mode = 'mean_total_ints' and value = 'None'
+2026-03-10 02:42:08,526 - sum(|probe_data|**2) = 443.31, while meas_total_ints (min, mean, max) = (438.8489, 443.3112, 447.6965)
+2026-03-10 02:42:08,527 - probe                         (pmode, Ny, Nx) = complex64, (6, 128, 128)
+2026-03-10 02:42:08,527 -  
+2026-03-10 02:42:08,527 - ### Initializing probe positions ###
+2026-03-10 02:42:08,527 - Loading probe positions from source = 'simu'
+2026-03-10 02:42:08,527 - Using experimental parameters specified by 'init_params' (dx, scan_step size, N_scan_slow, N_scan_fast) for initial position simulation.
+2026-03-10 02:42:08,527 - Simulating probe positions with dx = 0.1494, scan_step_size = 0.4290, N_scan_fast = 128, N_scan_slow = 128
+2026-03-10 02:42:08,537 - Applying affine transformation to scan pattern with (scale, asymmetry, rotation, shear) = (1.0, 0.0, -3.0, 0.0)
+2026-03-10 02:42:08,538 - Applying Gaussian distributed random displacement with std = 0.0 px to scan positions
+2026-03-10 02:42:08,540 - crop_pos                                (N,2) = int16, (16384, 2)
+2026-03-10 02:42:08,540 - crop_pos 1st and last px coords (y,x)         = ([52, 71], [436, 417])
+2026-03-10 02:42:08,541 - crop_pos extent (Ang)                         = [57.3696 57.3696]
+2026-03-10 02:42:08,541 - probe_pos_shifts                        (N,2) = float32, (16384, 2)
+2026-03-10 02:42:08,541 -  
+2026-03-10 02:42:08,541 - ### Initializing object ###
+2026-03-10 02:42:08,541 - Loading object from source = 'simu'
+2026-03-10 02:42:08,541 - Using experimental parameters specified by 'init_params' for initial object simulation.
+2026-03-10 02:42:08,671 - omode_now: 1 and omode_max: 1, leaving the omode unchanged.
+2026-03-10 02:42:08,675 - object                    (omode, Nz, Ny, Nx) = complex64, (1, 6, 614, 614)
+2026-03-10 02:42:08,675 - object extent                 (Z, Y, X) (Ang) = [12.     91.7316 91.7316]
+2026-03-10 02:42:08,675 -  
+2026-03-10 02:42:08,675 - ### Initializing omode_occu from 'uniform' ###
+2026-03-10 02:42:08,675 - omode_occu                            (omode) = float32, (1,)
+2026-03-10 02:42:08,675 -  
+2026-03-10 02:42:08,675 - ### Initializing H (Fresnel propagator) ###
+2026-03-10 02:42:08,675 - Calculating H with probe_shape = [128. 128.] px, dx = 0.1494 Ang, slice_thickness = 2.0000 Ang, lambd = 0.0418 Ang
+2026-03-10 02:42:08,676 - H                                    (Ky, Kx) = complex64, (128, 128)
+2026-03-10 02:42:08,676 -  
+2026-03-10 02:42:08,676 - ### Initializing obj tilts from = 'simu' ###
+2026-03-10 02:42:08,676 - Initialized obj_tilts with init_tilts = [[0.0, 0.0]] (theta_y, theta_x) mrad
+2026-03-10 02:42:08,676 - obj_tilts                              (N, 2) = float32, (1, 2)
+2026-03-10 02:42:08,676 -  
+2026-03-10 02:42:08,676 - ### Checking consistency between input params with the initialized variables ###
+2026-03-10 02:42:08,676 - Npix, DP measurements, probe, and H shapes are consistent as '128'
+2026-03-10 02:42:08,676 - N_scans, len(meas), N_scan_slow*N_scan_fast, len(crop_pos), and len(probe_pos_shifts) are consistent as '16384'
+2026-03-10 02:42:08,676 - obj.shape[0] is consistent with len(omode_occu) as '1'
+2026-03-10 02:42:08,676 - obj.shape[1] is consistent with Nlayer as '6'
+2026-03-10 02:42:08,678 - crop positions (yx_min=[52 52], yx_max=[564 564]) are well contained inside object canvas (Ny,Nx) = (614, 614).
+2026-03-10 02:42:08,678 - obj_tilts is consistent with either 1 or N_scans
+2026-03-10 02:42:08,678 - Pass the consistency check of initialized variables, initialization is done!
+2026-03-10 02:42:08,678 -  
+2026-03-10 02:42:08,678 - ### Collecting reconstruction provenance ###
+2026-03-10 02:42:08,678 - Reconstruction provenance is collected and initialized.
+2026-03-10 02:42:08,678 -  
+2026-03-10 02:42:08,678 - ### Initializing loss function ###
+2026-03-10 02:42:08,678 - Active loss types:
+2026-03-10 02:42:08,678 -   loss_single : {'state': True, 'weight': 1.0, 'dp_pow': 0.5}
+2026-03-10 02:42:08,678 -  
+2026-03-10 02:42:08,678 - ### Initializing constraint function ###
+2026-03-10 02:42:08,678 - Active constraint types:
+2026-03-10 02:42:08,678 -   ortho_pmode   : {'start_iter': 1, 'step': 1, 'end_iter': None}
+2026-03-10 02:42:08,678 -   fix_probe_int : {'start_iter': 1, 'step': 1, 'end_iter': None}
+2026-03-10 02:42:08,678 -   obj_rblur     : {'start_iter': 1, 'step': 1, 'end_iter': None, 'obj_type': 'both', 'kernel_size': 5, 'std': 0.5}
+2026-03-10 02:42:08,678 -   obj_zblur     : {'start_iter': 1, 'step': 1, 'end_iter': None, 'obj_type': 'both', 'kernel_size': 5, 'std': 1.0}
+2026-03-10 02:42:08,678 -   obja_thresh   : {'start_iter': 1, 'step': 1, 'end_iter': None, 'relax': 0.0, 'thresh': [0.98, 1.02]}
+2026-03-10 02:42:08,678 -   pos_recenter  : {'start_iter': 1, 'step': 1, 'end_iter': None, 'relax': 0.0}
+2026-03-10 02:42:08,678 -  
+2026-03-10 02:42:08,678 - ### Done initializing PtyRADSolver ###
+2026-03-10 02:42:08,678 -  
+2026-03-10 02:42:08,678 - ### Starting the PtyRADSolver in reconstruct mode ###
+2026-03-10 02:42:08,678 -  
+2026-03-10 02:42:08,678 - ### Initializing PtychoModel model ###
+2026-03-10 02:42:09,111 - ### PtychoModel optimizable variables ###
+2026-03-10 02:42:09,112 - obja            : torch.Size([1, 6, 614, 614])    , torch.float32   , device:cuda:0, grad:True , lr:5e-04
+2026-03-10 02:42:09,112 - objp            : torch.Size([1, 6, 614, 614])    , torch.float32   , device:cuda:0, grad:True , lr:5e-04
+2026-03-10 02:42:09,112 - obj_tilts       : torch.Size([1, 2])              , torch.float32   , device:cuda:0, grad:False, lr:0e+00
+2026-03-10 02:42:09,112 - slice_thickness : torch.Size([])                  , torch.float32   , device:cuda:0, grad:False, lr:0e+00
+2026-03-10 02:42:09,112 - probe           : torch.Size([6, 128, 128, 2])    , torch.float32   , device:cuda:0, grad:True , lr:1e-04
+2026-03-10 02:42:09,112 - probe_pos_shifts: torch.Size([16384, 2])          , torch.float32   , device:cuda:0, grad:True , lr:5e-04
+2026-03-10 02:42:09,112 -  
+2026-03-10 02:42:09,112 - ### Optimizable variables statitsics ###
+2026-03-10 02:42:09,112 - Total measurement values  : 268,435,456
+2026-03-10 02:42:09,112 - Total optimizing variables: 4,753,328
+2026-03-10 02:42:09,112 - Overdetermined ratio      : 56.47
+2026-03-10 02:42:09,112 -  
+2026-03-10 02:42:09,112 - ### Model behavior ###
+2026-03-10 02:42:09,112 - Tilt propagator           : False
+2026-03-10 02:42:09,112 - Change slice thickness    : False
+2026-03-10 02:42:09,112 - Sub-px probe shift        : True
+2026-03-10 02:42:09,112 - Detector blur             : False
+2026-03-10 02:42:09,112 - Preload data              : True
+2026-03-10 02:42:09,112 - On-the-fly meas padding   : False
+2026-03-10 02:42:09,112 - On-the-fly meas resample  : False
+2026-03-10 02:42:09,112 -  
+2026-03-10 02:42:09,113 - ### Done initializing PtychoModel model ###
+2026-03-10 02:42:09,113 -  
+2026-03-10 02:42:09,113 - ### Creating PyTorch 'Adam' optimizer with configs = {} ###
+2026-03-10 02:42:09,113 -  
+2026-03-10 02:42:09,113 - ### Generating indices, batches, and output_path ###
+2026-03-10 02:42:09,114 - d90 = 23.000 px or 3.436 Ang
+2026-03-10 02:42:09,114 - Selecting indices with the 'full' mode 
+2026-03-10 02:42:09,115 - Generated 256 'random' groups of ~64 scan positions in 0.001 sec
+2026-03-10 02:42:09,444 - The effective batch size (i.e., how many probe positions are simultaneously used for 1 update of ptychographic parameters) is batch_size * grad_accumulation = 64 * 1 = 64
+2026-03-10 02:42:09,444 - Original recon_dir_affixes = ['default', 'optimizer', 'start_iter', 'lr', 'model', 'constraint', 'loss']
+2026-03-10 02:42:09,444 - Expanded recon_dir_affixes = ['indices', 'meas', 'batch', 'pmode', 'omode', 'nlayer', 'lr', 'model', 'constraint', 'loss', 'affine', 'tilt', 'aberrations', 'optimizer', 'start_iter']
+2026-03-10 02:42:09,445 - output_path = '/workspace/ptycho_benchmark/output/tBL_WSe2/20260309_ptyrad_cloud_table_r1/full_N16384_dp128_flipT100_random64_p6_1obj_6slice_dz2_Adam_plr1e-4_oalr5e-4_oplr5e-4_slr5e-4_orblur0.5_ozblur1.0_oathr0.98_sng1.0_aff1.00_0.00_-3.0_0.0' is generated!
+2026-03-10 02:42:10,284 -  
+2026-03-10 02:42:10,288 - ### Log file is flushed (created) as /workspace/ptycho_benchmark/output/tBL_WSe2/20260309_ptyrad_cloud_table_r1/full_N16384_dp128_flipT100_random64_p6_1obj_6slice_dz2_Adam_plr1e-4_oalr5e-4_oplr5e-4_slr5e-4_orblur0.5_ozblur1.0_oathr0.98_sng1.0_aff1.00_0.00_-3.0_0.0/20260310_024210_ptyrad_log.txt ###
+2026-03-10 02:42:10,288 -  
+2026-03-10 02:42:10,288 - ### Start the PtyRAD iterative ptycho reconstruction ###
+2026-03-10 02:42:10,288 - Setting up PyTorch compiler with {'fullgraph': False, 'dynamic': None, 'backend': 'inductor', 'mode': 'default', 'options': None, 'disable': False}
+2026-03-10 02:42:15,274 - Iter: 1, Total Loss: 0.4984, loss_single: 0.4984, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 4.983 sec
+2026-03-10 02:42:16,805 - Iter: 2, Total Loss: 0.4024, loss_single: 0.4024, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.531 sec
+2026-03-10 02:42:18,336 - Iter: 3, Total Loss: 0.3992, loss_single: 0.3992, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.529 sec
+2026-03-10 02:42:19,869 - Iter: 4, Total Loss: 0.3980, loss_single: 0.3980, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.532 sec
+2026-03-10 02:42:21,400 - Iter: 5, Total Loss: 0.3972, loss_single: 0.3972, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.530 sec
+2026-03-10 02:42:22,933 - Iter: 6, Total Loss: 0.3966, loss_single: 0.3966, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.531 sec
+2026-03-10 02:42:24,464 - Iter: 7, Total Loss: 0.3961, loss_single: 0.3961, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.530 sec
+2026-03-10 02:42:25,994 - Iter: 8, Total Loss: 0.3957, loss_single: 0.3957, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.530 sec
+2026-03-10 02:42:27,524 - Iter: 9, Total Loss: 0.3952, loss_single: 0.3952, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.529 sec
+2026-03-10 02:42:29,055 - Iter: 10, Total Loss: 0.3949, loss_single: 0.3949, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 1.530 sec
+2026-03-10 02:42:29,056 - ### Finished 10 iterations, averaged iter_t = 1.8755 with std = 1.036 ###
+2026-03-10 02:42:29,057 -  
+2026-03-10 02:42:29,057 - ### The PtyRADSolver is finished in 20.379 sec ###
+2026-03-10 02:42:29,057 -  
+2026-03-10 02:42:29,353 - ### PtyRAD LoggingManager configuration ###
+2026-03-10 02:42:29,353 - log_file       = 'ptyrad_log.txt'. If log_file = None, no log file will be created.
+2026-03-10 02:42:29,353 - log_dir        = 'auto'. If log_dir = 'auto', then log will be saved to `output_path` or 'logs/'.
+2026-03-10 02:42:29,353 - flush_file     = True. Automatically set to True if `log_file is not None`
+2026-03-10 02:42:29,353 - prefix_time    = datetime. If true, preset strings ('date', 'time', 'datetime'), or a string of time format, a datetime str is prefixed to the `log_file`.
+2026-03-10 02:42:29,353 - prefix_jobid   = '0'. If not 0, it'll be prefixed to the log file. This is used for hypertune mode with multiple GPUs.
+2026-03-10 02:42:29,353 - append_to_file = True. If true, logs will be appended to the existing file. If false, the log file will be overwritten.
+2026-03-10 02:42:29,353 - show_timestamp = True. If true, the printed information will contain a timestamp.
+2026-03-10 02:42:29,353 -  
+2026-03-10 02:42:29,353 - ### Loading params file ###
+2026-03-10 02:42:29,353 - params_path = params/ptyrad_table_tBL_WSe2.yml
+2026-03-10 02:42:29,378 - WARNING: For constraint_params, 'freq' is depracated since PtyRAD v0.1.0b11 and is automatically converted to 'step'.
+2026-03-10 02:42:29,378 - WARNING: Probe aberrations '['probe_defocus', 'probe_c3', 'probe_c5']' in 'init_params' are depracated since PtyRAD v0.1.0b13 and are automatically converted to 'probe_aberrations' dict.
+2026-03-10 02:42:29,378 - validate = True: Filling defaults and validating the params file...
+2026-03-10 02:42:29,379 - Success! Params file validated and defaults applied.
+2026-03-10 02:42:29,379 -  
+2026-03-10 02:42:29,379 - ### Setting GPU Device ###
+2026-03-10 02:42:29,379 - Selected GPU device: cuda:0 (NVIDIA H100 80GB HBM3)
+2026-03-10 02:42:29,379 -  
+### Running (round_idx, batch, pmode, slice) = (1, 32, 6, 6) ###
+2026-03-10 02:42:29,380 - ### Initializing Initializer ###
+2026-03-10 02:42:29,380 - init_params are displayed below:
+2026-03-10 02:42:29,380 -   random_seed: None
+2026-03-10 02:42:29,380 -   probe_illum_type: electron
+2026-03-10 02:42:29,380 -   probe_kv: 80.0
+2026-03-10 02:42:29,380 -   probe_conv_angle: 24.9
+2026-03-10 02:42:29,380 -   probe_aberrations: {}
+2026-03-10 02:42:29,380 -   beam_kev: None
+2026-03-10 02:42:29,380 -   probe_dRn: None
+2026-03-10 02:42:29,380 -   probe_Rn: None
+2026-03-10 02:42:29,380 -   probe_D_H: None
+2026-03-10 02:42:29,380 -   probe_D_FZP: None
+2026-03-10 02:42:29,380 -   probe_Ls: None
+2026-03-10 02:42:29,380 -   meas_Npix: 128
+2026-03-10 02:42:29,380 -   pos_N_scans: 16384
+2026-03-10 02:42:29,380 -   pos_N_scan_slow: 128
+2026-03-10 02:42:29,380 -   pos_N_scan_fast: 128
+2026-03-10 02:42:29,380 -   pos_scan_step_size: 0.429
+2026-03-10 02:42:29,380 -   meas_calibration: {'mode': 'dx', 'value': 0.1494}
+2026-03-10 02:42:29,380 -   probe_pmode_max: 6
+2026-03-10 02:42:29,380 -   probe_pmode_init_pows: [0.02]
+2026-03-10 02:42:29,380 -   obj_omode_max: 1
+2026-03-10 02:42:29,380 -   obj_omode_init_occu: {'occu_type': 'uniform', 'init_occu': None}
+2026-03-10 02:42:29,380 -   obj_Nlayer: 6
+2026-03-10 02:42:29,380 -   obj_slice_thickness: 2.0
+2026-03-10 02:42:29,380 -   meas_permute: None
+2026-03-10 02:42:29,380 -   meas_reshape: None
+2026-03-10 02:42:29,380 -   meas_flipT: [1, 0, 0]
+2026-03-10 02:42:29,380 -   meas_crop: None
+2026-03-10 02:42:29,380 -   meas_pad: {'mode': None, 'padding_type': 'power', 'target_Npix': 256, 'value': 0.0, 'threshold': 70}
+2026-03-10 02:42:29,380 -   meas_resample: {'mode': None, 'scale_factors': [2.0, 2.0]}
+2026-03-10 02:42:29,380 -   meas_add_source_size: None
+2026-03-10 02:42:29,380 -   meas_add_detector_blur: None
+2026-03-10 02:42:29,380 -   meas_remove_neg_values: {'mode': 'clip_neg', 'value': None, 'force': False}
+2026-03-10 02:42:29,380 -   meas_normalization: {'mode': 'max_at_one', 'value': None}
+2026-03-10 02:42:29,380 -   meas_add_poisson_noise: None
+2026-03-10 02:42:29,380 -   meas_export: None
+2026-03-10 02:42:29,380 -   probe_permute: None
+2026-03-10 02:42:29,380 -   probe_z_shift: None
+2026-03-10 02:42:29,380 -   probe_normalization: {'mode': 'mean_total_ints', 'value': None}
+2026-03-10 02:42:29,380 -   pos_scan_flipT: None
+2026-03-10 02:42:29,380 -   pos_scan_affine: [1.0, 0.0, -3.0, 0.0]
+2026-03-10 02:42:29,380 -   pos_scan_rand_std: 0.0
+2026-03-10 02:42:29,380 -   obj_z_crop: None
+2026-03-10 02:42:29,380 -   obj_z_pad: None
+2026-03-10 02:42:29,380 -   obj_z_resample: None
+2026-03-10 02:42:29,380 -   meas_source: file
+2026-03-10 02:42:29,381 -   meas_params: {'path': 'data/tBL_WSe2/Panel_g-h_Themis/scan_x128_y128.raw', 'key': None, 'shape': None, 'offset': None, 'gap': None}
+2026-03-10 02:42:29,381 -   probe_source: simu
+2026-03-10 02:42:29,381 -   probe_params: None
+2026-03-10 02:42:29,381 -   pos_source: simu
+2026-03-10 02:42:29,381 -   pos_params: None
+2026-03-10 02:42:29,381 -   obj_source: simu
+2026-03-10 02:42:29,381 -   obj_params: None
+2026-03-10 02:42:29,381 -   tilt_source: simu
+2026-03-10 02:42:29,381 -   tilt_params: {'tilt_type': 'all', 'init_tilts': [[0.0, 0.0]]}
+2026-03-10 02:42:29,381 -  
+2026-03-10 02:42:29,381 - ### Initializing cache ###
+2026-03-10 02:42:29,381 - use_cached_obj   = False
+2026-03-10 02:42:29,381 - use_cached_probe = False
+2026-03-10 02:42:29,381 - use_cached_pos   = False
+2026-03-10 02:42:29,381 -  
+2026-03-10 02:42:29,381 - ### Initializing measurements ###
+2026-03-10 02:42:29,381 - Loading measurements from source = 'file'
+2026-03-10 02:42:29,381 - Detected measurement file type = '.raw'
+2026-03-10 02:42:29,381 - WARNING: Couldn't find the 'shape' in 'meas_params' with file type = '.raw'.
+2026-03-10 02:42:29,381 - It is strongly recommended to provide an explicit shape to better load from .raw files
+2026-03-10 02:42:29,381 - PtyRAD will still try to load the dataset based on the provided 'init_params', but you may consider setting 'shape': (N_scans, Npix, Npix) inside your 'meas_params' dict.
+2026-03-10 02:42:29,690 - Original measurements dtype is float32, casting to float32 (single precision) for computational efficiency.
+2026-03-10 02:42:29,690 - Imported meausrements shape / dtype = (16384, 128, 128), dtype = float32
+2026-03-10 02:42:29,990 - Imported meausrements int. statistics (min, mean, max) = (-30.8785, 1814.7078, 99441.8047)
+2026-03-10 02:42:29,990 - Flipping measurements with [flipud, fliplr, transpose] = [1, 0, 0]
+2026-03-10 02:42:30,326 - Removing negative values in measurement with method = clip_neg and value = None
+2026-03-10 02:42:30,445 - Minimum value = -30.8785, negative values are clipped to 0 due to the positive px value constraint of measurements
+2026-03-10 02:42:32,068 - Normalizing measurements with mode = 'max_at_one' and value = 'None'
+2026-03-10 02:42:32,214 - Normalizing by max of the 2D mean pattern intensity: 67097.391
+2026-03-10 02:42:32,300 - meausrements shape / dtype = (16384, 128, 128), dtype = float32
+2026-03-10 02:42:32,699 - meausrements int. statistics (min, mean, max) = (0.0000, 0.0271, 1.4821)
+2026-03-10 02:42:32,910 - No negative values found in measurements. Skipping non-neg correction.
+2026-03-10 02:42:33,219 - Pattern total int. statistics (min, mean, max)        = (438.8489, 443.3112, 447.6965), with min/max = 98.0%
+2026-03-10 02:42:33,624 - Global meausrements int. statistics (min, mean, max)  = (0.0000, 0.0271, 1.4821)
+2026-03-10 02:42:33,624 - measurements                              (N, Ky, Kx) = float32, (16384, 128, 128)
+2026-03-10 02:42:33,624 -  
+2026-03-10 02:42:33,624 - ### Setting up calibration ###
+2026-03-10 02:42:33,624 - meas_calibration mode = 'dx', value = 0.1494
+2026-03-10 02:42:33,624 - Using loaded raw averaged measurement (before crop/pad/resample) to fit RBF as a part of the meas calibration
+2026-03-10 02:42:33,624 - Radius of fitted bright field disk (RBF) = 11.64 px with Npix = 128
+2026-03-10 02:42:33,624 - Suggested probe_mask_k radius (RBF*2/Npix) > 0.1819
+2026-03-10 02:42:33,624 - Fitting raw averaged measurement with center, radius, and Gaussian blur std as a sanity check
+2026-03-10 02:42:33,624 - Note that the fitted Gaussian blur std (detector blur) would be affected by overlapping Bragg disks
+2026-03-10 02:42:33,625 - Initial guess: center=(63.78, 63.93), radius=11.64, Gaussian blur std=0.50
+2026-03-10 02:42:33,633 - Final fit: center=(63.78, 63.93), radius=11.64, Gaussian blur std=0.54
+2026-03-10 02:42:33,633 - Using init_params, the inferred RBF (conv_angle / 1e3 * Npix * dx / wavelength) = 11.40 px with Npix = 128
+2026-03-10 02:42:33,633 - dx (real space pixel size of probe and object) set to 0.1494 Ang with Npix = 128
+2026-03-10 02:42:33,633 -  
+2026-03-10 02:42:33,633 - ### Setting init_variables dict ###
+2026-03-10 02:42:33,633 - Derived values given input init_params:
+2026-03-10 02:42:33,633 -   kv          = 80.0 kV
+2026-03-10 02:42:33,633 -   wavelength  = 0.0418 Ang
+2026-03-10 02:42:33,633 -   conv_angle  = 24.9 mrad
+2026-03-10 02:42:33,633 -   Npix        = 128 px
+2026-03-10 02:42:33,633 -   dk          = 0.0523 Ang^-1
+2026-03-10 02:42:33,633 -   kMax        = 3.3467 Ang^-1
+2026-03-10 02:42:33,633 -   da          = 2.1836 mrad
+2026-03-10 02:42:33,633 -   angleMax    = 139.7495 mrad
+2026-03-10 02:42:33,633 -   RBF         = 11.4033 px (Inferred from the given calibration, NOT necessarily from the loaded measurement data)
+2026-03-10 02:42:33,633 -   n_alpha     = 5.6124 (# conv_angle)
+2026-03-10 02:42:33,633 -   dx          = 0.1494 Ang, Nyquist-limited dmin = 2*dx = 0.2988 Ang
+2026-03-10 02:42:33,633 -   Rayleigh-limited resolution  = 1.0230 Ang (0.61*lambda/alpha for focused probe )
+2026-03-10 02:42:33,633 -   Real space probe extent = 19.1232 Ang
+2026-03-10 02:42:33,633 -  
+2026-03-10 02:42:33,633 - ### Initializing probe ###
+2026-03-10 02:42:33,633 - Loading probe from source = 'simu'
+2026-03-10 02:42:33,633 - Using experimental parameters specified by 'init_params' for initial probe simulation.
+2026-03-10 02:42:33,633 - Start simulating STEM probe
+2026-03-10 02:42:33,633 -   kv          = 80.0 kV
+2026-03-10 02:42:33,633 -   wavelength  = 0.0418 Ang
+2026-03-10 02:42:33,633 -   conv_angle  = 24.9 mrad
+2026-03-10 02:42:33,633 -   Npix        = 128 px
+2026-03-10 02:42:33,634 -   dk          = 0.0523 Ang^-1
+2026-03-10 02:42:33,634 -   kMax        = 3.3467 Ang^-1
+2026-03-10 02:42:33,634 -   alpha_max   = 139.7495 mrad
+2026-03-10 02:42:33,634 -   dx          = 0.1494 Ang, Nyquist-limited dmin = 2*dx = 0.2988 Ang
+2026-03-10 02:42:33,634 -   Rayleigh-limited resolution  = 1.0230 Ang (0.61*lambda/alpha for focused probe )
+2026-03-10 02:42:33,634 -   Real space probe extent = 19.1232 Ang
+2026-03-10 02:42:33,634 - Aberrations(Empty)
+2026-03-10 02:42:33,635 - Loaded probe shape = (1, 128, 128), dtype = complex128
+2026-03-10 02:42:33,635 - pmode_now: 1 and pmode_max: 6, padding the pmode.
+2026-03-10 02:42:33,635 - Creating 5 new probe modes from the major mode
+2026-03-10 02:42:33,635 - Start making mixed-state STEM probe with 6 incoherent probe modes
+2026-03-10 02:42:33,641 - Relative power of probe modes = [0.9  0.02 0.02 0.02 0.02 0.02]
+2026-03-10 02:42:33,643 - Orthogonalizing 6 pmodes
+2026-03-10 02:42:33,644 - Sorting 6 pmodes by their intensities
+2026-03-10 02:42:33,644 - Normalizing probe intensity with mode = 'mean_total_ints' and value = 'None'
+2026-03-10 02:42:33,645 - sum(|probe_data|**2) = 443.31, while meas_total_ints (min, mean, max) = (438.8489, 443.3112, 447.6965)
+2026-03-10 02:42:33,646 - probe                         (pmode, Ny, Nx) = complex64, (6, 128, 128)
+2026-03-10 02:42:33,646 -  
+2026-03-10 02:42:33,646 - ### Initializing probe positions ###
+2026-03-10 02:42:33,646 - Loading probe positions from source = 'simu'
+2026-03-10 02:42:33,646 - Using experimental parameters specified by 'init_params' (dx, scan_step size, N_scan_slow, N_scan_fast) for initial position simulation.
+2026-03-10 02:42:33,646 - Simulating probe positions with dx = 0.1494, scan_step_size = 0.4290, N_scan_fast = 128, N_scan_slow = 128
+2026-03-10 02:42:33,656 - Applying affine transformation to scan pattern with (scale, asymmetry, rotation, shear) = (1.0, 0.0, -3.0, 0.0)
+2026-03-10 02:42:33,657 - Applying Gaussian distributed random displacement with std = 0.0 px to scan positions
+2026-03-10 02:42:33,659 - crop_pos                                (N,2) = int16, (16384, 2)
+2026-03-10 02:42:33,659 - crop_pos 1st and last px coords (y,x)         = ([52, 71], [436, 417])
+2026-03-10 02:42:33,660 - crop_pos extent (Ang)                         = [57.3696 57.3696]
+2026-03-10 02:42:33,660 - probe_pos_shifts                        (N,2) = float32, (16384, 2)
+2026-03-10 02:42:33,660 -  
+2026-03-10 02:42:33,660 - ### Initializing object ###
+2026-03-10 02:42:33,660 - Loading object from source = 'simu'
+2026-03-10 02:42:33,660 - Using experimental parameters specified by 'init_params' for initial object simulation.
+2026-03-10 02:42:33,789 - omode_now: 1 and omode_max: 1, leaving the omode unchanged.
+2026-03-10 02:42:33,793 - object                    (omode, Nz, Ny, Nx) = complex64, (1, 6, 614, 614)
+2026-03-10 02:42:33,793 - object extent                 (Z, Y, X) (Ang) = [12.     91.7316 91.7316]
+2026-03-10 02:42:33,793 -  
+2026-03-10 02:42:33,793 - ### Initializing omode_occu from 'uniform' ###
+2026-03-10 02:42:33,793 - omode_occu                            (omode) = float32, (1,)
+2026-03-10 02:42:33,793 -  
+2026-03-10 02:42:33,793 - ### Initializing H (Fresnel propagator) ###
+2026-03-10 02:42:33,793 - Calculating H with probe_shape = [128. 128.] px, dx = 0.1494 Ang, slice_thickness = 2.0000 Ang, lambd = 0.0418 Ang
+2026-03-10 02:42:33,794 - H                                    (Ky, Kx) = complex64, (128, 128)
+2026-03-10 02:42:33,794 -  
+2026-03-10 02:42:33,794 - ### Initializing obj tilts from = 'simu' ###
+2026-03-10 02:42:33,794 - Initialized obj_tilts with init_tilts = [[0.0, 0.0]] (theta_y, theta_x) mrad
+2026-03-10 02:42:33,794 - obj_tilts                              (N, 2) = float32, (1, 2)
+2026-03-10 02:42:33,794 -  
+2026-03-10 02:42:33,794 - ### Checking consistency between input params with the initialized variables ###
+2026-03-10 02:42:33,794 - Npix, DP measurements, probe, and H shapes are consistent as '128'
+2026-03-10 02:42:33,794 - N_scans, len(meas), N_scan_slow*N_scan_fast, len(crop_pos), and len(probe_pos_shifts) are consistent as '16384'
+2026-03-10 02:42:33,794 - obj.shape[0] is consistent with len(omode_occu) as '1'
+2026-03-10 02:42:33,794 - obj.shape[1] is consistent with Nlayer as '6'
+2026-03-10 02:42:33,795 - crop positions (yx_min=[52 52], yx_max=[564 564]) are well contained inside object canvas (Ny,Nx) = (614, 614).
+2026-03-10 02:42:33,795 - obj_tilts is consistent with either 1 or N_scans
+2026-03-10 02:42:33,795 - Pass the consistency check of initialized variables, initialization is done!
+2026-03-10 02:42:33,795 -  
+2026-03-10 02:42:33,795 - ### Collecting reconstruction provenance ###
+2026-03-10 02:42:33,795 - Reconstruction provenance is collected and initialized.
+2026-03-10 02:42:33,795 -  
+2026-03-10 02:42:33,795 - ### Initializing loss function ###
+2026-03-10 02:42:33,795 - Active loss types:
+2026-03-10 02:42:33,795 -   loss_single : {'state': True, 'weight': 1.0, 'dp_pow': 0.5}
+2026-03-10 02:42:33,796 -  
+2026-03-10 02:42:33,796 - ### Initializing constraint function ###
+2026-03-10 02:42:33,796 - Active constraint types:
+2026-03-10 02:42:33,796 -   ortho_pmode   : {'start_iter': 1, 'step': 1, 'end_iter': None}
+2026-03-10 02:42:33,796 -   fix_probe_int : {'start_iter': 1, 'step': 1, 'end_iter': None}
+2026-03-10 02:42:33,796 -   obj_rblur     : {'start_iter': 1, 'step': 1, 'end_iter': None, 'obj_type': 'both', 'kernel_size': 5, 'std': 0.5}
+2026-03-10 02:42:33,796 -   obj_zblur     : {'start_iter': 1, 'step': 1, 'end_iter': None, 'obj_type': 'both', 'kernel_size': 5, 'std': 1.0}
+2026-03-10 02:42:33,796 -   obja_thresh   : {'start_iter': 1, 'step': 1, 'end_iter': None, 'relax': 0.0, 'thresh': [0.98, 1.02]}
+2026-03-10 02:42:33,796 -   pos_recenter  : {'start_iter': 1, 'step': 1, 'end_iter': None, 'relax': 0.0}
+2026-03-10 02:42:33,796 -  
+2026-03-10 02:42:33,796 - ### Done initializing PtyRADSolver ###
+2026-03-10 02:42:33,796 -  
+2026-03-10 02:42:33,796 - ### Starting the PtyRADSolver in reconstruct mode ###
+2026-03-10 02:42:33,796 -  
+2026-03-10 02:42:33,796 - ### Initializing PtychoModel model ###
+2026-03-10 02:42:34,235 - ### PtychoModel optimizable variables ###
+2026-03-10 02:42:34,235 - obja            : torch.Size([1, 6, 614, 614])    , torch.float32   , device:cuda:0, grad:True , lr:5e-04
+2026-03-10 02:42:34,235 - objp            : torch.Size([1, 6, 614, 614])    , torch.float32   , device:cuda:0, grad:True , lr:5e-04
+2026-03-10 02:42:34,235 - obj_tilts       : torch.Size([1, 2])              , torch.float32   , device:cuda:0, grad:False, lr:0e+00
+2026-03-10 02:42:34,235 - slice_thickness : torch.Size([])                  , torch.float32   , device:cuda:0, grad:False, lr:0e+00
+2026-03-10 02:42:34,235 - probe           : torch.Size([6, 128, 128, 2])    , torch.float32   , device:cuda:0, grad:True , lr:1e-04
+2026-03-10 02:42:34,235 - probe_pos_shifts: torch.Size([16384, 2])          , torch.float32   , device:cuda:0, grad:True , lr:5e-04
+2026-03-10 02:42:34,235 -  
+2026-03-10 02:42:34,235 - ### Optimizable variables statitsics ###
+2026-03-10 02:42:34,235 - Total measurement values  : 268,435,456
+2026-03-10 02:42:34,235 - Total optimizing variables: 4,753,328
+2026-03-10 02:42:34,235 - Overdetermined ratio      : 56.47
+2026-03-10 02:42:34,235 -  
+2026-03-10 02:42:34,235 - ### Model behavior ###
+2026-03-10 02:42:34,235 - Tilt propagator           : False
+2026-03-10 02:42:34,235 - Change slice thickness    : False
+2026-03-10 02:42:34,235 - Sub-px probe shift        : True
+2026-03-10 02:42:34,235 - Detector blur             : False
+2026-03-10 02:42:34,235 - Preload data              : True
+2026-03-10 02:42:34,235 - On-the-fly meas padding   : False
+2026-03-10 02:42:34,235 - On-the-fly meas resample  : False
+2026-03-10 02:42:34,235 -  
+2026-03-10 02:42:34,236 - ### Done initializing PtychoModel model ###
+2026-03-10 02:42:34,236 -  
+2026-03-10 02:42:34,236 - ### Creating PyTorch 'Adam' optimizer with configs = {} ###
+2026-03-10 02:42:34,236 -  
+2026-03-10 02:42:34,236 - ### Generating indices, batches, and output_path ###
+2026-03-10 02:42:34,237 - d90 = 23.000 px or 3.436 Ang
+2026-03-10 02:42:34,237 - Selecting indices with the 'full' mode 
+2026-03-10 02:42:34,238 - Generated 512 'random' groups of ~32 scan positions in 0.001 sec
+2026-03-10 02:42:34,887 - The effective batch size (i.e., how many probe positions are simultaneously used for 1 update of ptychographic parameters) is batch_size * grad_accumulation = 32 * 1 = 32
+2026-03-10 02:42:34,887 - Original recon_dir_affixes = ['default', 'optimizer', 'start_iter', 'lr', 'model', 'constraint', 'loss']
+2026-03-10 02:42:34,888 - Expanded recon_dir_affixes = ['indices', 'meas', 'batch', 'pmode', 'omode', 'nlayer', 'lr', 'model', 'constraint', 'loss', 'affine', 'tilt', 'aberrations', 'optimizer', 'start_iter']
+2026-03-10 02:42:34,888 - output_path = '/workspace/ptycho_benchmark/output/tBL_WSe2/20260309_ptyrad_cloud_table_r1/full_N16384_dp128_flipT100_random32_p6_1obj_6slice_dz2_Adam_plr1e-4_oalr5e-4_oplr5e-4_slr5e-4_orblur0.5_ozblur1.0_oathr0.98_sng1.0_aff1.00_0.00_-3.0_0.0' is generated!
+2026-03-10 02:42:36,430 -  
+2026-03-10 02:42:36,437 - ### Log file is flushed (created) as /workspace/ptycho_benchmark/output/tBL_WSe2/20260309_ptyrad_cloud_table_r1/full_N16384_dp128_flipT100_random32_p6_1obj_6slice_dz2_Adam_plr1e-4_oalr5e-4_oplr5e-4_slr5e-4_orblur0.5_ozblur1.0_oathr0.98_sng1.0_aff1.00_0.00_-3.0_0.0/20260310_024236_ptyrad_log.txt ###
+2026-03-10 02:42:36,437 -  
+2026-03-10 02:42:36,438 - ### Start the PtyRAD iterative ptycho reconstruction ###
+2026-03-10 02:42:36,438 - Setting up PyTorch compiler with {'fullgraph': False, 'dynamic': None, 'backend': 'inductor', 'mode': 'default', 'options': None, 'disable': False}
+2026-03-10 02:42:41,717 - Iter: 1, Total Loss: 0.4531, loss_single: 0.4531, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 5.277 sec
+2026-03-10 02:42:43,758 - Iter: 2, Total Loss: 0.4006, loss_single: 0.4006, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 2.040 sec
+2026-03-10 02:42:45,805 - Iter: 3, Total Loss: 0.3987, loss_single: 0.3987, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 2.045 sec
+2026-03-10 02:42:47,863 - Iter: 4, Total Loss: 0.3977, loss_single: 0.3977, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 2.057 sec
+2026-03-10 02:42:49,908 - Iter: 5, Total Loss: 0.3969, loss_single: 0.3969, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 2.043 sec
+2026-03-10 02:42:51,956 - Iter: 6, Total Loss: 0.3962, loss_single: 0.3962, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 2.046 sec
+2026-03-10 02:42:54,000 - Iter: 7, Total Loss: 0.3956, loss_single: 0.3956, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 2.043 sec
+2026-03-10 02:42:56,037 - Iter: 8, Total Loss: 0.3950, loss_single: 0.3950, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 2.035 sec
+2026-03-10 02:42:58,068 - Iter: 9, Total Loss: 0.3944, loss_single: 0.3944, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 2.029 sec
+2026-03-10 02:43:00,107 - Iter: 10, Total Loss: 0.3939, loss_single: 0.3939, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 2.037 sec
+2026-03-10 02:43:00,108 - ### Finished 10 iterations, averaged iter_t = 2.3652 with std = 0.971 ###
+2026-03-10 02:43:00,109 -  
+2026-03-10 02:43:00,110 - ### The PtyRADSolver is finished in 26.314 sec ###
+2026-03-10 02:43:00,110 -  
+2026-03-10 02:43:00,417 - ### PtyRAD LoggingManager configuration ###
+2026-03-10 02:43:00,417 - log_file       = 'ptyrad_log.txt'. If log_file = None, no log file will be created.
+2026-03-10 02:43:00,417 - log_dir        = 'auto'. If log_dir = 'auto', then log will be saved to `output_path` or 'logs/'.
+2026-03-10 02:43:00,417 - flush_file     = True. Automatically set to True if `log_file is not None`
+2026-03-10 02:43:00,417 - prefix_time    = datetime. If true, preset strings ('date', 'time', 'datetime'), or a string of time format, a datetime str is prefixed to the `log_file`.
+2026-03-10 02:43:00,417 - prefix_jobid   = '0'. If not 0, it'll be prefixed to the log file. This is used for hypertune mode with multiple GPUs.
+2026-03-10 02:43:00,417 - append_to_file = True. If true, logs will be appended to the existing file. If false, the log file will be overwritten.
+2026-03-10 02:43:00,417 - show_timestamp = True. If true, the printed information will contain a timestamp.
+2026-03-10 02:43:00,417 -  
+2026-03-10 02:43:00,417 - ### Loading params file ###
+2026-03-10 02:43:00,417 - params_path = params/ptyrad_table_tBL_WSe2.yml
+2026-03-10 02:43:00,442 - WARNING: For constraint_params, 'freq' is depracated since PtyRAD v0.1.0b11 and is automatically converted to 'step'.
+2026-03-10 02:43:00,442 - WARNING: Probe aberrations '['probe_defocus', 'probe_c3', 'probe_c5']' in 'init_params' are depracated since PtyRAD v0.1.0b13 and are automatically converted to 'probe_aberrations' dict.
+2026-03-10 02:43:00,442 - validate = True: Filling defaults and validating the params file...
+2026-03-10 02:43:00,443 - Success! Params file validated and defaults applied.
+2026-03-10 02:43:00,443 -  
+2026-03-10 02:43:00,443 - ### Setting GPU Device ###
+2026-03-10 02:43:00,443 - Selected GPU device: cuda:0 (NVIDIA H100 80GB HBM3)
+2026-03-10 02:43:00,443 -  
+### Running (round_idx, batch, pmode, slice) = (1, 16, 6, 6) ###
+2026-03-10 02:43:00,444 - ### Initializing Initializer ###
+2026-03-10 02:43:00,444 - init_params are displayed below:
+2026-03-10 02:43:00,444 -   random_seed: None
+2026-03-10 02:43:00,444 -   probe_illum_type: electron
+2026-03-10 02:43:00,444 -   probe_kv: 80.0
+2026-03-10 02:43:00,444 -   probe_conv_angle: 24.9
+2026-03-10 02:43:00,444 -   probe_aberrations: {}
+2026-03-10 02:43:00,444 -   beam_kev: None
+2026-03-10 02:43:00,444 -   probe_dRn: None
+2026-03-10 02:43:00,444 -   probe_Rn: None
+2026-03-10 02:43:00,444 -   probe_D_H: None
+2026-03-10 02:43:00,444 -   probe_D_FZP: None
+2026-03-10 02:43:00,444 -   probe_Ls: None
+2026-03-10 02:43:00,444 -   meas_Npix: 128
+2026-03-10 02:43:00,444 -   pos_N_scans: 16384
+2026-03-10 02:43:00,444 -   pos_N_scan_slow: 128
+2026-03-10 02:43:00,444 -   pos_N_scan_fast: 128
+2026-03-10 02:43:00,444 -   pos_scan_step_size: 0.429
+2026-03-10 02:43:00,444 -   meas_calibration: {'mode': 'dx', 'value': 0.1494}
+2026-03-10 02:43:00,444 -   probe_pmode_max: 6
+2026-03-10 02:43:00,444 -   probe_pmode_init_pows: [0.02]
+2026-03-10 02:43:00,444 -   obj_omode_max: 1
+2026-03-10 02:43:00,444 -   obj_omode_init_occu: {'occu_type': 'uniform', 'init_occu': None}
+2026-03-10 02:43:00,444 -   obj_Nlayer: 6
+2026-03-10 02:43:00,444 -   obj_slice_thickness: 2.0
+2026-03-10 02:43:00,444 -   meas_permute: None
+2026-03-10 02:43:00,444 -   meas_reshape: None
+2026-03-10 02:43:00,444 -   meas_flipT: [1, 0, 0]
+2026-03-10 02:43:00,444 -   meas_crop: None
+2026-03-10 02:43:00,444 -   meas_pad: {'mode': None, 'padding_type': 'power', 'target_Npix': 256, 'value': 0.0, 'threshold': 70}
+2026-03-10 02:43:00,444 -   meas_resample: {'mode': None, 'scale_factors': [2.0, 2.0]}
+2026-03-10 02:43:00,444 -   meas_add_source_size: None
+2026-03-10 02:43:00,444 -   meas_add_detector_blur: None
+2026-03-10 02:43:00,444 -   meas_remove_neg_values: {'mode': 'clip_neg', 'value': None, 'force': False}
+2026-03-10 02:43:00,444 -   meas_normalization: {'mode': 'max_at_one', 'value': None}
+2026-03-10 02:43:00,444 -   meas_add_poisson_noise: None
+2026-03-10 02:43:00,444 -   meas_export: None
+2026-03-10 02:43:00,444 -   probe_permute: None
+2026-03-10 02:43:00,444 -   probe_z_shift: None
+2026-03-10 02:43:00,444 -   probe_normalization: {'mode': 'mean_total_ints', 'value': None}
+2026-03-10 02:43:00,444 -   pos_scan_flipT: None
+2026-03-10 02:43:00,444 -   pos_scan_affine: [1.0, 0.0, -3.0, 0.0]
+2026-03-10 02:43:00,444 -   pos_scan_rand_std: 0.0
+2026-03-10 02:43:00,444 -   obj_z_crop: None
+2026-03-10 02:43:00,444 -   obj_z_pad: None
+2026-03-10 02:43:00,444 -   obj_z_resample: None
+2026-03-10 02:43:00,444 -   meas_source: file
+2026-03-10 02:43:00,444 -   meas_params: {'path': 'data/tBL_WSe2/Panel_g-h_Themis/scan_x128_y128.raw', 'key': None, 'shape': None, 'offset': None, 'gap': None}
+2026-03-10 02:43:00,444 -   probe_source: simu
+2026-03-10 02:43:00,444 -   probe_params: None
+2026-03-10 02:43:00,444 -   pos_source: simu
+2026-03-10 02:43:00,444 -   pos_params: None
+2026-03-10 02:43:00,444 -   obj_source: simu
+2026-03-10 02:43:00,445 -   obj_params: None
+2026-03-10 02:43:00,445 -   tilt_source: simu
+2026-03-10 02:43:00,445 -   tilt_params: {'tilt_type': 'all', 'init_tilts': [[0.0, 0.0]]}
+2026-03-10 02:43:00,445 -  
+2026-03-10 02:43:00,445 - ### Initializing cache ###
+2026-03-10 02:43:00,445 - use_cached_obj   = False
+2026-03-10 02:43:00,445 - use_cached_probe = False
+2026-03-10 02:43:00,445 - use_cached_pos   = False
+2026-03-10 02:43:00,445 -  
+2026-03-10 02:43:00,445 - ### Initializing measurements ###
+2026-03-10 02:43:00,445 - Loading measurements from source = 'file'
+2026-03-10 02:43:00,445 - Detected measurement file type = '.raw'
+2026-03-10 02:43:00,445 - WARNING: Couldn't find the 'shape' in 'meas_params' with file type = '.raw'.
+2026-03-10 02:43:00,445 - It is strongly recommended to provide an explicit shape to better load from .raw files
+2026-03-10 02:43:00,445 - PtyRAD will still try to load the dataset based on the provided 'init_params', but you may consider setting 'shape': (N_scans, Npix, Npix) inside your 'meas_params' dict.
+2026-03-10 02:43:00,748 - Original measurements dtype is float32, casting to float32 (single precision) for computational efficiency.
+2026-03-10 02:43:00,748 - Imported meausrements shape / dtype = (16384, 128, 128), dtype = float32
+2026-03-10 02:43:01,044 - Imported meausrements int. statistics (min, mean, max) = (-30.8785, 1814.7078, 99441.8047)
+2026-03-10 02:43:01,044 - Flipping measurements with [flipud, fliplr, transpose] = [1, 0, 0]
+2026-03-10 02:43:01,351 - Removing negative values in measurement with method = clip_neg and value = None
+2026-03-10 02:43:01,468 - Minimum value = -30.8785, negative values are clipped to 0 due to the positive px value constraint of measurements
+2026-03-10 02:43:03,062 - Normalizing measurements with mode = 'max_at_one' and value = 'None'
+2026-03-10 02:43:03,197 - Normalizing by max of the 2D mean pattern intensity: 67097.391
+2026-03-10 02:43:03,283 - meausrements shape / dtype = (16384, 128, 128), dtype = float32
+2026-03-10 02:43:03,673 - meausrements int. statistics (min, mean, max) = (0.0000, 0.0271, 1.4821)
+2026-03-10 02:43:03,868 - No negative values found in measurements. Skipping non-neg correction.
+2026-03-10 02:43:04,166 - Pattern total int. statistics (min, mean, max)        = (438.8489, 443.3112, 447.6965), with min/max = 98.0%
+2026-03-10 02:43:04,555 - Global meausrements int. statistics (min, mean, max)  = (0.0000, 0.0271, 1.4821)
+2026-03-10 02:43:04,556 - measurements                              (N, Ky, Kx) = float32, (16384, 128, 128)
+2026-03-10 02:43:04,556 -  
+2026-03-10 02:43:04,556 - ### Setting up calibration ###
+2026-03-10 02:43:04,556 - meas_calibration mode = 'dx', value = 0.1494
+2026-03-10 02:43:04,556 - Using loaded raw averaged measurement (before crop/pad/resample) to fit RBF as a part of the meas calibration
+2026-03-10 02:43:04,556 - Radius of fitted bright field disk (RBF) = 11.64 px with Npix = 128
+2026-03-10 02:43:04,556 - Suggested probe_mask_k radius (RBF*2/Npix) > 0.1819
+2026-03-10 02:43:04,556 - Fitting raw averaged measurement with center, radius, and Gaussian blur std as a sanity check
+2026-03-10 02:43:04,556 - Note that the fitted Gaussian blur std (detector blur) would be affected by overlapping Bragg disks
+2026-03-10 02:43:04,556 - Initial guess: center=(63.78, 63.93), radius=11.64, Gaussian blur std=0.50
+2026-03-10 02:43:04,564 - Final fit: center=(63.78, 63.93), radius=11.64, Gaussian blur std=0.54
+2026-03-10 02:43:04,564 - Using init_params, the inferred RBF (conv_angle / 1e3 * Npix * dx / wavelength) = 11.40 px with Npix = 128
+2026-03-10 02:43:04,564 - dx (real space pixel size of probe and object) set to 0.1494 Ang with Npix = 128
+2026-03-10 02:43:04,564 -  
+2026-03-10 02:43:04,564 - ### Setting init_variables dict ###
+2026-03-10 02:43:04,564 - Derived values given input init_params:
+2026-03-10 02:43:04,564 -   kv          = 80.0 kV
+2026-03-10 02:43:04,564 -   wavelength  = 0.0418 Ang
+2026-03-10 02:43:04,564 -   conv_angle  = 24.9 mrad
+2026-03-10 02:43:04,564 -   Npix        = 128 px
+2026-03-10 02:43:04,564 -   dk          = 0.0523 Ang^-1
+2026-03-10 02:43:04,564 -   kMax        = 3.3467 Ang^-1
+2026-03-10 02:43:04,564 -   da          = 2.1836 mrad
+2026-03-10 02:43:04,564 -   angleMax    = 139.7495 mrad
+2026-03-10 02:43:04,564 -   RBF         = 11.4033 px (Inferred from the given calibration, NOT necessarily from the loaded measurement data)
+2026-03-10 02:43:04,564 -   n_alpha     = 5.6124 (# conv_angle)
+2026-03-10 02:43:04,564 -   dx          = 0.1494 Ang, Nyquist-limited dmin = 2*dx = 0.2988 Ang
+2026-03-10 02:43:04,564 -   Rayleigh-limited resolution  = 1.0230 Ang (0.61*lambda/alpha for focused probe )
+2026-03-10 02:43:04,564 -   Real space probe extent = 19.1232 Ang
+2026-03-10 02:43:04,564 -  
+2026-03-10 02:43:04,564 - ### Initializing probe ###
+2026-03-10 02:43:04,565 - Loading probe from source = 'simu'
+2026-03-10 02:43:04,565 - Using experimental parameters specified by 'init_params' for initial probe simulation.
+2026-03-10 02:43:04,565 - Start simulating STEM probe
+2026-03-10 02:43:04,565 -   kv          = 80.0 kV
+2026-03-10 02:43:04,565 -   wavelength  = 0.0418 Ang
+2026-03-10 02:43:04,565 -   conv_angle  = 24.9 mrad
+2026-03-10 02:43:04,565 -   Npix        = 128 px
+2026-03-10 02:43:04,565 -   dk          = 0.0523 Ang^-1
+2026-03-10 02:43:04,565 -   kMax        = 3.3467 Ang^-1
+2026-03-10 02:43:04,565 -   alpha_max   = 139.7495 mrad
+2026-03-10 02:43:04,565 -   dx          = 0.1494 Ang, Nyquist-limited dmin = 2*dx = 0.2988 Ang
+2026-03-10 02:43:04,565 -   Rayleigh-limited resolution  = 1.0230 Ang (0.61*lambda/alpha for focused probe )
+2026-03-10 02:43:04,565 -   Real space probe extent = 19.1232 Ang
+2026-03-10 02:43:04,565 - Aberrations(Empty)
+2026-03-10 02:43:04,566 - Loaded probe shape = (1, 128, 128), dtype = complex128
+2026-03-10 02:43:04,566 - pmode_now: 1 and pmode_max: 6, padding the pmode.
+2026-03-10 02:43:04,566 - Creating 5 new probe modes from the major mode
+2026-03-10 02:43:04,566 - Start making mixed-state STEM probe with 6 incoherent probe modes
+2026-03-10 02:43:04,572 - Relative power of probe modes = [0.9  0.02 0.02 0.02 0.02 0.02]
+2026-03-10 02:43:04,574 - Orthogonalizing 6 pmodes
+2026-03-10 02:43:04,575 - Sorting 6 pmodes by their intensities
+2026-03-10 02:43:04,575 - Normalizing probe intensity with mode = 'mean_total_ints' and value = 'None'
+2026-03-10 02:43:04,576 - sum(|probe_data|**2) = 443.31, while meas_total_ints (min, mean, max) = (438.8489, 443.3112, 447.6965)
+2026-03-10 02:43:04,577 - probe                         (pmode, Ny, Nx) = complex64, (6, 128, 128)
+2026-03-10 02:43:04,577 -  
+2026-03-10 02:43:04,577 - ### Initializing probe positions ###
+2026-03-10 02:43:04,577 - Loading probe positions from source = 'simu'
+2026-03-10 02:43:04,577 - Using experimental parameters specified by 'init_params' (dx, scan_step size, N_scan_slow, N_scan_fast) for initial position simulation.
+2026-03-10 02:43:04,577 - Simulating probe positions with dx = 0.1494, scan_step_size = 0.4290, N_scan_fast = 128, N_scan_slow = 128
+2026-03-10 02:43:04,586 - Applying affine transformation to scan pattern with (scale, asymmetry, rotation, shear) = (1.0, 0.0, -3.0, 0.0)
+2026-03-10 02:43:04,588 - Applying Gaussian distributed random displacement with std = 0.0 px to scan positions
+2026-03-10 02:43:04,590 - crop_pos                                (N,2) = int16, (16384, 2)
+2026-03-10 02:43:04,590 - crop_pos 1st and last px coords (y,x)         = ([52, 71], [436, 417])
+2026-03-10 02:43:04,591 - crop_pos extent (Ang)                         = [57.3696 57.3696]
+2026-03-10 02:43:04,591 - probe_pos_shifts                        (N,2) = float32, (16384, 2)
+2026-03-10 02:43:04,591 -  
+2026-03-10 02:43:04,591 - ### Initializing object ###
+2026-03-10 02:43:04,591 - Loading object from source = 'simu'
+2026-03-10 02:43:04,591 - Using experimental parameters specified by 'init_params' for initial object simulation.
+2026-03-10 02:43:04,757 - omode_now: 1 and omode_max: 1, leaving the omode unchanged.
+2026-03-10 02:43:04,760 - object                    (omode, Nz, Ny, Nx) = complex64, (1, 6, 614, 614)
+2026-03-10 02:43:04,760 - object extent                 (Z, Y, X) (Ang) = [12.     91.7316 91.7316]
+2026-03-10 02:43:04,760 -  
+2026-03-10 02:43:04,760 - ### Initializing omode_occu from 'uniform' ###
+2026-03-10 02:43:04,760 - omode_occu                            (omode) = float32, (1,)
+2026-03-10 02:43:04,760 -  
+2026-03-10 02:43:04,760 - ### Initializing H (Fresnel propagator) ###
+2026-03-10 02:43:04,760 - Calculating H with probe_shape = [128. 128.] px, dx = 0.1494 Ang, slice_thickness = 2.0000 Ang, lambd = 0.0418 Ang
+2026-03-10 02:43:04,761 - H                                    (Ky, Kx) = complex64, (128, 128)
+2026-03-10 02:43:04,761 -  
+2026-03-10 02:43:04,761 - ### Initializing obj tilts from = 'simu' ###
+2026-03-10 02:43:04,761 - Initialized obj_tilts with init_tilts = [[0.0, 0.0]] (theta_y, theta_x) mrad
+2026-03-10 02:43:04,761 - obj_tilts                              (N, 2) = float32, (1, 2)
+2026-03-10 02:43:04,761 -  
+2026-03-10 02:43:04,761 - ### Checking consistency between input params with the initialized variables ###
+2026-03-10 02:43:04,761 - Npix, DP measurements, probe, and H shapes are consistent as '128'
+2026-03-10 02:43:04,761 - N_scans, len(meas), N_scan_slow*N_scan_fast, len(crop_pos), and len(probe_pos_shifts) are consistent as '16384'
+2026-03-10 02:43:04,761 - obj.shape[0] is consistent with len(omode_occu) as '1'
+2026-03-10 02:43:04,761 - obj.shape[1] is consistent with Nlayer as '6'
+2026-03-10 02:43:04,763 - crop positions (yx_min=[52 52], yx_max=[564 564]) are well contained inside object canvas (Ny,Nx) = (614, 614).
+2026-03-10 02:43:04,763 - obj_tilts is consistent with either 1 or N_scans
+2026-03-10 02:43:04,763 - Pass the consistency check of initialized variables, initialization is done!
+2026-03-10 02:43:04,763 -  
+2026-03-10 02:43:04,763 - ### Collecting reconstruction provenance ###
+2026-03-10 02:43:04,763 - Reconstruction provenance is collected and initialized.
+2026-03-10 02:43:04,763 -  
+2026-03-10 02:43:04,763 - ### Initializing loss function ###
+2026-03-10 02:43:04,763 - Active loss types:
+2026-03-10 02:43:04,763 -   loss_single : {'state': True, 'weight': 1.0, 'dp_pow': 0.5}
+2026-03-10 02:43:04,763 -  
+2026-03-10 02:43:04,763 - ### Initializing constraint function ###
+2026-03-10 02:43:04,763 - Active constraint types:
+2026-03-10 02:43:04,763 -   ortho_pmode   : {'start_iter': 1, 'step': 1, 'end_iter': None}
+2026-03-10 02:43:04,763 -   fix_probe_int : {'start_iter': 1, 'step': 1, 'end_iter': None}
+2026-03-10 02:43:04,763 -   obj_rblur     : {'start_iter': 1, 'step': 1, 'end_iter': None, 'obj_type': 'both', 'kernel_size': 5, 'std': 0.5}
+2026-03-10 02:43:04,763 -   obj_zblur     : {'start_iter': 1, 'step': 1, 'end_iter': None, 'obj_type': 'both', 'kernel_size': 5, 'std': 1.0}
+2026-03-10 02:43:04,763 -   obja_thresh   : {'start_iter': 1, 'step': 1, 'end_iter': None, 'relax': 0.0, 'thresh': [0.98, 1.02]}
+2026-03-10 02:43:04,763 -   pos_recenter  : {'start_iter': 1, 'step': 1, 'end_iter': None, 'relax': 0.0}
+2026-03-10 02:43:04,763 -  
+2026-03-10 02:43:04,763 - ### Done initializing PtyRADSolver ###
+2026-03-10 02:43:04,763 -  
+2026-03-10 02:43:04,763 - ### Starting the PtyRADSolver in reconstruct mode ###
+2026-03-10 02:43:04,763 -  
+2026-03-10 02:43:04,764 - ### Initializing PtychoModel model ###
+2026-03-10 02:43:05,195 - ### PtychoModel optimizable variables ###
+2026-03-10 02:43:05,195 - obja            : torch.Size([1, 6, 614, 614])    , torch.float32   , device:cuda:0, grad:True , lr:5e-04
+2026-03-10 02:43:05,195 - objp            : torch.Size([1, 6, 614, 614])    , torch.float32   , device:cuda:0, grad:True , lr:5e-04
+2026-03-10 02:43:05,195 - obj_tilts       : torch.Size([1, 2])              , torch.float32   , device:cuda:0, grad:False, lr:0e+00
+2026-03-10 02:43:05,195 - slice_thickness : torch.Size([])                  , torch.float32   , device:cuda:0, grad:False, lr:0e+00
+2026-03-10 02:43:05,195 - probe           : torch.Size([6, 128, 128, 2])    , torch.float32   , device:cuda:0, grad:True , lr:1e-04
+2026-03-10 02:43:05,195 - probe_pos_shifts: torch.Size([16384, 2])          , torch.float32   , device:cuda:0, grad:True , lr:5e-04
+2026-03-10 02:43:05,195 -  
+2026-03-10 02:43:05,195 - ### Optimizable variables statitsics ###
+2026-03-10 02:43:05,195 - Total measurement values  : 268,435,456
+2026-03-10 02:43:05,195 - Total optimizing variables: 4,753,328
+2026-03-10 02:43:05,195 - Overdetermined ratio      : 56.47
+2026-03-10 02:43:05,195 -  
+2026-03-10 02:43:05,195 - ### Model behavior ###
+2026-03-10 02:43:05,195 - Tilt propagator           : False
+2026-03-10 02:43:05,195 - Change slice thickness    : False
+2026-03-10 02:43:05,195 - Sub-px probe shift        : True
+2026-03-10 02:43:05,195 - Detector blur             : False
+2026-03-10 02:43:05,195 - Preload data              : True
+2026-03-10 02:43:05,195 - On-the-fly meas padding   : False
+2026-03-10 02:43:05,195 - On-the-fly meas resample  : False
+2026-03-10 02:43:05,195 -  
+2026-03-10 02:43:05,196 - ### Done initializing PtychoModel model ###
+2026-03-10 02:43:05,196 -  
+2026-03-10 02:43:05,196 - ### Creating PyTorch 'Adam' optimizer with configs = {} ###
+2026-03-10 02:43:05,196 -  
+2026-03-10 02:43:05,196 - ### Generating indices, batches, and output_path ###
+2026-03-10 02:43:05,197 - d90 = 23.000 px or 3.436 Ang
+2026-03-10 02:43:05,197 - Selecting indices with the 'full' mode 
+2026-03-10 02:43:05,199 - Generated 1024 'random' groups of ~16 scan positions in 0.002 sec
+2026-03-10 02:43:06,687 - The effective batch size (i.e., how many probe positions are simultaneously used for 1 update of ptychographic parameters) is batch_size * grad_accumulation = 16 * 1 = 16
+2026-03-10 02:43:06,688 - Original recon_dir_affixes = ['default', 'optimizer', 'start_iter', 'lr', 'model', 'constraint', 'loss']
+2026-03-10 02:43:06,688 - Expanded recon_dir_affixes = ['indices', 'meas', 'batch', 'pmode', 'omode', 'nlayer', 'lr', 'model', 'constraint', 'loss', 'affine', 'tilt', 'aberrations', 'optimizer', 'start_iter']
+2026-03-10 02:43:06,688 - output_path = '/workspace/ptycho_benchmark/output/tBL_WSe2/20260309_ptyrad_cloud_table_r1/full_N16384_dp128_flipT100_random16_p6_1obj_6slice_dz2_Adam_plr1e-4_oalr5e-4_oplr5e-4_slr5e-4_orblur0.5_ozblur1.0_oathr0.98_sng1.0_aff1.00_0.00_-3.0_0.0' is generated!
+2026-03-10 02:43:09,601 -  
+2026-03-10 02:43:09,615 - ### Log file is flushed (created) as /workspace/ptycho_benchmark/output/tBL_WSe2/20260309_ptyrad_cloud_table_r1/full_N16384_dp128_flipT100_random16_p6_1obj_6slice_dz2_Adam_plr1e-4_oalr5e-4_oplr5e-4_slr5e-4_orblur0.5_ozblur1.0_oathr0.98_sng1.0_aff1.00_0.00_-3.0_0.0/20260310_024309_ptyrad_log.txt ###
+2026-03-10 02:43:09,615 -  
+2026-03-10 02:43:09,615 - ### Start the PtyRAD iterative ptycho reconstruction ###
+2026-03-10 02:43:09,615 - Setting up PyTorch compiler with {'fullgraph': False, 'dynamic': None, 'backend': 'inductor', 'mode': 'default', 'options': None, 'disable': False}
+2026-03-10 02:43:17,373 - Iter: 1, Total Loss: 0.4295, loss_single: 0.4295, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 7.755 sec
+2026-03-10 02:43:21,467 - Iter: 2, Total Loss: 0.4010, loss_single: 0.4010, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 4.093 sec
+2026-03-10 02:43:25,557 - Iter: 3, Total Loss: 0.3992, loss_single: 0.3992, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 4.086 sec
+2026-03-10 02:43:29,640 - Iter: 4, Total Loss: 0.3980, loss_single: 0.3980, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 4.079 sec
+2026-03-10 02:43:33,747 - Iter: 5, Total Loss: 0.3971, loss_single: 0.3971, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 4.103 sec
+2026-03-10 02:43:37,845 - Iter: 6, Total Loss: 0.3962, loss_single: 0.3962, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 4.094 sec
+2026-03-10 02:43:41,956 - Iter: 7, Total Loss: 0.3953, loss_single: 0.3953, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 4.106 sec
+2026-03-10 02:43:46,057 - Iter: 8, Total Loss: 0.3944, loss_single: 0.3944, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 4.096 sec
+2026-03-10 02:43:50,164 - Iter: 9, Total Loss: 0.3935, loss_single: 0.3935, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 4.103 sec
+2026-03-10 02:43:54,310 - Iter: 10, Total Loss: 0.3926, loss_single: 0.3926, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 4.142 sec
+2026-03-10 02:43:54,314 - ### Finished 10 iterations, averaged iter_t = 4.4658 with std = 1.097 ###
+2026-03-10 02:43:54,314 -  
+2026-03-10 02:43:54,318 - ### The PtyRADSolver is finished in 49.554 sec ###
+2026-03-10 02:43:54,318 -  
+2026-03-10 02:43:54,586 - ### PtyRAD LoggingManager configuration ###
+2026-03-10 02:43:54,586 - log_file       = 'ptyrad_log.txt'. If log_file = None, no log file will be created.
+2026-03-10 02:43:54,586 - log_dir        = 'auto'. If log_dir = 'auto', then log will be saved to `output_path` or 'logs/'.
+2026-03-10 02:43:54,586 - flush_file     = True. Automatically set to True if `log_file is not None`
+2026-03-10 02:43:54,586 - prefix_time    = datetime. If true, preset strings ('date', 'time', 'datetime'), or a string of time format, a datetime str is prefixed to the `log_file`.
+2026-03-10 02:43:54,586 - prefix_jobid   = '0'. If not 0, it'll be prefixed to the log file. This is used for hypertune mode with multiple GPUs.
+2026-03-10 02:43:54,586 - append_to_file = True. If true, logs will be appended to the existing file. If false, the log file will be overwritten.
+2026-03-10 02:43:54,586 - show_timestamp = True. If true, the printed information will contain a timestamp.
+2026-03-10 02:43:54,586 -  
+2026-03-10 02:43:54,586 - ### Loading params file ###
+2026-03-10 02:43:54,586 - params_path = params/ptyrad_table_tBL_WSe2.yml
+2026-03-10 02:43:54,611 - WARNING: For constraint_params, 'freq' is depracated since PtyRAD v0.1.0b11 and is automatically converted to 'step'.
+2026-03-10 02:43:54,611 - WARNING: Probe aberrations '['probe_defocus', 'probe_c3', 'probe_c5']' in 'init_params' are depracated since PtyRAD v0.1.0b13 and are automatically converted to 'probe_aberrations' dict.
+2026-03-10 02:43:54,611 - validate = True: Filling defaults and validating the params file...
+2026-03-10 02:43:54,612 - Success! Params file validated and defaults applied.
+2026-03-10 02:43:54,612 -  
+2026-03-10 02:43:54,612 - ### Setting GPU Device ###
+2026-03-10 02:43:54,612 - Selected GPU device: cuda:0 (NVIDIA H100 80GB HBM3)
+2026-03-10 02:43:54,612 -  
+### Running (round_idx, batch, pmode, slice) = (1, 8, 6, 6) ###
+2026-03-10 02:43:54,613 - ### Initializing Initializer ###
+2026-03-10 02:43:54,613 - init_params are displayed below:
+2026-03-10 02:43:54,613 -   random_seed: None
+2026-03-10 02:43:54,613 -   probe_illum_type: electron
+2026-03-10 02:43:54,613 -   probe_kv: 80.0
+2026-03-10 02:43:54,613 -   probe_conv_angle: 24.9
+2026-03-10 02:43:54,613 -   probe_aberrations: {}
+2026-03-10 02:43:54,613 -   beam_kev: None
+2026-03-10 02:43:54,613 -   probe_dRn: None
+2026-03-10 02:43:54,613 -   probe_Rn: None
+2026-03-10 02:43:54,613 -   probe_D_H: None
+2026-03-10 02:43:54,613 -   probe_D_FZP: None
+2026-03-10 02:43:54,613 -   probe_Ls: None
+2026-03-10 02:43:54,613 -   meas_Npix: 128
+2026-03-10 02:43:54,613 -   pos_N_scans: 16384
+2026-03-10 02:43:54,613 -   pos_N_scan_slow: 128
+2026-03-10 02:43:54,613 -   pos_N_scan_fast: 128
+2026-03-10 02:43:54,613 -   pos_scan_step_size: 0.429
+2026-03-10 02:43:54,613 -   meas_calibration: {'mode': 'dx', 'value': 0.1494}
+2026-03-10 02:43:54,613 -   probe_pmode_max: 6
+2026-03-10 02:43:54,613 -   probe_pmode_init_pows: [0.02]
+2026-03-10 02:43:54,613 -   obj_omode_max: 1
+2026-03-10 02:43:54,613 -   obj_omode_init_occu: {'occu_type': 'uniform', 'init_occu': None}
+2026-03-10 02:43:54,613 -   obj_Nlayer: 6
+2026-03-10 02:43:54,613 -   obj_slice_thickness: 2.0
+2026-03-10 02:43:54,613 -   meas_permute: None
+2026-03-10 02:43:54,613 -   meas_reshape: None
+2026-03-10 02:43:54,613 -   meas_flipT: [1, 0, 0]
+2026-03-10 02:43:54,613 -   meas_crop: None
+2026-03-10 02:43:54,613 -   meas_pad: {'mode': None, 'padding_type': 'power', 'target_Npix': 256, 'value': 0.0, 'threshold': 70}
+2026-03-10 02:43:54,613 -   meas_resample: {'mode': None, 'scale_factors': [2.0, 2.0]}
+2026-03-10 02:43:54,613 -   meas_add_source_size: None
+2026-03-10 02:43:54,613 -   meas_add_detector_blur: None
+2026-03-10 02:43:54,613 -   meas_remove_neg_values: {'mode': 'clip_neg', 'value': None, 'force': False}
+2026-03-10 02:43:54,613 -   meas_normalization: {'mode': 'max_at_one', 'value': None}
+2026-03-10 02:43:54,613 -   meas_add_poisson_noise: None
+2026-03-10 02:43:54,613 -   meas_export: None
+2026-03-10 02:43:54,613 -   probe_permute: None
+2026-03-10 02:43:54,613 -   probe_z_shift: None
+2026-03-10 02:43:54,614 -   probe_normalization: {'mode': 'mean_total_ints', 'value': None}
+2026-03-10 02:43:54,614 -   pos_scan_flipT: None
+2026-03-10 02:43:54,614 -   pos_scan_affine: [1.0, 0.0, -3.0, 0.0]
+2026-03-10 02:43:54,614 -   pos_scan_rand_std: 0.0
+2026-03-10 02:43:54,614 -   obj_z_crop: None
+2026-03-10 02:43:54,614 -   obj_z_pad: None
+2026-03-10 02:43:54,614 -   obj_z_resample: None
+2026-03-10 02:43:54,614 -   meas_source: file
+2026-03-10 02:43:54,614 -   meas_params: {'path': 'data/tBL_WSe2/Panel_g-h_Themis/scan_x128_y128.raw', 'key': None, 'shape': None, 'offset': None, 'gap': None}
+2026-03-10 02:43:54,614 -   probe_source: simu
+2026-03-10 02:43:54,614 -   probe_params: None
+2026-03-10 02:43:54,614 -   pos_source: simu
+2026-03-10 02:43:54,614 -   pos_params: None
+2026-03-10 02:43:54,614 -   obj_source: simu
+2026-03-10 02:43:54,614 -   obj_params: None
+2026-03-10 02:43:54,614 -   tilt_source: simu
+2026-03-10 02:43:54,614 -   tilt_params: {'tilt_type': 'all', 'init_tilts': [[0.0, 0.0]]}
+2026-03-10 02:43:54,614 -  
+2026-03-10 02:43:54,614 - ### Initializing cache ###
+2026-03-10 02:43:54,614 - use_cached_obj   = False
+2026-03-10 02:43:54,614 - use_cached_probe = False
+2026-03-10 02:43:54,614 - use_cached_pos   = False
+2026-03-10 02:43:54,614 -  
+2026-03-10 02:43:54,614 - ### Initializing measurements ###
+2026-03-10 02:43:54,614 - Loading measurements from source = 'file'
+2026-03-10 02:43:54,614 - Detected measurement file type = '.raw'
+2026-03-10 02:43:54,614 - WARNING: Couldn't find the 'shape' in 'meas_params' with file type = '.raw'.
+2026-03-10 02:43:54,614 - It is strongly recommended to provide an explicit shape to better load from .raw files
+2026-03-10 02:43:54,614 - PtyRAD will still try to load the dataset based on the provided 'init_params', but you may consider setting 'shape': (N_scans, Npix, Npix) inside your 'meas_params' dict.
+2026-03-10 02:43:54,922 - Original measurements dtype is float32, casting to float32 (single precision) for computational efficiency.
+2026-03-10 02:43:54,922 - Imported meausrements shape / dtype = (16384, 128, 128), dtype = float32
+2026-03-10 02:43:55,222 - Imported meausrements int. statistics (min, mean, max) = (-30.8785, 1814.7078, 99441.8047)
+2026-03-10 02:43:55,222 - Flipping measurements with [flipud, fliplr, transpose] = [1, 0, 0]
+2026-03-10 02:43:55,531 - Removing negative values in measurement with method = clip_neg and value = None
+2026-03-10 02:43:55,644 - Minimum value = -30.8785, negative values are clipped to 0 due to the positive px value constraint of measurements
+2026-03-10 02:43:57,238 - Normalizing measurements with mode = 'max_at_one' and value = 'None'
+2026-03-10 02:43:57,374 - Normalizing by max of the 2D mean pattern intensity: 67097.391
+2026-03-10 02:43:57,460 - meausrements shape / dtype = (16384, 128, 128), dtype = float32
+2026-03-10 02:43:57,842 - meausrements int. statistics (min, mean, max) = (0.0000, 0.0271, 1.4821)
+2026-03-10 02:43:58,041 - No negative values found in measurements. Skipping non-neg correction.
+2026-03-10 02:43:58,335 - Pattern total int. statistics (min, mean, max)        = (438.8489, 443.3112, 447.6965), with min/max = 98.0%
+2026-03-10 02:43:58,716 - Global meausrements int. statistics (min, mean, max)  = (0.0000, 0.0271, 1.4821)
+2026-03-10 02:43:58,716 - measurements                              (N, Ky, Kx) = float32, (16384, 128, 128)
+2026-03-10 02:43:58,716 -  
+2026-03-10 02:43:58,716 - ### Setting up calibration ###
+2026-03-10 02:43:58,716 - meas_calibration mode = 'dx', value = 0.1494
+2026-03-10 02:43:58,717 - Using loaded raw averaged measurement (before crop/pad/resample) to fit RBF as a part of the meas calibration
+2026-03-10 02:43:58,717 - Radius of fitted bright field disk (RBF) = 11.64 px with Npix = 128
+2026-03-10 02:43:58,717 - Suggested probe_mask_k radius (RBF*2/Npix) > 0.1819
+2026-03-10 02:43:58,717 - Fitting raw averaged measurement with center, radius, and Gaussian blur std as a sanity check
+2026-03-10 02:43:58,717 - Note that the fitted Gaussian blur std (detector blur) would be affected by overlapping Bragg disks
+2026-03-10 02:43:58,717 - Initial guess: center=(63.78, 63.93), radius=11.64, Gaussian blur std=0.50
+2026-03-10 02:43:58,725 - Final fit: center=(63.78, 63.93), radius=11.64, Gaussian blur std=0.54
+2026-03-10 02:43:58,725 - Using init_params, the inferred RBF (conv_angle / 1e3 * Npix * dx / wavelength) = 11.40 px with Npix = 128
+2026-03-10 02:43:58,725 - dx (real space pixel size of probe and object) set to 0.1494 Ang with Npix = 128
+2026-03-10 02:43:58,725 -  
+2026-03-10 02:43:58,725 - ### Setting init_variables dict ###
+2026-03-10 02:43:58,725 - Derived values given input init_params:
+2026-03-10 02:43:58,725 -   kv          = 80.0 kV
+2026-03-10 02:43:58,725 -   wavelength  = 0.0418 Ang
+2026-03-10 02:43:58,725 -   conv_angle  = 24.9 mrad
+2026-03-10 02:43:58,725 -   Npix        = 128 px
+2026-03-10 02:43:58,725 -   dk          = 0.0523 Ang^-1
+2026-03-10 02:43:58,725 -   kMax        = 3.3467 Ang^-1
+2026-03-10 02:43:58,725 -   da          = 2.1836 mrad
+2026-03-10 02:43:58,725 -   angleMax    = 139.7495 mrad
+2026-03-10 02:43:58,725 -   RBF         = 11.4033 px (Inferred from the given calibration, NOT necessarily from the loaded measurement data)
+2026-03-10 02:43:58,725 -   n_alpha     = 5.6124 (# conv_angle)
+2026-03-10 02:43:58,725 -   dx          = 0.1494 Ang, Nyquist-limited dmin = 2*dx = 0.2988 Ang
+2026-03-10 02:43:58,725 -   Rayleigh-limited resolution  = 1.0230 Ang (0.61*lambda/alpha for focused probe )
+2026-03-10 02:43:58,725 -   Real space probe extent = 19.1232 Ang
+2026-03-10 02:43:58,725 -  
+2026-03-10 02:43:58,725 - ### Initializing probe ###
+2026-03-10 02:43:58,725 - Loading probe from source = 'simu'
+2026-03-10 02:43:58,726 - Using experimental parameters specified by 'init_params' for initial probe simulation.
+2026-03-10 02:43:58,726 - Start simulating STEM probe
+2026-03-10 02:43:58,726 -   kv          = 80.0 kV
+2026-03-10 02:43:58,726 -   wavelength  = 0.0418 Ang
+2026-03-10 02:43:58,726 -   conv_angle  = 24.9 mrad
+2026-03-10 02:43:58,726 -   Npix        = 128 px
+2026-03-10 02:43:58,726 -   dk          = 0.0523 Ang^-1
+2026-03-10 02:43:58,726 -   kMax        = 3.3467 Ang^-1
+2026-03-10 02:43:58,726 -   alpha_max   = 139.7495 mrad
+2026-03-10 02:43:58,726 -   dx          = 0.1494 Ang, Nyquist-limited dmin = 2*dx = 0.2988 Ang
+2026-03-10 02:43:58,726 -   Rayleigh-limited resolution  = 1.0230 Ang (0.61*lambda/alpha for focused probe )
+2026-03-10 02:43:58,726 -   Real space probe extent = 19.1232 Ang
+2026-03-10 02:43:58,726 - Aberrations(Empty)
+2026-03-10 02:43:58,727 - Loaded probe shape = (1, 128, 128), dtype = complex128
+2026-03-10 02:43:58,727 - pmode_now: 1 and pmode_max: 6, padding the pmode.
+2026-03-10 02:43:58,727 - Creating 5 new probe modes from the major mode
+2026-03-10 02:43:58,727 - Start making mixed-state STEM probe with 6 incoherent probe modes
+2026-03-10 02:43:58,732 - Relative power of probe modes = [0.9  0.02 0.02 0.02 0.02 0.02]
+2026-03-10 02:43:58,733 - Orthogonalizing 6 pmodes
+2026-03-10 02:43:58,735 - Sorting 6 pmodes by their intensities
+2026-03-10 02:43:58,735 - Normalizing probe intensity with mode = 'mean_total_ints' and value = 'None'
+2026-03-10 02:43:58,736 - sum(|probe_data|**2) = 443.31, while meas_total_ints (min, mean, max) = (438.8489, 443.3112, 447.6965)
+2026-03-10 02:43:58,736 - probe                         (pmode, Ny, Nx) = complex64, (6, 128, 128)
+2026-03-10 02:43:58,736 -  
+2026-03-10 02:43:58,736 - ### Initializing probe positions ###
+2026-03-10 02:43:58,736 - Loading probe positions from source = 'simu'
+2026-03-10 02:43:58,736 - Using experimental parameters specified by 'init_params' (dx, scan_step size, N_scan_slow, N_scan_fast) for initial position simulation.
+2026-03-10 02:43:58,737 - Simulating probe positions with dx = 0.1494, scan_step_size = 0.4290, N_scan_fast = 128, N_scan_slow = 128
+2026-03-10 02:43:58,746 - Applying affine transformation to scan pattern with (scale, asymmetry, rotation, shear) = (1.0, 0.0, -3.0, 0.0)
+2026-03-10 02:43:58,748 - Applying Gaussian distributed random displacement with std = 0.0 px to scan positions
+2026-03-10 02:43:58,750 - crop_pos                                (N,2) = int16, (16384, 2)
+2026-03-10 02:43:58,750 - crop_pos 1st and last px coords (y,x)         = ([52, 71], [436, 417])
+2026-03-10 02:43:58,751 - crop_pos extent (Ang)                         = [57.3696 57.3696]
+2026-03-10 02:43:58,751 - probe_pos_shifts                        (N,2) = float32, (16384, 2)
+2026-03-10 02:43:58,751 -  
+2026-03-10 02:43:58,751 - ### Initializing object ###
+2026-03-10 02:43:58,751 - Loading object from source = 'simu'
+2026-03-10 02:43:58,751 - Using experimental parameters specified by 'init_params' for initial object simulation.
+2026-03-10 02:43:58,880 - omode_now: 1 and omode_max: 1, leaving the omode unchanged.
+2026-03-10 02:43:58,883 - object                    (omode, Nz, Ny, Nx) = complex64, (1, 6, 614, 614)
+2026-03-10 02:43:58,884 - object extent                 (Z, Y, X) (Ang) = [12.     91.7316 91.7316]
+2026-03-10 02:43:58,884 -  
+2026-03-10 02:43:58,884 - ### Initializing omode_occu from 'uniform' ###
+2026-03-10 02:43:58,884 - omode_occu                            (omode) = float32, (1,)
+2026-03-10 02:43:58,884 -  
+2026-03-10 02:43:58,884 - ### Initializing H (Fresnel propagator) ###
+2026-03-10 02:43:58,884 - Calculating H with probe_shape = [128. 128.] px, dx = 0.1494 Ang, slice_thickness = 2.0000 Ang, lambd = 0.0418 Ang
+2026-03-10 02:43:58,885 - H                                    (Ky, Kx) = complex64, (128, 128)
+2026-03-10 02:43:58,885 -  
+2026-03-10 02:43:58,885 - ### Initializing obj tilts from = 'simu' ###
+2026-03-10 02:43:58,885 - Initialized obj_tilts with init_tilts = [[0.0, 0.0]] (theta_y, theta_x) mrad
+2026-03-10 02:43:58,885 - obj_tilts                              (N, 2) = float32, (1, 2)
+2026-03-10 02:43:58,885 -  
+2026-03-10 02:43:58,885 - ### Checking consistency between input params with the initialized variables ###
+2026-03-10 02:43:58,885 - Npix, DP measurements, probe, and H shapes are consistent as '128'
+2026-03-10 02:43:58,885 - N_scans, len(meas), N_scan_slow*N_scan_fast, len(crop_pos), and len(probe_pos_shifts) are consistent as '16384'
+2026-03-10 02:43:58,885 - obj.shape[0] is consistent with len(omode_occu) as '1'
+2026-03-10 02:43:58,885 - obj.shape[1] is consistent with Nlayer as '6'
+2026-03-10 02:43:58,886 - crop positions (yx_min=[52 52], yx_max=[564 564]) are well contained inside object canvas (Ny,Nx) = (614, 614).
+2026-03-10 02:43:58,886 - obj_tilts is consistent with either 1 or N_scans
+2026-03-10 02:43:58,886 - Pass the consistency check of initialized variables, initialization is done!
+2026-03-10 02:43:58,886 -  
+2026-03-10 02:43:58,886 - ### Collecting reconstruction provenance ###
+2026-03-10 02:43:58,886 - Reconstruction provenance is collected and initialized.
+2026-03-10 02:43:58,886 -  
+2026-03-10 02:43:58,886 - ### Initializing loss function ###
+2026-03-10 02:43:58,886 - Active loss types:
+2026-03-10 02:43:58,886 -   loss_single : {'state': True, 'weight': 1.0, 'dp_pow': 0.5}
+2026-03-10 02:43:58,887 -  
+2026-03-10 02:43:58,887 - ### Initializing constraint function ###
+2026-03-10 02:43:58,887 - Active constraint types:
+2026-03-10 02:43:58,887 -   ortho_pmode   : {'start_iter': 1, 'step': 1, 'end_iter': None}
+2026-03-10 02:43:58,887 -   fix_probe_int : {'start_iter': 1, 'step': 1, 'end_iter': None}
+2026-03-10 02:43:58,887 -   obj_rblur     : {'start_iter': 1, 'step': 1, 'end_iter': None, 'obj_type': 'both', 'kernel_size': 5, 'std': 0.5}
+2026-03-10 02:43:58,887 -   obj_zblur     : {'start_iter': 1, 'step': 1, 'end_iter': None, 'obj_type': 'both', 'kernel_size': 5, 'std': 1.0}
+2026-03-10 02:43:58,887 -   obja_thresh   : {'start_iter': 1, 'step': 1, 'end_iter': None, 'relax': 0.0, 'thresh': [0.98, 1.02]}
+2026-03-10 02:43:58,887 -   pos_recenter  : {'start_iter': 1, 'step': 1, 'end_iter': None, 'relax': 0.0}
+2026-03-10 02:43:58,887 -  
+2026-03-10 02:43:58,887 - ### Done initializing PtyRADSolver ###
+2026-03-10 02:43:58,887 -  
+2026-03-10 02:43:58,887 - ### Starting the PtyRADSolver in reconstruct mode ###
+2026-03-10 02:43:58,887 -  
+2026-03-10 02:43:58,887 - ### Initializing PtychoModel model ###
+2026-03-10 02:43:59,326 - ### PtychoModel optimizable variables ###
+2026-03-10 02:43:59,326 - obja            : torch.Size([1, 6, 614, 614])    , torch.float32   , device:cuda:0, grad:True , lr:5e-04
+2026-03-10 02:43:59,326 - objp            : torch.Size([1, 6, 614, 614])    , torch.float32   , device:cuda:0, grad:True , lr:5e-04
+2026-03-10 02:43:59,327 - obj_tilts       : torch.Size([1, 2])              , torch.float32   , device:cuda:0, grad:False, lr:0e+00
+2026-03-10 02:43:59,327 - slice_thickness : torch.Size([])                  , torch.float32   , device:cuda:0, grad:False, lr:0e+00
+2026-03-10 02:43:59,327 - probe           : torch.Size([6, 128, 128, 2])    , torch.float32   , device:cuda:0, grad:True , lr:1e-04
+2026-03-10 02:43:59,327 - probe_pos_shifts: torch.Size([16384, 2])          , torch.float32   , device:cuda:0, grad:True , lr:5e-04
+2026-03-10 02:43:59,327 -  
+2026-03-10 02:43:59,327 - ### Optimizable variables statitsics ###
+2026-03-10 02:43:59,327 - Total measurement values  : 268,435,456
+2026-03-10 02:43:59,327 - Total optimizing variables: 4,753,328
+2026-03-10 02:43:59,327 - Overdetermined ratio      : 56.47
+2026-03-10 02:43:59,327 -  
+2026-03-10 02:43:59,327 - ### Model behavior ###
+2026-03-10 02:43:59,327 - Tilt propagator           : False
+2026-03-10 02:43:59,327 - Change slice thickness    : False
+2026-03-10 02:43:59,327 - Sub-px probe shift        : True
+2026-03-10 02:43:59,327 - Detector blur             : False
+2026-03-10 02:43:59,327 - Preload data              : True
+2026-03-10 02:43:59,327 - On-the-fly meas padding   : False
+2026-03-10 02:43:59,327 - On-the-fly meas resample  : False
+2026-03-10 02:43:59,327 -  
+2026-03-10 02:43:59,327 - ### Done initializing PtychoModel model ###
+2026-03-10 02:43:59,327 -  
+2026-03-10 02:43:59,328 - ### Creating PyTorch 'Adam' optimizer with configs = {} ###
+2026-03-10 02:43:59,328 -  
+2026-03-10 02:43:59,328 - ### Generating indices, batches, and output_path ###
+2026-03-10 02:43:59,328 - d90 = 23.000 px or 3.436 Ang
+2026-03-10 02:43:59,329 - Selecting indices with the 'full' mode 
+2026-03-10 02:43:59,331 - Generated 2048 'random' groups of ~8 scan positions in 0.003 sec
+2026-03-10 02:44:03,711 - The effective batch size (i.e., how many probe positions are simultaneously used for 1 update of ptychographic parameters) is batch_size * grad_accumulation = 8 * 1 = 8
+2026-03-10 02:44:03,712 - Original recon_dir_affixes = ['default', 'optimizer', 'start_iter', 'lr', 'model', 'constraint', 'loss']
+2026-03-10 02:44:03,712 - Expanded recon_dir_affixes = ['indices', 'meas', 'batch', 'pmode', 'omode', 'nlayer', 'lr', 'model', 'constraint', 'loss', 'affine', 'tilt', 'aberrations', 'optimizer', 'start_iter']
+2026-03-10 02:44:03,712 - output_path = '/workspace/ptycho_benchmark/output/tBL_WSe2/20260309_ptyrad_cloud_table_r1/full_N16384_dp128_flipT100_random8_p6_1obj_6slice_dz2_Adam_plr1e-4_oalr5e-4_oplr5e-4_slr5e-4_orblur0.5_ozblur1.0_oathr0.98_sng1.0_aff1.00_0.00_-3.0_0.0' is generated!
+2026-03-10 02:44:09,350 -  
+2026-03-10 02:44:09,378 - ### Log file is flushed (created) as /workspace/ptycho_benchmark/output/tBL_WSe2/20260309_ptyrad_cloud_table_r1/full_N16384_dp128_flipT100_random8_p6_1obj_6slice_dz2_Adam_plr1e-4_oalr5e-4_oplr5e-4_slr5e-4_orblur0.5_ozblur1.0_oathr0.98_sng1.0_aff1.00_0.00_-3.0_0.0/20260310_024409_ptyrad_log.txt ###
+2026-03-10 02:44:09,378 -  
+2026-03-10 02:44:09,378 - ### Start the PtyRAD iterative ptycho reconstruction ###
+2026-03-10 02:44:09,378 - Setting up PyTorch compiler with {'fullgraph': False, 'dynamic': None, 'backend': 'inductor', 'mode': 'default', 'options': None, 'disable': False}
+2026-03-10 02:44:20,797 - Iter: 1, Total Loss: 0.4191, loss_single: 0.4191, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 11.416 sec
+2026-03-10 02:44:28,959 - Iter: 2, Total Loss: 0.4024, loss_single: 0.4024, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 8.160 sec
+2026-03-10 02:44:37,093 - Iter: 3, Total Loss: 0.4005, loss_single: 0.4005, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 8.128 sec
+2026-03-10 02:44:45,174 - Iter: 4, Total Loss: 0.3990, loss_single: 0.3990, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 8.074 sec
+2026-03-10 02:44:53,251 - Iter: 5, Total Loss: 0.3976, loss_single: 0.3976, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 8.070 sec
+2026-03-10 02:45:01,362 - Iter: 6, Total Loss: 0.3962, loss_single: 0.3962, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 8.105 sec
+2026-03-10 02:45:09,503 - Iter: 7, Total Loss: 0.3947, loss_single: 0.3947, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 8.133 sec
+2026-03-10 02:45:17,600 - Iter: 8, Total Loss: 0.3928, loss_single: 0.3928, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 8.090 sec
+2026-03-10 02:45:25,893 - Iter: 9, Total Loss: 0.3906, loss_single: 0.3906, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 8.285 sec
+2026-03-10 02:45:34,072 - Iter: 10, Total Loss: 0.3883, loss_single: 0.3883, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 8.172 sec
+2026-03-10 02:45:34,078 - ### Finished 10 iterations, averaged iter_t = 8.4634 with std = 0.986 ###
+2026-03-10 02:45:34,079 -  
+2026-03-10 02:45:34,085 - ### The PtyRADSolver is finished in 95.198 sec, or 1 min 35.198 sec ###
+2026-03-10 02:45:34,085 -  
+2026-03-10 02:45:34,533 - ### PtyRAD LoggingManager configuration ###
+2026-03-10 02:45:34,533 - log_file       = 'ptyrad_log.txt'. If log_file = None, no log file will be created.
+2026-03-10 02:45:34,533 - log_dir        = 'auto'. If log_dir = 'auto', then log will be saved to `output_path` or 'logs/'.
+2026-03-10 02:45:34,533 - flush_file     = True. Automatically set to True if `log_file is not None`
+2026-03-10 02:45:34,533 - prefix_time    = datetime. If true, preset strings ('date', 'time', 'datetime'), or a string of time format, a datetime str is prefixed to the `log_file`.
+2026-03-10 02:45:34,533 - prefix_jobid   = '0'. If not 0, it'll be prefixed to the log file. This is used for hypertune mode with multiple GPUs.
+2026-03-10 02:45:34,533 - append_to_file = True. If true, logs will be appended to the existing file. If false, the log file will be overwritten.
+2026-03-10 02:45:34,533 - show_timestamp = True. If true, the printed information will contain a timestamp.
+2026-03-10 02:45:34,533 -  
+2026-03-10 02:45:34,533 - ### Loading params file ###
+2026-03-10 02:45:34,533 - params_path = params/ptyrad_table_tBL_WSe2.yml
+2026-03-10 02:45:34,558 - WARNING: For constraint_params, 'freq' is depracated since PtyRAD v0.1.0b11 and is automatically converted to 'step'.
+2026-03-10 02:45:34,558 - WARNING: Probe aberrations '['probe_defocus', 'probe_c3', 'probe_c5']' in 'init_params' are depracated since PtyRAD v0.1.0b13 and are automatically converted to 'probe_aberrations' dict.
+2026-03-10 02:45:34,558 - validate = True: Filling defaults and validating the params file...
+2026-03-10 02:45:34,559 - Success! Params file validated and defaults applied.
+2026-03-10 02:45:34,559 -  
+2026-03-10 02:45:34,559 - ### Setting GPU Device ###
+2026-03-10 02:45:34,559 - Selected GPU device: cuda:0 (NVIDIA H100 80GB HBM3)
+2026-03-10 02:45:34,559 -  
+### Running (round_idx, batch, pmode, slice) = (1, 4, 6, 6) ###
+2026-03-10 02:45:34,560 - ### Initializing Initializer ###
+2026-03-10 02:45:34,560 - init_params are displayed below:
+2026-03-10 02:45:34,560 -   random_seed: None
+2026-03-10 02:45:34,560 -   probe_illum_type: electron
+2026-03-10 02:45:34,560 -   probe_kv: 80.0
+2026-03-10 02:45:34,560 -   probe_conv_angle: 24.9
+2026-03-10 02:45:34,560 -   probe_aberrations: {}
+2026-03-10 02:45:34,560 -   beam_kev: None
+2026-03-10 02:45:34,560 -   probe_dRn: None
+2026-03-10 02:45:34,560 -   probe_Rn: None
+2026-03-10 02:45:34,560 -   probe_D_H: None
+2026-03-10 02:45:34,560 -   probe_D_FZP: None
+2026-03-10 02:45:34,560 -   probe_Ls: None
+2026-03-10 02:45:34,560 -   meas_Npix: 128
+2026-03-10 02:45:34,560 -   pos_N_scans: 16384
+2026-03-10 02:45:34,560 -   pos_N_scan_slow: 128
+2026-03-10 02:45:34,560 -   pos_N_scan_fast: 128
+2026-03-10 02:45:34,560 -   pos_scan_step_size: 0.429
+2026-03-10 02:45:34,560 -   meas_calibration: {'mode': 'dx', 'value': 0.1494}
+2026-03-10 02:45:34,560 -   probe_pmode_max: 6
+2026-03-10 02:45:34,560 -   probe_pmode_init_pows: [0.02]
+2026-03-10 02:45:34,560 -   obj_omode_max: 1
+2026-03-10 02:45:34,560 -   obj_omode_init_occu: {'occu_type': 'uniform', 'init_occu': None}
+2026-03-10 02:45:34,560 -   obj_Nlayer: 6
+2026-03-10 02:45:34,560 -   obj_slice_thickness: 2.0
+2026-03-10 02:45:34,560 -   meas_permute: None
+2026-03-10 02:45:34,560 -   meas_reshape: None
+2026-03-10 02:45:34,560 -   meas_flipT: [1, 0, 0]
+2026-03-10 02:45:34,560 -   meas_crop: None
+2026-03-10 02:45:34,560 -   meas_pad: {'mode': None, 'padding_type': 'power', 'target_Npix': 256, 'value': 0.0, 'threshold': 70}
+2026-03-10 02:45:34,560 -   meas_resample: {'mode': None, 'scale_factors': [2.0, 2.0]}
+2026-03-10 02:45:34,560 -   meas_add_source_size: None
+2026-03-10 02:45:34,560 -   meas_add_detector_blur: None
+2026-03-10 02:45:34,560 -   meas_remove_neg_values: {'mode': 'clip_neg', 'value': None, 'force': False}
+2026-03-10 02:45:34,560 -   meas_normalization: {'mode': 'max_at_one', 'value': None}
+2026-03-10 02:45:34,560 -   meas_add_poisson_noise: None
+2026-03-10 02:45:34,560 -   meas_export: None
+2026-03-10 02:45:34,560 -   probe_permute: None
+2026-03-10 02:45:34,560 -   probe_z_shift: None
+2026-03-10 02:45:34,560 -   probe_normalization: {'mode': 'mean_total_ints', 'value': None}
+2026-03-10 02:45:34,560 -   pos_scan_flipT: None
+2026-03-10 02:45:34,560 -   pos_scan_affine: [1.0, 0.0, -3.0, 0.0]
+2026-03-10 02:45:34,561 -   pos_scan_rand_std: 0.0
+2026-03-10 02:45:34,561 -   obj_z_crop: None
+2026-03-10 02:45:34,561 -   obj_z_pad: None
+2026-03-10 02:45:34,561 -   obj_z_resample: None
+2026-03-10 02:45:34,561 -   meas_source: file
+2026-03-10 02:45:34,561 -   meas_params: {'path': 'data/tBL_WSe2/Panel_g-h_Themis/scan_x128_y128.raw', 'key': None, 'shape': None, 'offset': None, 'gap': None}
+2026-03-10 02:45:34,561 -   probe_source: simu
+2026-03-10 02:45:34,561 -   probe_params: None
+2026-03-10 02:45:34,561 -   pos_source: simu
+2026-03-10 02:45:34,561 -   pos_params: None
+2026-03-10 02:45:34,561 -   obj_source: simu
+2026-03-10 02:45:34,561 -   obj_params: None
+2026-03-10 02:45:34,561 -   tilt_source: simu
+2026-03-10 02:45:34,561 -   tilt_params: {'tilt_type': 'all', 'init_tilts': [[0.0, 0.0]]}
+2026-03-10 02:45:34,561 -  
+2026-03-10 02:45:34,561 - ### Initializing cache ###
+2026-03-10 02:45:34,561 - use_cached_obj   = False
+2026-03-10 02:45:34,561 - use_cached_probe = False
+2026-03-10 02:45:34,561 - use_cached_pos   = False
+2026-03-10 02:45:34,561 -  
+2026-03-10 02:45:34,561 - ### Initializing measurements ###
+2026-03-10 02:45:34,561 - Loading measurements from source = 'file'
+2026-03-10 02:45:34,561 - Detected measurement file type = '.raw'
+2026-03-10 02:45:34,561 - WARNING: Couldn't find the 'shape' in 'meas_params' with file type = '.raw'.
+2026-03-10 02:45:34,561 - It is strongly recommended to provide an explicit shape to better load from .raw files
+2026-03-10 02:45:34,561 - PtyRAD will still try to load the dataset based on the provided 'init_params', but you may consider setting 'shape': (N_scans, Npix, Npix) inside your 'meas_params' dict.
+2026-03-10 02:45:34,864 - Original measurements dtype is float32, casting to float32 (single precision) for computational efficiency.
+2026-03-10 02:45:34,864 - Imported meausrements shape / dtype = (16384, 128, 128), dtype = float32
+2026-03-10 02:45:35,160 - Imported meausrements int. statistics (min, mean, max) = (-30.8785, 1814.7078, 99441.8047)
+2026-03-10 02:45:35,160 - Flipping measurements with [flipud, fliplr, transpose] = [1, 0, 0]
+2026-03-10 02:45:35,471 - Removing negative values in measurement with method = clip_neg and value = None
+2026-03-10 02:45:35,587 - Minimum value = -30.8785, negative values are clipped to 0 due to the positive px value constraint of measurements
+2026-03-10 02:45:37,180 - Normalizing measurements with mode = 'max_at_one' and value = 'None'
+2026-03-10 02:45:37,312 - Normalizing by max of the 2D mean pattern intensity: 67097.391
+2026-03-10 02:45:37,398 - meausrements shape / dtype = (16384, 128, 128), dtype = float32
+2026-03-10 02:45:37,784 - meausrements int. statistics (min, mean, max) = (0.0000, 0.0271, 1.4821)
+2026-03-10 02:45:37,980 - No negative values found in measurements. Skipping non-neg correction.
+2026-03-10 02:45:38,271 - Pattern total int. statistics (min, mean, max)        = (438.8489, 443.3112, 447.6965), with min/max = 98.0%
+2026-03-10 02:45:38,659 - Global meausrements int. statistics (min, mean, max)  = (0.0000, 0.0271, 1.4821)
+2026-03-10 02:45:38,659 - measurements                              (N, Ky, Kx) = float32, (16384, 128, 128)
+2026-03-10 02:45:38,659 -  
+2026-03-10 02:45:38,659 - ### Setting up calibration ###
+2026-03-10 02:45:38,659 - meas_calibration mode = 'dx', value = 0.1494
+2026-03-10 02:45:38,659 - Using loaded raw averaged measurement (before crop/pad/resample) to fit RBF as a part of the meas calibration
+2026-03-10 02:45:38,659 - Radius of fitted bright field disk (RBF) = 11.64 px with Npix = 128
+2026-03-10 02:45:38,659 - Suggested probe_mask_k radius (RBF*2/Npix) > 0.1819
+2026-03-10 02:45:38,659 - Fitting raw averaged measurement with center, radius, and Gaussian blur std as a sanity check
+2026-03-10 02:45:38,659 - Note that the fitted Gaussian blur std (detector blur) would be affected by overlapping Bragg disks
+2026-03-10 02:45:38,660 - Initial guess: center=(63.78, 63.93), radius=11.64, Gaussian blur std=0.50
+2026-03-10 02:45:38,667 - Final fit: center=(63.78, 63.93), radius=11.64, Gaussian blur std=0.54
+2026-03-10 02:45:38,668 - Using init_params, the inferred RBF (conv_angle / 1e3 * Npix * dx / wavelength) = 11.40 px with Npix = 128
+2026-03-10 02:45:38,668 - dx (real space pixel size of probe and object) set to 0.1494 Ang with Npix = 128
+2026-03-10 02:45:38,668 -  
+2026-03-10 02:45:38,668 - ### Setting init_variables dict ###
+2026-03-10 02:45:38,668 - Derived values given input init_params:
+2026-03-10 02:45:38,668 -   kv          = 80.0 kV
+2026-03-10 02:45:38,668 -   wavelength  = 0.0418 Ang
+2026-03-10 02:45:38,668 -   conv_angle  = 24.9 mrad
+2026-03-10 02:45:38,668 -   Npix        = 128 px
+2026-03-10 02:45:38,668 -   dk          = 0.0523 Ang^-1
+2026-03-10 02:45:38,668 -   kMax        = 3.3467 Ang^-1
+2026-03-10 02:45:38,668 -   da          = 2.1836 mrad
+2026-03-10 02:45:38,668 -   angleMax    = 139.7495 mrad
+2026-03-10 02:45:38,668 -   RBF         = 11.4033 px (Inferred from the given calibration, NOT necessarily from the loaded measurement data)
+2026-03-10 02:45:38,668 -   n_alpha     = 5.6124 (# conv_angle)
+2026-03-10 02:45:38,668 -   dx          = 0.1494 Ang, Nyquist-limited dmin = 2*dx = 0.2988 Ang
+2026-03-10 02:45:38,668 -   Rayleigh-limited resolution  = 1.0230 Ang (0.61*lambda/alpha for focused probe )
+2026-03-10 02:45:38,668 -   Real space probe extent = 19.1232 Ang
+2026-03-10 02:45:38,668 -  
+2026-03-10 02:45:38,668 - ### Initializing probe ###
+2026-03-10 02:45:38,668 - Loading probe from source = 'simu'
+2026-03-10 02:45:38,668 - Using experimental parameters specified by 'init_params' for initial probe simulation.
+2026-03-10 02:45:38,668 - Start simulating STEM probe
+2026-03-10 02:45:38,668 -   kv          = 80.0 kV
+2026-03-10 02:45:38,668 -   wavelength  = 0.0418 Ang
+2026-03-10 02:45:38,668 -   conv_angle  = 24.9 mrad
+2026-03-10 02:45:38,668 -   Npix        = 128 px
+2026-03-10 02:45:38,668 -   dk          = 0.0523 Ang^-1
+2026-03-10 02:45:38,668 -   kMax        = 3.3467 Ang^-1
+2026-03-10 02:45:38,668 -   alpha_max   = 139.7495 mrad
+2026-03-10 02:45:38,668 -   dx          = 0.1494 Ang, Nyquist-limited dmin = 2*dx = 0.2988 Ang
+2026-03-10 02:45:38,668 -   Rayleigh-limited resolution  = 1.0230 Ang (0.61*lambda/alpha for focused probe )
+2026-03-10 02:45:38,668 -   Real space probe extent = 19.1232 Ang
+2026-03-10 02:45:38,668 - Aberrations(Empty)
+2026-03-10 02:45:38,669 - Loaded probe shape = (1, 128, 128), dtype = complex128
+2026-03-10 02:45:38,670 - pmode_now: 1 and pmode_max: 6, padding the pmode.
+2026-03-10 02:45:38,670 - Creating 5 new probe modes from the major mode
+2026-03-10 02:45:38,670 - Start making mixed-state STEM probe with 6 incoherent probe modes
+2026-03-10 02:45:38,753 - Relative power of probe modes = [0.9  0.02 0.02 0.02 0.02 0.02]
+2026-03-10 02:45:38,754 - Orthogonalizing 6 pmodes
+2026-03-10 02:45:38,756 - Sorting 6 pmodes by their intensities
+2026-03-10 02:45:38,756 - Normalizing probe intensity with mode = 'mean_total_ints' and value = 'None'
+2026-03-10 02:45:38,757 - sum(|probe_data|**2) = 443.31, while meas_total_ints (min, mean, max) = (438.8489, 443.3112, 447.6965)
+2026-03-10 02:45:38,757 - probe                         (pmode, Ny, Nx) = complex64, (6, 128, 128)
+2026-03-10 02:45:38,757 -  
+2026-03-10 02:45:38,757 - ### Initializing probe positions ###
+2026-03-10 02:45:38,758 - Loading probe positions from source = 'simu'
+2026-03-10 02:45:38,758 - Using experimental parameters specified by 'init_params' (dx, scan_step size, N_scan_slow, N_scan_fast) for initial position simulation.
+2026-03-10 02:45:38,758 - Simulating probe positions with dx = 0.1494, scan_step_size = 0.4290, N_scan_fast = 128, N_scan_slow = 128
+2026-03-10 02:45:38,768 - Applying affine transformation to scan pattern with (scale, asymmetry, rotation, shear) = (1.0, 0.0, -3.0, 0.0)
+2026-03-10 02:45:38,769 - Applying Gaussian distributed random displacement with std = 0.0 px to scan positions
+2026-03-10 02:45:38,771 - crop_pos                                (N,2) = int16, (16384, 2)
+2026-03-10 02:45:38,771 - crop_pos 1st and last px coords (y,x)         = ([52, 71], [436, 417])
+2026-03-10 02:45:38,772 - crop_pos extent (Ang)                         = [57.3696 57.3696]
+2026-03-10 02:45:38,772 - probe_pos_shifts                        (N,2) = float32, (16384, 2)
+2026-03-10 02:45:38,772 -  
+2026-03-10 02:45:38,772 - ### Initializing object ###
+2026-03-10 02:45:38,772 - Loading object from source = 'simu'
+2026-03-10 02:45:38,772 - Using experimental parameters specified by 'init_params' for initial object simulation.
+2026-03-10 02:45:38,906 - omode_now: 1 and omode_max: 1, leaving the omode unchanged.
+2026-03-10 02:45:38,910 - object                    (omode, Nz, Ny, Nx) = complex64, (1, 6, 614, 614)
+2026-03-10 02:45:38,910 - object extent                 (Z, Y, X) (Ang) = [12.     91.7316 91.7316]
+2026-03-10 02:45:38,910 -  
+2026-03-10 02:45:38,910 - ### Initializing omode_occu from 'uniform' ###
+2026-03-10 02:45:38,910 - omode_occu                            (omode) = float32, (1,)
+2026-03-10 02:45:38,910 -  
+2026-03-10 02:45:38,910 - ### Initializing H (Fresnel propagator) ###
+2026-03-10 02:45:38,910 - Calculating H with probe_shape = [128. 128.] px, dx = 0.1494 Ang, slice_thickness = 2.0000 Ang, lambd = 0.0418 Ang
+2026-03-10 02:45:38,911 - H                                    (Ky, Kx) = complex64, (128, 128)
+2026-03-10 02:45:38,911 -  
+2026-03-10 02:45:38,911 - ### Initializing obj tilts from = 'simu' ###
+2026-03-10 02:45:38,911 - Initialized obj_tilts with init_tilts = [[0.0, 0.0]] (theta_y, theta_x) mrad
+2026-03-10 02:45:38,911 - obj_tilts                              (N, 2) = float32, (1, 2)
+2026-03-10 02:45:38,911 -  
+2026-03-10 02:45:38,911 - ### Checking consistency between input params with the initialized variables ###
+2026-03-10 02:45:38,911 - Npix, DP measurements, probe, and H shapes are consistent as '128'
+2026-03-10 02:45:38,911 - N_scans, len(meas), N_scan_slow*N_scan_fast, len(crop_pos), and len(probe_pos_shifts) are consistent as '16384'
+2026-03-10 02:45:38,911 - obj.shape[0] is consistent with len(omode_occu) as '1'
+2026-03-10 02:45:38,911 - obj.shape[1] is consistent with Nlayer as '6'
+2026-03-10 02:45:38,912 - crop positions (yx_min=[52 52], yx_max=[564 564]) are well contained inside object canvas (Ny,Nx) = (614, 614).
+2026-03-10 02:45:38,912 - obj_tilts is consistent with either 1 or N_scans
+2026-03-10 02:45:38,912 - Pass the consistency check of initialized variables, initialization is done!
+2026-03-10 02:45:38,912 -  
+2026-03-10 02:45:38,912 - ### Collecting reconstruction provenance ###
+2026-03-10 02:45:38,913 - Reconstruction provenance is collected and initialized.
+2026-03-10 02:45:38,913 -  
+2026-03-10 02:45:38,913 - ### Initializing loss function ###
+2026-03-10 02:45:38,913 - Active loss types:
+2026-03-10 02:45:38,913 -   loss_single : {'state': True, 'weight': 1.0, 'dp_pow': 0.5}
+2026-03-10 02:45:38,913 -  
+2026-03-10 02:45:38,913 - ### Initializing constraint function ###
+2026-03-10 02:45:38,913 - Active constraint types:
+2026-03-10 02:45:38,913 -   ortho_pmode   : {'start_iter': 1, 'step': 1, 'end_iter': None}
+2026-03-10 02:45:38,913 -   fix_probe_int : {'start_iter': 1, 'step': 1, 'end_iter': None}
+2026-03-10 02:45:38,913 -   obj_rblur     : {'start_iter': 1, 'step': 1, 'end_iter': None, 'obj_type': 'both', 'kernel_size': 5, 'std': 0.5}
+2026-03-10 02:45:38,913 -   obj_zblur     : {'start_iter': 1, 'step': 1, 'end_iter': None, 'obj_type': 'both', 'kernel_size': 5, 'std': 1.0}
+2026-03-10 02:45:38,913 -   obja_thresh   : {'start_iter': 1, 'step': 1, 'end_iter': None, 'relax': 0.0, 'thresh': [0.98, 1.02]}
+2026-03-10 02:45:38,913 -   pos_recenter  : {'start_iter': 1, 'step': 1, 'end_iter': None, 'relax': 0.0}
+2026-03-10 02:45:38,913 -  
+2026-03-10 02:45:38,913 - ### Done initializing PtyRADSolver ###
+2026-03-10 02:45:38,913 -  
+2026-03-10 02:45:38,913 - ### Starting the PtyRADSolver in reconstruct mode ###
+2026-03-10 02:45:38,913 -  
+2026-03-10 02:45:38,913 - ### Initializing PtychoModel model ###
+2026-03-10 02:45:39,342 - ### PtychoModel optimizable variables ###
+2026-03-10 02:45:39,343 - obja            : torch.Size([1, 6, 614, 614])    , torch.float32   , device:cuda:0, grad:True , lr:5e-04
+2026-03-10 02:45:39,343 - objp            : torch.Size([1, 6, 614, 614])    , torch.float32   , device:cuda:0, grad:True , lr:5e-04
+2026-03-10 02:45:39,343 - obj_tilts       : torch.Size([1, 2])              , torch.float32   , device:cuda:0, grad:False, lr:0e+00
+2026-03-10 02:45:39,343 - slice_thickness : torch.Size([])                  , torch.float32   , device:cuda:0, grad:False, lr:0e+00
+2026-03-10 02:45:39,343 - probe           : torch.Size([6, 128, 128, 2])    , torch.float32   , device:cuda:0, grad:True , lr:1e-04
+2026-03-10 02:45:39,343 - probe_pos_shifts: torch.Size([16384, 2])          , torch.float32   , device:cuda:0, grad:True , lr:5e-04
+2026-03-10 02:45:39,343 -  
+2026-03-10 02:45:39,343 - ### Optimizable variables statitsics ###
+2026-03-10 02:45:39,343 - Total measurement values  : 268,435,456
+2026-03-10 02:45:39,343 - Total optimizing variables: 4,753,328
+2026-03-10 02:45:39,343 - Overdetermined ratio      : 56.47
+2026-03-10 02:45:39,343 -  
+2026-03-10 02:45:39,343 - ### Model behavior ###
+2026-03-10 02:45:39,343 - Tilt propagator           : False
+2026-03-10 02:45:39,343 - Change slice thickness    : False
+2026-03-10 02:45:39,343 - Sub-px probe shift        : True
+2026-03-10 02:45:39,343 - Detector blur             : False
+2026-03-10 02:45:39,343 - Preload data              : True
+2026-03-10 02:45:39,343 - On-the-fly meas padding   : False
+2026-03-10 02:45:39,343 - On-the-fly meas resample  : False
+2026-03-10 02:45:39,343 -  
+2026-03-10 02:45:39,344 - ### Done initializing PtychoModel model ###
+2026-03-10 02:45:39,344 -  
+2026-03-10 02:45:39,344 - ### Creating PyTorch 'Adam' optimizer with configs = {} ###
+2026-03-10 02:45:39,344 -  
+2026-03-10 02:45:39,344 - ### Generating indices, batches, and output_path ###
+2026-03-10 02:45:39,345 - d90 = 23.000 px or 3.436 Ang
+2026-03-10 02:45:39,345 - Selecting indices with the 'full' mode 
+2026-03-10 02:45:39,349 - Generated 4096 'random' groups of ~4 scan positions in 0.005 sec
+2026-03-10 02:45:52,204 - The effective batch size (i.e., how many probe positions are simultaneously used for 1 update of ptychographic parameters) is batch_size * grad_accumulation = 4 * 1 = 4
+2026-03-10 02:45:52,204 - Original recon_dir_affixes = ['default', 'optimizer', 'start_iter', 'lr', 'model', 'constraint', 'loss']
+2026-03-10 02:45:52,204 - Expanded recon_dir_affixes = ['indices', 'meas', 'batch', 'pmode', 'omode', 'nlayer', 'lr', 'model', 'constraint', 'loss', 'affine', 'tilt', 'aberrations', 'optimizer', 'start_iter']
+2026-03-10 02:45:52,205 - output_path = '/workspace/ptycho_benchmark/output/tBL_WSe2/20260309_ptyrad_cloud_table_r1/full_N16384_dp128_flipT100_random4_p6_1obj_6slice_dz2_Adam_plr1e-4_oalr5e-4_oplr5e-4_slr5e-4_orblur0.5_ozblur1.0_oathr0.98_sng1.0_aff1.00_0.00_-3.0_0.0' is generated!
+2026-03-10 02:46:03,463 -  
+2026-03-10 02:46:03,517 - ### Log file is flushed (created) as /workspace/ptycho_benchmark/output/tBL_WSe2/20260309_ptyrad_cloud_table_r1/full_N16384_dp128_flipT100_random4_p6_1obj_6slice_dz2_Adam_plr1e-4_oalr5e-4_oplr5e-4_slr5e-4_orblur0.5_ozblur1.0_oathr0.98_sng1.0_aff1.00_0.00_-3.0_0.0/20260310_024603_ptyrad_log.txt ###
+2026-03-10 02:46:03,517 -  
+2026-03-10 02:46:03,517 - ### Start the PtyRAD iterative ptycho reconstruction ###
+2026-03-10 02:46:03,517 - Setting up PyTorch compiler with {'fullgraph': False, 'dynamic': None, 'backend': 'inductor', 'mode': 'default', 'options': None, 'disable': False}
+2026-03-10 02:46:23,549 - Iter: 1, Total Loss: 0.4157, loss_single: 0.4157, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 20.028 sec
+2026-03-10 02:46:39,737 - Iter: 2, Total Loss: 0.4051, loss_single: 0.4051, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 16.185 sec
+2026-03-10 02:46:55,922 - Iter: 3, Total Loss: 0.4028, loss_single: 0.4028, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 16.169 sec
+2026-03-10 02:47:12,149 - Iter: 4, Total Loss: 0.4006, loss_single: 0.4006, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 16.211 sec
+2026-03-10 02:47:28,268 - Iter: 5, Total Loss: 0.3979, loss_single: 0.3979, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 16.104 sec
+2026-03-10 02:47:44,390 - Iter: 6, Total Loss: 0.3947, loss_single: 0.3947, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 16.106 sec
+2026-03-10 02:48:00,554 - Iter: 7, Total Loss: 0.3909, loss_single: 0.3909, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 16.148 sec
+2026-03-10 02:48:16,722 - Iter: 8, Total Loss: 0.3873, loss_single: 0.3873, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 16.152 sec
+2026-03-10 02:48:32,907 - Iter: 9, Total Loss: 0.3840, loss_single: 0.3840, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 16.168 sec
+2026-03-10 02:48:49,143 - Iter: 10, Total Loss: 0.3813, loss_single: 0.3813, loss_poissn: 0.0000, loss_pacbed: 0.0000, loss_sparse: 0.0000, loss_simlar: 0.0000, in 16.221 sec
+2026-03-10 02:48:49,158 - ### Finished 10 iterations, averaged iter_t = 16.549 with std = 1.160 ###
+2026-03-10 02:48:49,159 -  
+2026-03-10 02:48:49,174 - ### The PtyRADSolver is finished in 190.261 sec, or 3 min 10.261 sec ###
+2026-03-10 02:48:49,174 -  

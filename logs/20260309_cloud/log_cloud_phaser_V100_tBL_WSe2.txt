@@ -1,0 +1,57 @@
+### System information ###
+Platform: Linux-5.15.0-153-generic-x86_64-with-glibc2.39
+Operating System: Linux 5.15.0-153-generic
+OS Version: #163-Ubuntu SMP Thu Aug 7 16:37:18 UTC 2025
+Machine: x86_64
+Processor: x86_64
+Available CPU cores: 64
+Memory information will be available after `conda install conda-forge::psutil`
+ 
+### GPU information ###
+--- PyTorch Backend ---
+WARNING: No GPU information because PyTorch can't be imported.
+         Please install PyTorch because it's the crucial dependency of PtyRAD.
+         See https://github.com/chiahao3/ptyrad for PtyRAD installation guide.
+--- JAX Backend ---
+Available JAX Backends: dict_keys(['cpu', 'cuda'])
+Available JAX GPUs: ['Tesla V100-SXM2-32GB']
+ 
+### Python information ###
+Python Executable: /venv/bench_phaser/bin/python
+Python Version: 3.12.13 | packaged by conda-forge | (main, Mar  5 2026, 16:50:00) [GCC 14.3.0]
+ 
+### Packages information ###
+Numpy Version (metadata): 2.4.3
+Cupy not found in the environment.
+Jax Version (metadata): 0.9.1
+PyTorch not found in the environment.
+Optuna not found in the environment.
+Accelerate not found in the environment.
+PtyRAD not found locally
+phaser imported, but no __version__ attribute found.
+py4DSTEM not found locally
+quantem not found locally
+ 
+### Running (round_idx, batch, pmode, slice) = (1, 512, 6, 6) ###
+INFO:root:Executing plan...
+INFO:root:Initializing reconstruction...
+INFO:root:dtype: <class 'numpy.float32'> array backend: jax.numpy
+INFO:root:jax backend: gpu devices: [CudaDevice(id=0)]
+INFO:root:Loading with detector flips: [1, 0, 0] [y, x, transpose]
+INFO:phaser.hooks.io.empad:Scaling patterns by ADU (151.0)
+INFO:root:Initializing probe...
+INFO:phaser.hooks.probe:Making probe, conv_angle 24.94 mrad, defocus 0.0 A
+INFO:root:Initializing scan...
+INFO:root:Initializing object...
+INFO:root:Initialized reconstruction in 00:05.356
+INFO:root:Preparing for engine #1...
+INFO:root:Initializing engine...
+INFO:phaser.engines.common.simulation:Bandwidth limit: 139.75 mrad
+INFO:phaser.utils.num:JIT-compiling kernel 'dry_run'...
+INFO:phaser.engines.gradient.run:Pre-calculated intensities
+INFO:phaser.engines.gradient.run:Rescaling initial probe intensity by 8.95e+04
+INFO:root:Engine initialized
+INFO:phaser.utils.num:JIT-compiling kernel 'run_group'...
+INFO:phaser.utils.num:JIT-compiling kernel 'run_model'...
+INFO:phaser.utils.num:JIT-compiling kernel 'clamp_amplitude'...
+W0310 02:41:23.359974    3728 autotuner.cc:583] No reference output found even though buffer checking was requested while autotuning

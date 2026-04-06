@@ -1,0 +1,3574 @@
+========================================
+ Starting Cloud Benchmark Pipeline
+ Target Device: RTXPRO6000
+========================================
+Fri Mar 13 01:30:04 UTC 2026
+----------------------------------------
+ Phase 1: Environment Setup
+----------------------------------------
+Setting up PtyRAD environment...
+🧹 Purging Conda and Pip caches to ensure a clean build...
+There are no unused tarball(s) to remove.
+There are no index cache(s) to remove.
+There are no unused package(s) to remove.
+There are no tempfile(s) to remove.
+There are no logfile(s) to remove.
+Files removed: 74
+✨ Creating Conda environment 'bench_ptyrad' with Python 3.12...
+Retrieving notices: - \ done
+Channels:
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): / - \ | / - \ | / - \ | / - \ | / done
+Solving environment: \ | done
+
+
+==> WARNING: A newer version of conda exists. <==
+    current version: 25.11.0
+    latest version: 26.1.1
+
+Please update conda by running
+
+    $ conda update -n base -c conda-forge conda
+
+
+
+## Package Plan ##
+
+  environment location: /venv/bench_ptyrad
+
+  added / updated specs:
+    - python=3.12
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    _openmp_mutex-4.5          |           20_gnu          28 KB  conda-forge
+    bzip2-1.0.8                |       hda65f42_9         254 KB  conda-forge
+    ca-certificates-2026.2.25  |       hbd8a1cb_0         144 KB  conda-forge
+    icu-78.2                   |       h33c6efd_0        12.1 MB  conda-forge
+    ld_impl_linux-64-2.45.1    |default_hbd61a6d_101         709 KB  conda-forge
+    libexpat-2.7.4             |       hecca717_0          75 KB  conda-forge
+    libffi-3.5.2               |       h3435931_0          57 KB  conda-forge
+    libgcc-15.2.0              |      he0feb66_18        1017 KB  conda-forge
+    libgcc-ng-15.2.0           |      h69a702a_18          27 KB  conda-forge
+    libgomp-15.2.0             |      he0feb66_18         589 KB  conda-forge
+    liblzma-5.8.2              |       hb03c661_0         111 KB  conda-forge
+    libsqlite-3.52.0           |       hf4e2dac_0         929 KB  conda-forge
+    libstdcxx-15.2.0           |      h934c35e_18         5.6 MB  conda-forge
+    libuuid-2.41.3             |       h5347b49_0          39 KB  conda-forge
+    openssl-3.6.1              |       h35e630c_1         3.0 MB  conda-forge
+    packaging-26.0             |     pyhcf101f3_0          70 KB  conda-forge
+    pip-26.0.1                 |     pyh8b19718_0         1.1 MB  conda-forge
+    python-3.12.13             |hd63d673_0_cpython        30.1 MB  conda-forge
+    readline-8.3               |       h853b02a_0         337 KB  conda-forge
+    setuptools-82.0.1          |     pyh332efcf_0         625 KB  conda-forge
+    tk-8.6.13                  |noxft_h366c992_103         3.1 MB  conda-forge
+    tzdata-2025c               |       hc9c84f9_1         116 KB  conda-forge
+    wheel-0.46.3               |     pyhd8ed1ab_0          31 KB  conda-forge
+    ------------------------------------------------------------
+                                           Total:        60.2 MB
+
+The following NEW packages will be INSTALLED:
+
+  _openmp_mutex      conda-forge/linux-64::_openmp_mutex-4.5-20_gnu 
+  bzip2              conda-forge/linux-64::bzip2-1.0.8-hda65f42_9 
+  ca-certificates    conda-forge/noarch::ca-certificates-2026.2.25-hbd8a1cb_0 
+  icu                conda-forge/linux-64::icu-78.2-h33c6efd_0 
+  ld_impl_linux-64   conda-forge/linux-64::ld_impl_linux-64-2.45.1-default_hbd61a6d_101 
+  libexpat           conda-forge/linux-64::libexpat-2.7.4-hecca717_0 
+  libffi             conda-forge/linux-64::libffi-3.5.2-h3435931_0 
+  libgcc             conda-forge/linux-64::libgcc-15.2.0-he0feb66_18 
+  libgcc-ng          conda-forge/linux-64::libgcc-ng-15.2.0-h69a702a_18 
+  libgomp            conda-forge/linux-64::libgomp-15.2.0-he0feb66_18 
+  liblzma            conda-forge/linux-64::liblzma-5.8.2-hb03c661_0 
+  libnsl             conda-forge/linux-64::libnsl-2.0.1-hb9d3cd8_1 
+  libsqlite          conda-forge/linux-64::libsqlite-3.52.0-hf4e2dac_0 
+  libstdcxx          conda-forge/linux-64::libstdcxx-15.2.0-h934c35e_18 
+  libuuid            conda-forge/linux-64::libuuid-2.41.3-h5347b49_0 
+  libxcrypt          conda-forge/linux-64::libxcrypt-4.4.36-hd590300_1 
+  libzlib            conda-forge/linux-64::libzlib-1.3.1-hb9d3cd8_2 
+  ncurses            conda-forge/linux-64::ncurses-6.5-h2d0b736_3 
+  openssl            conda-forge/linux-64::openssl-3.6.1-h35e630c_1 
+  packaging          conda-forge/noarch::packaging-26.0-pyhcf101f3_0 
+  pip                conda-forge/noarch::pip-26.0.1-pyh8b19718_0 
+  python             conda-forge/linux-64::python-3.12.13-hd63d673_0_cpython 
+  readline           conda-forge/linux-64::readline-8.3-h853b02a_0 
+  setuptools         conda-forge/noarch::setuptools-82.0.1-pyh332efcf_0 
+  tk                 conda-forge/linux-64::tk-8.6.13-noxft_h366c992_103 
+  tzdata             conda-forge/noarch::tzdata-2025c-hc9c84f9_1 
+  wheel              conda-forge/noarch::wheel-0.46.3-pyhd8ed1ab_0 
+  zstd               conda-forge/linux-64::zstd-1.5.7-hb78ec9c_6 
+
+
+
+Downloading and Extracting Packages: ...working...python-3.12.13       | 30.1 MB   |            |   0% 
+icu-78.2             | 12.1 MB   |            |   0% [A
+
+libstdcxx-15.2.0     | 5.6 MB    |            |   0% [A[A
+
+
+tk-8.6.13            | 3.1 MB    |            |   0% [A[A[A
+
+
+
+openssl-3.6.1        | 3.0 MB    |            |   0% [A[A[A[A
+
+
+
+
+pip-26.0.1           | 1.1 MB    |            |   0% [A[A[A[A[A
+
+
+
+
+
+libgcc-15.2.0        | 1017 KB   |            |   0% [A[A[A[A[A[A
+
+
+
+
+
+
+libsqlite-3.52.0     | 929 KB    |            |   0% [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+ld_impl_linux-64-2.4 | 709 KB    |            |   0% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+setuptools-82.0.1    | 625 KB    |            |   0% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+libgomp-15.2.0       | 589 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+readline-8.3         | 337 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+bzip2-1.0.8          | 254 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+ca-certificates-2026 | 144 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+tzdata-2025c         | 116 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+liblzma-5.8.2        | 111 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libexpat-2.7.4       | 75 KB     |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+packaging-26.0       | 70 KB     |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libffi-3.5.2         | 57 KB     |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+tk-8.6.13            | 3.1 MB    |            |   0% [A[A[A
+icu-78.2             | 12.1 MB   |            |   0% [A
+
+libstdcxx-15.2.0     | 5.6 MB    |            |   0% [A[A
+
+
+
+openssl-3.6.1        | 3.0 MB    | 2          |   2% [A[A[A[Apython-3.12.13       | 30.1 MB   |            |   0% 
+
+
+tk-8.6.13            | 3.1 MB    | #####7     |  57% [A[A[A
+icu-78.2             | 12.1 MB   | #2         |  13% [A
+
+libstdcxx-15.2.0     | 5.6 MB    | ##2        |  23% [A[A
+
+
+
+openssl-3.6.1        | 3.0 MB    | #######2   |  72% [A[A[A[Apython-3.12.13       | 30.1 MB   | 3          |   4% 
+
+
+
+openssl-3.6.1        | 3.0 MB    | ########## | 100% [A[A[A[A
+
+
+
+
+pip-26.0.1           | 1.1 MB    | 1          |   1% [A[A[A[A[A
+
+
+tk-8.6.13            | 3.1 MB    | ########## | 100% [A[A[A
+icu-78.2             | 12.1 MB   | ####7      |  48% [A
+
+libstdcxx-15.2.0     | 5.6 MB    | #######5   |  76% [A[Apython-3.12.13       | 30.1 MB   | ##         |  20% 
+
+
+
+
+pip-26.0.1           | 1.1 MB    | ########## | 100% [A[A[A[A[A
+
+
+
+
+
+libgcc-15.2.0        | 1017 KB   | 1          |   2% [A[A[A[A[A[A
+
+
+
+
+
+
+libsqlite-3.52.0     | 929 KB    | 1          |   2% [A[A[A[A[A[A[A
+icu-78.2             | 12.1 MB   | ########2  |  83% [A
+
+
+
+
+
+libgcc-15.2.0        | 1017 KB   | ########## | 100% [A[A[A[A[A[Apython-3.12.13       | 30.1 MB   | ###4       |  34% 
+
+
+
+
+
+
+libsqlite-3.52.0     | 929 KB    | ########## | 100% [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+ld_impl_linux-64-2.4 | 709 KB    | 2          |   2% [A[A[A[A[A[A[A[A
+
+libstdcxx-15.2.0     | 5.6 MB    | ########## | 100% [A[A
+
+
+
+
+
+
+
+ld_impl_linux-64-2.4 | 709 KB    | ########## | 100% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+setuptools-82.0.1    | 625 KB    | 2          |   3% [A[A[A[A[A[A[A[A[Apython-3.12.13       | 30.1 MB   | #####      |  51% 
+
+
+
+
+
+
+
+
+setuptools-82.0.1    | 625 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+readline-8.3         | 337 KB    | 4          |   5% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+libgomp-15.2.0       | 589 KB    | 2          |   3% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+readline-8.3         | 337 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+libgomp-15.2.0       | 589 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+bzip2-1.0.8          | 254 KB    | 6          |   6% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+ca-certificates-2026 | 144 KB    | #1         |  11% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+bzip2-1.0.8          | 254 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+ca-certificates-2026 | 144 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[Apython-3.12.13       | 30.1 MB   | ######4    |  65% 
+
+
+
+
+
+
+
+
+
+
+
+
+
+tzdata-2025c         | 116 KB    | #3         |  14% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+tzdata-2025c         | 116 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+liblzma-5.8.2        | 111 KB    | #4         |  14% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+liblzma-5.8.2        | 111 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libexpat-2.7.4       | 75 KB     | ##1        |  21% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libexpat-2.7.4       | 75 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+packaging-26.0       | 70 KB     | ##2        |  23% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+packaging-26.0       | 70 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[Apython-3.12.13       | 30.1 MB   | ########1  |  81% 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libffi-3.5.2         | 57 KB     | ##7        |  28% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libffi-3.5.2         | 57 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+icu-78.2             | 12.1 MB   | ########## | 100% [A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+openssl-3.6.1        | 3.0 MB    | ########## | 100% [A[A[A[A
+
+
+
+
+
+libgcc-15.2.0        | 1017 KB   | ########## | 100% [A[A[A[A[A[A
+
+
+
+
+
+libgcc-15.2.0        | 1017 KB   | ########## | 100% [A[A[A[A[A[A
+
+
+
+
+
+
+libsqlite-3.52.0     | 929 KB    | ########## | 100% [A[A[A[A[A[A[A
+
+
+
+
+
+
+libsqlite-3.52.0     | 929 KB    | ########## | 100% [A[A[A[A[A[A[A
+
+
+
+
+pip-26.0.1           | 1.1 MB    | ########## | 100% [A[A[A[A[A
+
+
+
+
+pip-26.0.1           | 1.1 MB    | ########## | 100% [A[A[A[A[A
+
+
+tk-8.6.13            | 3.1 MB    | ########## | 100% [A[A[A
+
+
+tk-8.6.13            | 3.1 MB    | ########## | 100% [A[A[A
+
+
+
+
+
+
+
+ld_impl_linux-64-2.4 | 709 KB    | ########## | 100% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+ld_impl_linux-64-2.4 | 709 KB    | ########## | 100% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+readline-8.3         | 337 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+readline-8.3         | 337 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+libgomp-15.2.0       | 589 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+libgomp-15.2.0       | 589 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[Apython-3.12.13       | 30.1 MB   | ########## | 100% python-3.12.13       | 30.1 MB   | ########## | 100% 
+
+
+
+
+
+
+
+
+
+
+
+bzip2-1.0.8          | 254 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+bzip2-1.0.8          | 254 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+ca-certificates-2026 | 144 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+ca-certificates-2026 | 144 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+libstdcxx-15.2.0     | 5.6 MB    | ########## | 100% [A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+liblzma-5.8.2        | 111 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+liblzma-5.8.2        | 111 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libexpat-2.7.4       | 75 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libexpat-2.7.4       | 75 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+packaging-26.0       | 70 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+packaging-26.0       | 70 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+setuptools-82.0.1    | 625 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+setuptools-82.0.1    | 625 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libffi-3.5.2         | 57 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libffi-3.5.2         | 57 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+tzdata-2025c         | 116 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+tzdata-2025c         | 116 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+icu-78.2             | 12.1 MB   | ########## | 100% [Apython-3.12.13       | 30.1 MB   | ########## | 100% 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A                                                     
+                                                     [A
+
+                                                     [A[A
+
+
+                                                     [A[A[A
+
+
+
+                                                     [A[A[A[A
+
+
+
+
+                                                     [A[A[A[A[A
+
+
+
+
+
+                                                     [A[A[A[A[A[A
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+[A
+
+[A[A
+
+
+[A[A[A done
+Preparing transaction: - done
+Verifying transaction: | / - \ | / - \ | done
+Executing transaction: - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - done
+#
+# To activate this environment, use
+#
+#     $ conda activate bench_ptyrad
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+🔄 Activating 'bench_ptyrad'...
+📦 Installing dependencies for ptyrad...
+Looking in indexes: https://download.pytorch.org/whl/cu128
+Collecting torch==2.7.1
+  Downloading https://download.pytorch.org/whl/cu128/torch-2.7.1%2Bcu128-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (29 kB)
+Collecting torchvision==0.22.1
+  Downloading https://download.pytorch.org/whl/cu128/torchvision-0.22.1%2Bcu128-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (6.1 kB)
+Collecting torchaudio==2.7.1
+  Downloading https://download-r2.pytorch.org/whl/cu128/torchaudio-2.7.1%2Bcu128-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting filelock (from torch==2.7.1)
+  Downloading filelock-3.20.0-py3-none-any.whl.metadata (2.1 kB)
+Collecting typing-extensions>=4.10.0 (from torch==2.7.1)
+  Downloading https://download.pytorch.org/whl/typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+Requirement already satisfied: setuptools in /venv/bench_ptyrad/lib/python3.12/site-packages (from torch==2.7.1) (82.0.1)
+Collecting sympy>=1.13.3 (from torch==2.7.1)
+  Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+Collecting networkx (from torch==2.7.1)
+  Downloading networkx-3.6.1-py3-none-any.whl.metadata (6.8 kB)
+Collecting jinja2 (from torch==2.7.1)
+  Downloading https://download.pytorch.org/whl/jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting fsspec (from torch==2.7.1)
+  Downloading fsspec-2025.12.0-py3-none-any.whl.metadata (10 kB)
+Collecting nvidia-cuda-nvrtc-cu12==12.8.61 (from torch==2.7.1)
+  Downloading https://pypi.nvidia.com/nvidia-cuda-nvrtc-cu12/nvidia_cuda_nvrtc_cu12-12.8.61-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (88.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 88.0/88.0 MB 41.6 MB/s  0:00:02
+Collecting nvidia-cuda-runtime-cu12==12.8.57 (from torch==2.7.1)
+  Downloading https://pypi.nvidia.com/nvidia-cuda-runtime-cu12/nvidia_cuda_runtime_cu12-12.8.57-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (954 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 954.8/954.8 kB 160.6 MB/s  0:00:00
+Collecting nvidia-cuda-cupti-cu12==12.8.57 (from torch==2.7.1)
+  Downloading https://pypi.nvidia.com/nvidia-cuda-cupti-cu12/nvidia_cuda_cupti_cu12-12.8.57-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (10.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.2/10.2 MB 157.7 MB/s  0:00:00
+Collecting nvidia-cudnn-cu12==9.7.1.26 (from torch==2.7.1)
+  Downloading https://pypi.nvidia.com/nvidia-cudnn-cu12/nvidia_cudnn_cu12-9.7.1.26-py3-none-manylinux_2_27_x86_64.whl (726.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 726.9/726.9 MB 77.7 MB/s  0:00:09
+Collecting nvidia-cublas-cu12==12.8.3.14 (from torch==2.7.1)
+  Downloading https://pypi.nvidia.com/nvidia-cublas-cu12/nvidia_cublas_cu12-12.8.3.14-py3-none-manylinux_2_27_x86_64.whl (609.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 609.6/609.6 MB 98.4 MB/s  0:00:05
+Collecting nvidia-cufft-cu12==11.3.3.41 (from torch==2.7.1)
+  Downloading https://pypi.nvidia.com/nvidia-cufft-cu12/nvidia_cufft_cu12-11.3.3.41-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (193.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 193.1/193.1 MB 75.7 MB/s  0:00:02
+Collecting nvidia-curand-cu12==10.3.9.55 (from torch==2.7.1)
+  Downloading https://pypi.nvidia.com/nvidia-curand-cu12/nvidia_curand_cu12-10.3.9.55-py3-none-manylinux_2_27_x86_64.whl (63.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 63.6/63.6 MB 80.6 MB/s  0:00:00
+Collecting nvidia-cusolver-cu12==11.7.2.55 (from torch==2.7.1)
+  Downloading https://pypi.nvidia.com/nvidia-cusolver-cu12/nvidia_cusolver_cu12-11.7.2.55-py3-none-manylinux_2_27_x86_64.whl (260.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 260.4/260.4 MB 111.8 MB/s  0:00:02
+Collecting nvidia-cusparse-cu12==12.5.7.53 (from torch==2.7.1)
+  Downloading https://pypi.nvidia.com/nvidia-cusparse-cu12/nvidia_cusparse_cu12-12.5.7.53-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (292.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 292.1/292.1 MB 107.1 MB/s  0:00:02
+Collecting nvidia-cusparselt-cu12==0.6.3 (from torch==2.7.1)
+  Downloading https://pypi.nvidia.com/nvidia-cusparselt-cu12/nvidia_cusparselt_cu12-0.6.3-py3-none-manylinux2014_x86_64.whl (156.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 156.8/156.8 MB 127.8 MB/s  0:00:01
+Collecting nvidia-nccl-cu12==2.26.2 (from torch==2.7.1)
+  Downloading https://pypi.nvidia.com/nvidia-nccl-cu12/nvidia_nccl_cu12-2.26.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (201.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 201.3/201.3 MB 95.8 MB/s  0:00:02
+Collecting nvidia-nvtx-cu12==12.8.55 (from torch==2.7.1)
+  Downloading https://pypi.nvidia.com/nvidia-nvtx-cu12/nvidia_nvtx_cu12-12.8.55-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (89 kB)
+Collecting nvidia-nvjitlink-cu12==12.8.61 (from torch==2.7.1)
+  Downloading https://pypi.nvidia.com/nvidia-nvjitlink-cu12/nvidia_nvjitlink_cu12-12.8.61-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (39.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 39.2/39.2 MB 82.6 MB/s  0:00:00
+Collecting nvidia-cufile-cu12==1.13.0.11 (from torch==2.7.1)
+  Downloading https://pypi.nvidia.com/nvidia-cufile-cu12/nvidia_cufile_cu12-1.13.0.11-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 160.5 MB/s  0:00:00
+Collecting triton==3.3.1 (from torch==2.7.1)
+  Downloading https://download.pytorch.org/whl/triton-3.3.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (1.5 kB)
+Collecting numpy (from torchvision==0.22.1)
+  Downloading numpy-2.3.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+Collecting pillow!=8.3.*,>=5.3.0 (from torchvision==0.22.1)
+  Downloading pillow-12.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.8 kB)
+Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.13.3->torch==2.7.1)
+  Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->torch==2.7.1)
+  Downloading https://download.pytorch.org/whl/MarkupSafe-3.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.0 kB)
+Downloading https://download.pytorch.org/whl/cu128/torch-2.7.1%2Bcu128-cp312-cp312-manylinux_2_28_x86_64.whl (1039.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.0/1.0 GB 29.2 MB/s  0:00:31
+Downloading https://download.pytorch.org/whl/cu128/torchvision-0.22.1%2Bcu128-cp312-cp312-manylinux_2_28_x86_64.whl (8.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.7/8.7 MB 18.7 MB/s  0:00:00
+Downloading https://download-r2.pytorch.org/whl/cu128/torchaudio-2.7.1%2Bcu128-cp312-cp312-manylinux_2_28_x86_64.whl (3.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.9/3.9 MB 44.2 MB/s  0:00:00
+Downloading https://download.pytorch.org/whl/triton-3.3.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (155.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 155.7/155.7 MB 62.0 MB/s  0:00:02
+Downloading pillow-12.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.0/7.0 MB 68.5 MB/s  0:00:00
+Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 119.1 MB/s  0:00:00
+Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 51.0 MB/s  0:00:00
+Downloading https://download.pytorch.org/whl/typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+Downloading filelock-3.20.0-py3-none-any.whl (16 kB)
+Downloading fsspec-2025.12.0-py3-none-any.whl (201 kB)
+Downloading https://download.pytorch.org/whl/jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading https://download.pytorch.org/whl/MarkupSafe-3.0.2-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (23 kB)
+Downloading networkx-3.6.1-py3-none-any.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 111.0 MB/s  0:00:00
+Downloading numpy-2.3.5-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.6/16.6 MB 114.0 MB/s  0:00:00
+Installing collected packages: nvidia-cusparselt-cu12, mpmath, typing-extensions, triton, sympy, pillow, nvidia-nvtx-cu12, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-curand-cu12, nvidia-cufile-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, numpy, networkx, MarkupSafe, fsspec, filelock, nvidia-cusparse-cu12, nvidia-cufft-cu12, nvidia-cudnn-cu12, jinja2, nvidia-cusolver-cu12, torch, torchvision, torchaudio
+
+Successfully installed MarkupSafe-3.0.2 filelock-3.20.0 fsspec-2025.12.0 jinja2-3.1.6 mpmath-1.3.0 networkx-3.6.1 numpy-2.3.5 nvidia-cublas-cu12-12.8.3.14 nvidia-cuda-cupti-cu12-12.8.57 nvidia-cuda-nvrtc-cu12-12.8.61 nvidia-cuda-runtime-cu12-12.8.57 nvidia-cudnn-cu12-9.7.1.26 nvidia-cufft-cu12-11.3.3.41 nvidia-cufile-cu12-1.13.0.11 nvidia-curand-cu12-10.3.9.55 nvidia-cusolver-cu12-11.7.2.55 nvidia-cusparse-cu12-12.5.7.53 nvidia-cusparselt-cu12-0.6.3 nvidia-nccl-cu12-2.26.2 nvidia-nvjitlink-cu12-12.8.61 nvidia-nvtx-cu12-12.8.55 pillow-12.0.0 sympy-1.14.0 torch-2.7.1+cu128 torchaudio-2.7.1+cu128 torchvision-0.22.1+cu128 triton-3.3.1 typing-extensions-4.15.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+Installing ptyrad from PyPI
+Collecting ptyrad
+  Downloading ptyrad-0.1.0b13.post1-py3-none-any.whl.metadata (11 kB)
+Collecting accelerate (from ptyrad)
+  Downloading accelerate-1.13.0-py3-none-any.whl.metadata (19 kB)
+Collecting h5py (from ptyrad)
+  Downloading h5py-3.16.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (3.0 kB)
+Collecting jupyter (from ptyrad)
+  Downloading jupyter-1.1.1-py2.py3-none-any.whl.metadata (2.0 kB)
+Collecting matplotlib (from ptyrad)
+  Downloading matplotlib-3.10.8-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (52 kB)
+Collecting optuna (from ptyrad)
+  Downloading optuna-4.7.0-py3-none-any.whl.metadata (17 kB)
+Collecting pydantic (from ptyrad)
+  Downloading pydantic-2.12.5-py3-none-any.whl.metadata (90 kB)
+Collecting scikit-learn (from ptyrad)
+  Downloading scikit_learn-1.8.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (11 kB)
+Collecting scipy (from ptyrad)
+  Downloading scipy-1.17.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+Collecting tifffile (from ptyrad)
+  Downloading tifffile-2026.3.3-py3-none-any.whl.metadata (31 kB)
+Requirement already satisfied: torch>=2.0 in /venv/bench_ptyrad/lib/python3.12/site-packages (from ptyrad) (2.7.1+cu128)
+Requirement already satisfied: torchvision in /venv/bench_ptyrad/lib/python3.12/site-packages (from ptyrad) (0.22.1+cu128)
+Requirement already satisfied: filelock in /venv/bench_ptyrad/lib/python3.12/site-packages (from torch>=2.0->ptyrad) (3.20.0)
+Requirement already satisfied: typing-extensions>=4.10.0 in /venv/bench_ptyrad/lib/python3.12/site-packages (from torch>=2.0->ptyrad) (4.15.0)
+Requirement already satisfied: setuptools in /venv/bench_ptyrad/lib/python3.12/site-packages (from torch>=2.0->ptyrad) (82.0.1)
+Requirement already satisfied: sympy>=1.13.3 in /venv/bench_ptyrad/lib/python3.12/site-packages (from torch>=2.0->ptyrad) (1.14.0)
+Requirement already satisfied: networkx in /venv/bench_ptyrad/lib/python3.12/site-packages (from torch>=2.0->ptyrad) (3.6.1)
+Requirement already satisfied: jinja2 in /venv/bench_ptyrad/lib/python3.12/site-packages (from torch>=2.0->ptyrad) (3.1.6)
+Requirement already satisfied: fsspec in /venv/bench_ptyrad/lib/python3.12/site-packages (from torch>=2.0->ptyrad) (2025.12.0)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu12==12.8.61 in /venv/bench_ptyrad/lib/python3.12/site-packages (from torch>=2.0->ptyrad) (12.8.61)
+Requirement already satisfied: nvidia-cuda-runtime-cu12==12.8.57 in /venv/bench_ptyrad/lib/python3.12/site-packages (from torch>=2.0->ptyrad) (12.8.57)
+Requirement already satisfied: nvidia-cuda-cupti-cu12==12.8.57 in /venv/bench_ptyrad/lib/python3.12/site-packages (from torch>=2.0->ptyrad) (12.8.57)
+Requirement already satisfied: nvidia-cudnn-cu12==9.7.1.26 in /venv/bench_ptyrad/lib/python3.12/site-packages (from torch>=2.0->ptyrad) (9.7.1.26)
+Requirement already satisfied: nvidia-cublas-cu12==12.8.3.14 in /venv/bench_ptyrad/lib/python3.12/site-packages (from torch>=2.0->ptyrad) (12.8.3.14)
+Requirement already satisfied: nvidia-cufft-cu12==11.3.3.41 in /venv/bench_ptyrad/lib/python3.12/site-packages (from torch>=2.0->ptyrad) (11.3.3.41)
+Requirement already satisfied: nvidia-curand-cu12==10.3.9.55 in /venv/bench_ptyrad/lib/python3.12/site-packages (from torch>=2.0->ptyrad) (10.3.9.55)
+Requirement already satisfied: nvidia-cusolver-cu12==11.7.2.55 in /venv/bench_ptyrad/lib/python3.12/site-packages (from torch>=2.0->ptyrad) (11.7.2.55)
+Requirement already satisfied: nvidia-cusparse-cu12==12.5.7.53 in /venv/bench_ptyrad/lib/python3.12/site-packages (from torch>=2.0->ptyrad) (12.5.7.53)
+Requirement already satisfied: nvidia-cusparselt-cu12==0.6.3 in /venv/bench_ptyrad/lib/python3.12/site-packages (from torch>=2.0->ptyrad) (0.6.3)
+Requirement already satisfied: nvidia-nccl-cu12==2.26.2 in /venv/bench_ptyrad/lib/python3.12/site-packages (from torch>=2.0->ptyrad) (2.26.2)
+Requirement already satisfied: nvidia-nvtx-cu12==12.8.55 in /venv/bench_ptyrad/lib/python3.12/site-packages (from torch>=2.0->ptyrad) (12.8.55)
+Requirement already satisfied: nvidia-nvjitlink-cu12==12.8.61 in /venv/bench_ptyrad/lib/python3.12/site-packages (from torch>=2.0->ptyrad) (12.8.61)
+Requirement already satisfied: nvidia-cufile-cu12==1.13.0.11 in /venv/bench_ptyrad/lib/python3.12/site-packages (from torch>=2.0->ptyrad) (1.13.0.11)
+Requirement already satisfied: triton==3.3.1 in /venv/bench_ptyrad/lib/python3.12/site-packages (from torch>=2.0->ptyrad) (3.3.1)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /venv/bench_ptyrad/lib/python3.12/site-packages (from sympy>=1.13.3->torch>=2.0->ptyrad) (1.3.0)
+Requirement already satisfied: numpy>=1.17 in /venv/bench_ptyrad/lib/python3.12/site-packages (from accelerate->ptyrad) (2.3.5)
+Requirement already satisfied: packaging>=20.0 in /venv/bench_ptyrad/lib/python3.12/site-packages (from accelerate->ptyrad) (26.0)
+Collecting psutil (from accelerate->ptyrad)
+  Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl.metadata (22 kB)
+Collecting pyyaml (from accelerate->ptyrad)
+  Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Collecting huggingface_hub>=0.21.0 (from accelerate->ptyrad)
+  Downloading huggingface_hub-1.6.0-py3-none-any.whl.metadata (13 kB)
+Collecting safetensors>=0.4.3 (from accelerate->ptyrad)
+  Downloading safetensors-0.7.0-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+Collecting hf-xet<2.0.0,>=1.3.2 (from huggingface_hub>=0.21.0->accelerate->ptyrad)
+  Downloading hf_xet-1.4.1-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (4.9 kB)
+Collecting httpx<1,>=0.23.0 (from huggingface_hub>=0.21.0->accelerate->ptyrad)
+  Downloading httpx-0.28.1-py3-none-any.whl.metadata (7.1 kB)
+Collecting tqdm>=4.42.1 (from huggingface_hub>=0.21.0->accelerate->ptyrad)
+  Downloading tqdm-4.67.3-py3-none-any.whl.metadata (57 kB)
+Collecting typer (from huggingface_hub>=0.21.0->accelerate->ptyrad)
+  Downloading typer-0.24.1-py3-none-any.whl.metadata (16 kB)
+Collecting anyio (from httpx<1,>=0.23.0->huggingface_hub>=0.21.0->accelerate->ptyrad)
+  Downloading anyio-4.12.1-py3-none-any.whl.metadata (4.3 kB)
+Collecting certifi (from httpx<1,>=0.23.0->huggingface_hub>=0.21.0->accelerate->ptyrad)
+  Downloading certifi-2026.2.25-py3-none-any.whl.metadata (2.5 kB)
+Collecting httpcore==1.* (from httpx<1,>=0.23.0->huggingface_hub>=0.21.0->accelerate->ptyrad)
+  Downloading httpcore-1.0.9-py3-none-any.whl.metadata (21 kB)
+Collecting idna (from httpx<1,>=0.23.0->huggingface_hub>=0.21.0->accelerate->ptyrad)
+  Downloading idna-3.11-py3-none-any.whl.metadata (8.4 kB)
+Collecting h11>=0.16 (from httpcore==1.*->httpx<1,>=0.23.0->huggingface_hub>=0.21.0->accelerate->ptyrad)
+  Downloading h11-0.16.0-py3-none-any.whl.metadata (8.3 kB)
+Requirement already satisfied: MarkupSafe>=2.0 in /venv/bench_ptyrad/lib/python3.12/site-packages (from jinja2->torch>=2.0->ptyrad) (3.0.2)
+Collecting notebook (from jupyter->ptyrad)
+  Downloading notebook-7.5.5-py3-none-any.whl.metadata (10 kB)
+Collecting jupyter-console (from jupyter->ptyrad)
+  Downloading jupyter_console-6.6.3-py3-none-any.whl.metadata (5.8 kB)
+Collecting nbconvert (from jupyter->ptyrad)
+  Downloading nbconvert-7.17.0-py3-none-any.whl.metadata (8.4 kB)
+Collecting ipykernel (from jupyter->ptyrad)
+  Downloading ipykernel-7.2.0-py3-none-any.whl.metadata (4.5 kB)
+Collecting ipywidgets (from jupyter->ptyrad)
+  Downloading ipywidgets-8.1.8-py3-none-any.whl.metadata (2.4 kB)
+Collecting jupyterlab (from jupyter->ptyrad)
+  Downloading jupyterlab-4.5.6-py3-none-any.whl.metadata (16 kB)
+Collecting comm>=0.1.1 (from ipykernel->jupyter->ptyrad)
+  Downloading comm-0.2.3-py3-none-any.whl.metadata (3.7 kB)
+Collecting debugpy>=1.6.5 (from ipykernel->jupyter->ptyrad)
+  Downloading debugpy-1.8.20-cp312-cp312-manylinux_2_34_x86_64.whl.metadata (1.4 kB)
+Collecting ipython>=7.23.1 (from ipykernel->jupyter->ptyrad)
+  Downloading ipython-9.11.0-py3-none-any.whl.metadata (4.5 kB)
+Collecting jupyter-client>=8.8.0 (from ipykernel->jupyter->ptyrad)
+  Downloading jupyter_client-8.8.0-py3-none-any.whl.metadata (8.4 kB)
+Collecting jupyter-core!=6.0.*,>=5.1 (from ipykernel->jupyter->ptyrad)
+  Downloading jupyter_core-5.9.1-py3-none-any.whl.metadata (1.5 kB)
+Collecting matplotlib-inline>=0.1 (from ipykernel->jupyter->ptyrad)
+  Downloading matplotlib_inline-0.2.1-py3-none-any.whl.metadata (2.3 kB)
+Collecting nest-asyncio>=1.4 (from ipykernel->jupyter->ptyrad)
+  Downloading nest_asyncio-1.6.0-py3-none-any.whl.metadata (2.8 kB)
+Collecting pyzmq>=25 (from ipykernel->jupyter->ptyrad)
+  Downloading pyzmq-27.1.0-cp312-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (6.0 kB)
+Collecting tornado>=6.4.1 (from ipykernel->jupyter->ptyrad)
+  Downloading tornado-6.5.5-cp39-abi3-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (2.8 kB)
+Collecting traitlets>=5.4.0 (from ipykernel->jupyter->ptyrad)
+  Downloading traitlets-5.14.3-py3-none-any.whl.metadata (10 kB)
+Collecting decorator>=5.1.0 (from ipython>=7.23.1->ipykernel->jupyter->ptyrad)
+  Downloading decorator-5.2.1-py3-none-any.whl.metadata (3.9 kB)
+Collecting ipython-pygments-lexers>=1.0.0 (from ipython>=7.23.1->ipykernel->jupyter->ptyrad)
+  Downloading ipython_pygments_lexers-1.1.1-py3-none-any.whl.metadata (1.1 kB)
+Collecting jedi>=0.18.2 (from ipython>=7.23.1->ipykernel->jupyter->ptyrad)
+  Downloading jedi-0.19.2-py2.py3-none-any.whl.metadata (22 kB)
+Collecting pexpect>4.6 (from ipython>=7.23.1->ipykernel->jupyter->ptyrad)
+  Downloading pexpect-4.9.0-py2.py3-none-any.whl.metadata (2.5 kB)
+Collecting prompt_toolkit<3.1.0,>=3.0.41 (from ipython>=7.23.1->ipykernel->jupyter->ptyrad)
+  Downloading prompt_toolkit-3.0.52-py3-none-any.whl.metadata (6.4 kB)
+Collecting pygments>=2.14.0 (from ipython>=7.23.1->ipykernel->jupyter->ptyrad)
+  Downloading pygments-2.19.2-py3-none-any.whl.metadata (2.5 kB)
+Collecting stack_data>=0.6.0 (from ipython>=7.23.1->ipykernel->jupyter->ptyrad)
+  Downloading stack_data-0.6.3-py3-none-any.whl.metadata (18 kB)
+Collecting wcwidth (from prompt_toolkit<3.1.0,>=3.0.41->ipython>=7.23.1->ipykernel->jupyter->ptyrad)
+  Downloading wcwidth-0.6.0-py3-none-any.whl.metadata (30 kB)
+Collecting parso<0.9.0,>=0.8.4 (from jedi>=0.18.2->ipython>=7.23.1->ipykernel->jupyter->ptyrad)
+  Downloading parso-0.8.6-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting python-dateutil>=2.8.2 (from jupyter-client>=8.8.0->ipykernel->jupyter->ptyrad)
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting platformdirs>=2.5 (from jupyter-core!=6.0.*,>=5.1->ipykernel->jupyter->ptyrad)
+  Downloading platformdirs-4.9.4-py3-none-any.whl.metadata (4.7 kB)
+Collecting ptyprocess>=0.5 (from pexpect>4.6->ipython>=7.23.1->ipykernel->jupyter->ptyrad)
+  Downloading ptyprocess-0.7.0-py2.py3-none-any.whl.metadata (1.3 kB)
+Collecting six>=1.5 (from python-dateutil>=2.8.2->jupyter-client>=8.8.0->ipykernel->jupyter->ptyrad)
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting executing>=1.2.0 (from stack_data>=0.6.0->ipython>=7.23.1->ipykernel->jupyter->ptyrad)
+  Downloading executing-2.2.1-py2.py3-none-any.whl.metadata (8.9 kB)
+Collecting asttokens>=2.1.0 (from stack_data>=0.6.0->ipython>=7.23.1->ipykernel->jupyter->ptyrad)
+  Downloading asttokens-3.0.1-py3-none-any.whl.metadata (4.9 kB)
+Collecting pure-eval (from stack_data>=0.6.0->ipython>=7.23.1->ipykernel->jupyter->ptyrad)
+  Downloading pure_eval-0.2.3-py3-none-any.whl.metadata (6.3 kB)
+Collecting widgetsnbextension~=4.0.14 (from ipywidgets->jupyter->ptyrad)
+  Downloading widgetsnbextension-4.0.15-py3-none-any.whl.metadata (1.6 kB)
+Collecting jupyterlab_widgets~=3.0.15 (from ipywidgets->jupyter->ptyrad)
+  Downloading jupyterlab_widgets-3.0.16-py3-none-any.whl.metadata (20 kB)
+Collecting async-lru>=1.0.0 (from jupyterlab->jupyter->ptyrad)
+  Downloading async_lru-2.2.0-py3-none-any.whl.metadata (7.2 kB)
+Collecting jupyter-lsp>=2.0.0 (from jupyterlab->jupyter->ptyrad)
+  Downloading jupyter_lsp-2.3.0-py3-none-any.whl.metadata (1.8 kB)
+Collecting jupyter-server<3,>=2.4.0 (from jupyterlab->jupyter->ptyrad)
+  Downloading jupyter_server-2.17.0-py3-none-any.whl.metadata (8.5 kB)
+Collecting jupyterlab-server<3,>=2.28.0 (from jupyterlab->jupyter->ptyrad)
+  Downloading jupyterlab_server-2.28.0-py3-none-any.whl.metadata (5.9 kB)
+Collecting notebook-shim>=0.2 (from jupyterlab->jupyter->ptyrad)
+  Downloading notebook_shim-0.2.4-py3-none-any.whl.metadata (4.0 kB)
+Collecting argon2-cffi>=21.1 (from jupyter-server<3,>=2.4.0->jupyterlab->jupyter->ptyrad)
+  Downloading argon2_cffi-25.1.0-py3-none-any.whl.metadata (4.1 kB)
+Collecting jupyter-events>=0.11.0 (from jupyter-server<3,>=2.4.0->jupyterlab->jupyter->ptyrad)
+  Downloading jupyter_events-0.12.0-py3-none-any.whl.metadata (5.8 kB)
+Collecting jupyter-server-terminals>=0.4.4 (from jupyter-server<3,>=2.4.0->jupyterlab->jupyter->ptyrad)
+  Downloading jupyter_server_terminals-0.5.4-py3-none-any.whl.metadata (5.9 kB)
+Collecting nbformat>=5.3.0 (from jupyter-server<3,>=2.4.0->jupyterlab->jupyter->ptyrad)
+  Downloading nbformat-5.10.4-py3-none-any.whl.metadata (3.6 kB)
+Collecting prometheus-client>=0.9 (from jupyter-server<3,>=2.4.0->jupyterlab->jupyter->ptyrad)
+  Downloading prometheus_client-0.24.1-py3-none-any.whl.metadata (2.1 kB)
+Collecting send2trash>=1.8.2 (from jupyter-server<3,>=2.4.0->jupyterlab->jupyter->ptyrad)
+  Downloading send2trash-2.1.0-py3-none-any.whl.metadata (4.1 kB)
+Collecting terminado>=0.8.3 (from jupyter-server<3,>=2.4.0->jupyterlab->jupyter->ptyrad)
+  Downloading terminado-0.18.1-py3-none-any.whl.metadata (5.8 kB)
+Collecting websocket-client>=1.7 (from jupyter-server<3,>=2.4.0->jupyterlab->jupyter->ptyrad)
+  Downloading websocket_client-1.9.0-py3-none-any.whl.metadata (8.3 kB)
+Collecting babel>=2.10 (from jupyterlab-server<3,>=2.28.0->jupyterlab->jupyter->ptyrad)
+  Downloading babel-2.18.0-py3-none-any.whl.metadata (2.2 kB)
+Collecting json5>=0.9.0 (from jupyterlab-server<3,>=2.28.0->jupyterlab->jupyter->ptyrad)
+  Downloading json5-0.13.0-py3-none-any.whl.metadata (36 kB)
+Collecting jsonschema>=4.18.0 (from jupyterlab-server<3,>=2.28.0->jupyterlab->jupyter->ptyrad)
+  Downloading jsonschema-4.26.0-py3-none-any.whl.metadata (7.6 kB)
+Collecting requests>=2.31 (from jupyterlab-server<3,>=2.28.0->jupyterlab->jupyter->ptyrad)
+  Downloading requests-2.32.5-py3-none-any.whl.metadata (4.9 kB)
+Collecting argon2-cffi-bindings (from argon2-cffi>=21.1->jupyter-server<3,>=2.4.0->jupyterlab->jupyter->ptyrad)
+  Downloading argon2_cffi_bindings-25.1.0-cp39-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl.metadata (7.4 kB)
+Collecting attrs>=22.2.0 (from jsonschema>=4.18.0->jupyterlab-server<3,>=2.28.0->jupyterlab->jupyter->ptyrad)
+  Downloading attrs-25.4.0-py3-none-any.whl.metadata (10 kB)
+Collecting jsonschema-specifications>=2023.03.6 (from jsonschema>=4.18.0->jupyterlab-server<3,>=2.28.0->jupyterlab->jupyter->ptyrad)
+  Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl.metadata (2.9 kB)
+Collecting referencing>=0.28.4 (from jsonschema>=4.18.0->jupyterlab-server<3,>=2.28.0->jupyterlab->jupyter->ptyrad)
+  Downloading referencing-0.37.0-py3-none-any.whl.metadata (2.8 kB)
+Collecting rpds-py>=0.25.0 (from jsonschema>=4.18.0->jupyterlab-server<3,>=2.28.0->jupyterlab->jupyter->ptyrad)
+  Downloading rpds_py-0.30.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+Collecting python-json-logger>=2.0.4 (from jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->jupyterlab->jupyter->ptyrad)
+  Downloading python_json_logger-4.0.0-py3-none-any.whl.metadata (4.0 kB)
+Collecting rfc3339-validator (from jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->jupyterlab->jupyter->ptyrad)
+  Downloading rfc3339_validator-0.1.4-py2.py3-none-any.whl.metadata (1.5 kB)
+Collecting rfc3986-validator>=0.1.1 (from jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->jupyterlab->jupyter->ptyrad)
+  Downloading rfc3986_validator-0.1.1-py2.py3-none-any.whl.metadata (1.7 kB)
+Collecting fqdn (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->jupyterlab->jupyter->ptyrad)
+  Downloading fqdn-1.5.1-py3-none-any.whl.metadata (1.4 kB)
+Collecting isoduration (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->jupyterlab->jupyter->ptyrad)
+  Downloading isoduration-20.11.0-py3-none-any.whl.metadata (5.7 kB)
+Collecting jsonpointer>1.13 (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->jupyterlab->jupyter->ptyrad)
+  Downloading jsonpointer-3.0.0-py2.py3-none-any.whl.metadata (2.3 kB)
+Collecting rfc3987-syntax>=1.1.0 (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->jupyterlab->jupyter->ptyrad)
+  Downloading rfc3987_syntax-1.1.0-py3-none-any.whl.metadata (7.7 kB)
+Collecting uri-template (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->jupyterlab->jupyter->ptyrad)
+  Downloading uri_template-1.3.0-py3-none-any.whl.metadata (8.8 kB)
+Collecting webcolors>=24.6.0 (from jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->jupyterlab->jupyter->ptyrad)
+  Downloading webcolors-25.10.0-py3-none-any.whl.metadata (2.2 kB)
+Collecting beautifulsoup4 (from nbconvert->jupyter->ptyrad)
+  Downloading beautifulsoup4-4.14.3-py3-none-any.whl.metadata (3.8 kB)
+Collecting bleach!=5.0.0 (from bleach[css]!=5.0.0->nbconvert->jupyter->ptyrad)
+  Downloading bleach-6.3.0-py3-none-any.whl.metadata (31 kB)
+Collecting defusedxml (from nbconvert->jupyter->ptyrad)
+  Downloading defusedxml-0.7.1-py2.py3-none-any.whl.metadata (32 kB)
+Collecting jupyterlab-pygments (from nbconvert->jupyter->ptyrad)
+  Downloading jupyterlab_pygments-0.3.0-py3-none-any.whl.metadata (4.4 kB)
+Collecting mistune<4,>=2.0.3 (from nbconvert->jupyter->ptyrad)
+  Downloading mistune-3.2.0-py3-none-any.whl.metadata (1.9 kB)
+Collecting nbclient>=0.5.0 (from nbconvert->jupyter->ptyrad)
+  Downloading nbclient-0.10.4-py3-none-any.whl.metadata (8.3 kB)
+Collecting pandocfilters>=1.4.1 (from nbconvert->jupyter->ptyrad)
+  Downloading pandocfilters-1.5.1-py2.py3-none-any.whl.metadata (9.0 kB)
+Collecting webencodings (from bleach!=5.0.0->bleach[css]!=5.0.0->nbconvert->jupyter->ptyrad)
+  Downloading webencodings-0.5.1-py2.py3-none-any.whl.metadata (2.1 kB)
+Collecting tinycss2<1.5,>=1.1.0 (from bleach[css]!=5.0.0->nbconvert->jupyter->ptyrad)
+  Downloading tinycss2-1.4.0-py3-none-any.whl.metadata (3.0 kB)
+Collecting fastjsonschema>=2.15 (from nbformat>=5.3.0->jupyter-server<3,>=2.4.0->jupyterlab->jupyter->ptyrad)
+  Downloading fastjsonschema-2.21.2-py3-none-any.whl.metadata (2.3 kB)
+Collecting charset_normalizer<4,>=2 (from requests>=2.31->jupyterlab-server<3,>=2.28.0->jupyterlab->jupyter->ptyrad)
+  Downloading charset_normalizer-3.4.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (39 kB)
+Collecting urllib3<3,>=1.21.1 (from requests>=2.31->jupyterlab-server<3,>=2.28.0->jupyterlab->jupyter->ptyrad)
+  Downloading urllib3-2.6.3-py3-none-any.whl.metadata (6.9 kB)
+Collecting lark>=1.2.2 (from rfc3987-syntax>=1.1.0->jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->jupyterlab->jupyter->ptyrad)
+  Downloading lark-1.3.1-py3-none-any.whl.metadata (1.8 kB)
+Collecting cffi>=1.0.1 (from argon2-cffi-bindings->argon2-cffi>=21.1->jupyter-server<3,>=2.4.0->jupyterlab->jupyter->ptyrad)
+  Downloading cffi-2.0.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.6 kB)
+Collecting pycparser (from cffi>=1.0.1->argon2-cffi-bindings->argon2-cffi>=21.1->jupyter-server<3,>=2.4.0->jupyterlab->jupyter->ptyrad)
+  Downloading pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+Collecting soupsieve>=1.6.1 (from beautifulsoup4->nbconvert->jupyter->ptyrad)
+  Downloading soupsieve-2.8.3-py3-none-any.whl.metadata (4.6 kB)
+Collecting arrow>=0.15.0 (from isoduration->jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->jupyterlab->jupyter->ptyrad)
+  Downloading arrow-1.4.0-py3-none-any.whl.metadata (7.7 kB)
+Collecting tzdata (from arrow>=0.15.0->isoduration->jsonschema[format-nongpl]>=4.18.0->jupyter-events>=0.11.0->jupyter-server<3,>=2.4.0->jupyterlab->jupyter->ptyrad)
+  Downloading tzdata-2025.3-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting contourpy>=1.0.1 (from matplotlib->ptyrad)
+  Downloading contourpy-1.3.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (5.5 kB)
+Collecting cycler>=0.10 (from matplotlib->ptyrad)
+  Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting fonttools>=4.22.0 (from matplotlib->ptyrad)
+  Downloading fonttools-4.62.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (117 kB)
+Collecting kiwisolver>=1.3.1 (from matplotlib->ptyrad)
+  Downloading kiwisolver-1.5.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.1 kB)
+Requirement already satisfied: pillow>=8 in /venv/bench_ptyrad/lib/python3.12/site-packages (from matplotlib->ptyrad) (12.0.0)
+Collecting pyparsing>=3 (from matplotlib->ptyrad)
+  Downloading pyparsing-3.3.2-py3-none-any.whl.metadata (5.8 kB)
+Collecting alembic>=1.5.0 (from optuna->ptyrad)
+  Downloading alembic-1.18.4-py3-none-any.whl.metadata (7.2 kB)
+Collecting colorlog (from optuna->ptyrad)
+  Downloading colorlog-6.10.1-py3-none-any.whl.metadata (11 kB)
+Collecting sqlalchemy>=1.4.2 (from optuna->ptyrad)
+  Downloading sqlalchemy-2.0.48-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (9.5 kB)
+Collecting Mako (from alembic>=1.5.0->optuna->ptyrad)
+  Downloading mako-1.3.10-py3-none-any.whl.metadata (2.9 kB)
+Collecting greenlet>=1 (from sqlalchemy>=1.4.2->optuna->ptyrad)
+  Downloading greenlet-3.3.2-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (3.7 kB)
+Collecting annotated-types>=0.6.0 (from pydantic->ptyrad)
+  Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+Collecting pydantic-core==2.41.5 (from pydantic->ptyrad)
+  Downloading pydantic_core-2.41.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.3 kB)
+Collecting typing-inspection>=0.4.2 (from pydantic->ptyrad)
+  Downloading typing_inspection-0.4.2-py3-none-any.whl.metadata (2.6 kB)
+Collecting joblib>=1.3.0 (from scikit-learn->ptyrad)
+  Downloading joblib-1.5.3-py3-none-any.whl.metadata (5.5 kB)
+Collecting threadpoolctl>=3.2.0 (from scikit-learn->ptyrad)
+  Downloading threadpoolctl-3.6.0-py3-none-any.whl.metadata (13 kB)
+Collecting click>=8.2.1 (from typer->huggingface_hub>=0.21.0->accelerate->ptyrad)
+  Downloading click-8.3.1-py3-none-any.whl.metadata (2.6 kB)
+Collecting shellingham>=1.3.0 (from typer->huggingface_hub>=0.21.0->accelerate->ptyrad)
+  Downloading shellingham-1.5.4-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting rich>=12.3.0 (from typer->huggingface_hub>=0.21.0->accelerate->ptyrad)
+  Downloading rich-14.3.3-py3-none-any.whl.metadata (18 kB)
+Collecting annotated-doc>=0.0.2 (from typer->huggingface_hub>=0.21.0->accelerate->ptyrad)
+  Downloading annotated_doc-0.0.4-py3-none-any.whl.metadata (6.6 kB)
+Collecting markdown-it-py>=2.2.0 (from rich>=12.3.0->typer->huggingface_hub>=0.21.0->accelerate->ptyrad)
+  Downloading markdown_it_py-4.0.0-py3-none-any.whl.metadata (7.3 kB)
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich>=12.3.0->typer->huggingface_hub>=0.21.0->accelerate->ptyrad)
+  Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Downloading ptyrad-0.1.0b13.post1-py3-none-any.whl (329 kB)
+Downloading accelerate-1.13.0-py3-none-any.whl (383 kB)
+Downloading huggingface_hub-1.6.0-py3-none-any.whl (612 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 612.9/612.9 kB 40.6 MB/s  0:00:00
+Downloading hf_xet-1.4.1-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (4.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.2/4.2 MB 92.4 MB/s  0:00:00
+Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 69.1 MB/s  0:00:00
+Downloading safetensors-0.7.0-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (507 kB)
+Downloading tqdm-4.67.3-py3-none-any.whl (78 kB)
+Downloading anyio-4.12.1-py3-none-any.whl (113 kB)
+Downloading idna-3.11-py3-none-any.whl (71 kB)
+Downloading certifi-2026.2.25-py3-none-any.whl (153 kB)
+Downloading h5py-3.16.0-cp312-cp312-manylinux_2_28_x86_64.whl (5.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 111.1 MB/s  0:00:00
+Downloading jupyter-1.1.1-py2.py3-none-any.whl (2.7 kB)
+Downloading ipykernel-7.2.0-py3-none-any.whl (118 kB)
+Downloading comm-0.2.3-py3-none-any.whl (7.3 kB)
+Downloading debugpy-1.8.20-cp312-cp312-manylinux_2_34_x86_64.whl (4.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.3/4.3 MB 64.3 MB/s  0:00:00
+Downloading ipython-9.11.0-py3-none-any.whl (624 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 624.2/624.2 kB 52.3 MB/s  0:00:00
+Downloading prompt_toolkit-3.0.52-py3-none-any.whl (391 kB)
+Downloading decorator-5.2.1-py3-none-any.whl (9.2 kB)
+Downloading ipython_pygments_lexers-1.1.1-py3-none-any.whl (8.1 kB)
+Downloading jedi-0.19.2-py2.py3-none-any.whl (1.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 94.4 MB/s  0:00:00
+Downloading parso-0.8.6-py2.py3-none-any.whl (106 kB)
+Downloading jupyter_client-8.8.0-py3-none-any.whl (107 kB)
+Downloading jupyter_core-5.9.1-py3-none-any.whl (29 kB)
+Downloading matplotlib_inline-0.2.1-py3-none-any.whl (9.5 kB)
+Downloading nest_asyncio-1.6.0-py3-none-any.whl (5.2 kB)
+Downloading pexpect-4.9.0-py2.py3-none-any.whl (63 kB)
+Downloading platformdirs-4.9.4-py3-none-any.whl (21 kB)
+Downloading psutil-7.2.2-cp36-abi3-manylinux2010_x86_64.manylinux_2_12_x86_64.manylinux_2_28_x86_64.whl (155 kB)
+Downloading ptyprocess-0.7.0-py2.py3-none-any.whl (13 kB)
+Downloading pygments-2.19.2-py3-none-any.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 86.3 MB/s  0:00:00
+Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Downloading pyzmq-27.1.0-cp312-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (840 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 841.0/841.0 kB 70.5 MB/s  0:00:00
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading stack_data-0.6.3-py3-none-any.whl (24 kB)
+Downloading asttokens-3.0.1-py3-none-any.whl (27 kB)
+Downloading executing-2.2.1-py2.py3-none-any.whl (28 kB)
+Downloading tornado-6.5.5-cp39-abi3-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (447 kB)
+Downloading traitlets-5.14.3-py3-none-any.whl (85 kB)
+Downloading ipywidgets-8.1.8-py3-none-any.whl (139 kB)
+Downloading jupyterlab_widgets-3.0.16-py3-none-any.whl (914 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 914.9/914.9 kB 86.1 MB/s  0:00:00
+Downloading widgetsnbextension-4.0.15-py3-none-any.whl (2.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 109.9 MB/s  0:00:00
+Downloading jupyter_console-6.6.3-py3-none-any.whl (24 kB)
+Downloading jupyterlab-4.5.6-py3-none-any.whl (12.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.4/12.4 MB 124.8 MB/s  0:00:00
+Downloading jupyter_server-2.17.0-py3-none-any.whl (388 kB)
+Downloading jupyterlab_server-2.28.0-py3-none-any.whl (59 kB)
+Downloading argon2_cffi-25.1.0-py3-none-any.whl (14 kB)
+Downloading async_lru-2.2.0-py3-none-any.whl (7.9 kB)
+Downloading babel-2.18.0-py3-none-any.whl (10.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.2/10.2 MB 76.9 MB/s  0:00:00
+Downloading json5-0.13.0-py3-none-any.whl (36 kB)
+Downloading jsonschema-4.26.0-py3-none-any.whl (90 kB)
+Downloading attrs-25.4.0-py3-none-any.whl (67 kB)
+Downloading jsonschema_specifications-2025.9.1-py3-none-any.whl (18 kB)
+Downloading jupyter_events-0.12.0-py3-none-any.whl (19 kB)
+Downloading jsonpointer-3.0.0-py2.py3-none-any.whl (7.6 kB)
+Downloading jupyter_lsp-2.3.0-py3-none-any.whl (76 kB)
+Downloading jupyter_server_terminals-0.5.4-py3-none-any.whl (13 kB)
+Downloading nbconvert-7.17.0-py3-none-any.whl (261 kB)
+Downloading mistune-3.2.0-py3-none-any.whl (53 kB)
+Downloading bleach-6.3.0-py3-none-any.whl (164 kB)
+Downloading tinycss2-1.4.0-py3-none-any.whl (26 kB)
+Downloading nbclient-0.10.4-py3-none-any.whl (25 kB)
+Downloading nbformat-5.10.4-py3-none-any.whl (78 kB)
+Downloading fastjsonschema-2.21.2-py3-none-any.whl (24 kB)
+Downloading notebook_shim-0.2.4-py3-none-any.whl (13 kB)
+Downloading pandocfilters-1.5.1-py2.py3-none-any.whl (8.7 kB)
+Downloading prometheus_client-0.24.1-py3-none-any.whl (64 kB)
+Downloading python_json_logger-4.0.0-py3-none-any.whl (15 kB)
+Downloading referencing-0.37.0-py3-none-any.whl (26 kB)
+Downloading requests-2.32.5-py3-none-any.whl (64 kB)
+Downloading charset_normalizer-3.4.5-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (196 kB)
+Downloading urllib3-2.6.3-py3-none-any.whl (131 kB)
+Downloading rfc3986_validator-0.1.1-py2.py3-none-any.whl (4.2 kB)
+Downloading rfc3987_syntax-1.1.0-py3-none-any.whl (8.0 kB)
+Downloading lark-1.3.1-py3-none-any.whl (113 kB)
+Downloading rpds_py-0.30.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (394 kB)
+Downloading send2trash-2.1.0-py3-none-any.whl (17 kB)
+Downloading terminado-0.18.1-py3-none-any.whl (14 kB)
+Downloading webcolors-25.10.0-py3-none-any.whl (14 kB)
+Downloading webencodings-0.5.1-py2.py3-none-any.whl (11 kB)
+Downloading websocket_client-1.9.0-py3-none-any.whl (82 kB)
+Downloading argon2_cffi_bindings-25.1.0-cp39-abi3-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (87 kB)
+Downloading cffi-2.0.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (219 kB)
+Downloading beautifulsoup4-4.14.3-py3-none-any.whl (107 kB)
+Downloading soupsieve-2.8.3-py3-none-any.whl (37 kB)
+Downloading defusedxml-0.7.1-py2.py3-none-any.whl (25 kB)
+Downloading fqdn-1.5.1-py3-none-any.whl (9.1 kB)
+Downloading isoduration-20.11.0-py3-none-any.whl (11 kB)
+Downloading arrow-1.4.0-py3-none-any.whl (68 kB)
+Downloading jupyterlab_pygments-0.3.0-py3-none-any.whl (15 kB)
+Downloading matplotlib-3.10.8-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.7/8.7 MB 122.2 MB/s  0:00:00
+Downloading contourpy-1.3.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (362 kB)
+Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Downloading fonttools-4.62.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.0/5.0 MB 126.5 MB/s  0:00:00
+Downloading kiwisolver-1.5.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 57.6 MB/s  0:00:00
+Downloading pyparsing-3.3.2-py3-none-any.whl (122 kB)
+Downloading notebook-7.5.5-py3-none-any.whl (14.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.6/14.6 MB 102.6 MB/s  0:00:00
+Downloading optuna-4.7.0-py3-none-any.whl (413 kB)
+Downloading alembic-1.18.4-py3-none-any.whl (263 kB)
+Downloading sqlalchemy-2.0.48-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (3.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 95.2 MB/s  0:00:00
+Downloading greenlet-3.3.2-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (613 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 613.9/613.9 kB 55.1 MB/s  0:00:00
+Downloading colorlog-6.10.1-py3-none-any.whl (11 kB)
+Downloading mako-1.3.10-py3-none-any.whl (78 kB)
+Downloading pure_eval-0.2.3-py3-none-any.whl (11 kB)
+Downloading pycparser-3.0-py3-none-any.whl (48 kB)
+Downloading pydantic-2.12.5-py3-none-any.whl (463 kB)
+Downloading pydantic_core-2.41.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 118.1 MB/s  0:00:00
+Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+Downloading typing_inspection-0.4.2-py3-none-any.whl (14 kB)
+Downloading rfc3339_validator-0.1.4-py2.py3-none-any.whl (3.5 kB)
+Downloading scikit_learn-1.8.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (8.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.9/8.9 MB 120.0 MB/s  0:00:00
+Downloading joblib-1.5.3-py3-none-any.whl (309 kB)
+Downloading scipy-1.17.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.2/35.2 MB 126.2 MB/s  0:00:00
+Downloading threadpoolctl-3.6.0-py3-none-any.whl (18 kB)
+Downloading tifffile-2026.3.3-py3-none-any.whl (243 kB)
+Downloading typer-0.24.1-py3-none-any.whl (56 kB)
+Downloading annotated_doc-0.0.4-py3-none-any.whl (5.3 kB)
+Downloading click-8.3.1-py3-none-any.whl (108 kB)
+Downloading rich-14.3.3-py3-none-any.whl (310 kB)
+Downloading markdown_it_py-4.0.0-py3-none-any.whl (87 kB)
+Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Downloading tzdata-2025.3-py2.py3-none-any.whl (348 kB)
+Downloading uri_template-1.3.0-py3-none-any.whl (11 kB)
+Downloading wcwidth-0.6.0-py3-none-any.whl (94 kB)
+Installing collected packages: webencodings, pure-eval, ptyprocess, fastjsonschema, widgetsnbextension, websocket-client, webcolors, wcwidth, urllib3, uri-template, tzdata, typing-inspection, traitlets, tqdm, tornado, tinycss2, tifffile, threadpoolctl, soupsieve, six, shellingham, send2trash, scipy, safetensors, rpds-py, rfc3986-validator, pyzmq, pyyaml, python-json-logger, pyparsing, pygments, pydantic-core, pycparser, psutil, prometheus-client, platformdirs, pexpect, parso, pandocfilters, nest-asyncio, mistune, mdurl, Mako, lark, kiwisolver, jupyterlab_widgets, jupyterlab-pygments, jsonpointer, json5, joblib, idna, hf-xet, h5py, h11, greenlet, fqdn, fonttools, executing, defusedxml, decorator, debugpy, cycler, contourpy, comm, colorlog, click, charset_normalizer, certifi, bleach, babel, attrs, async-lru, asttokens, annotated-types, annotated-doc, terminado, stack_data, sqlalchemy, scikit-learn, rfc3987-syntax, rfc3339-validator, requests, referencing, python-dateutil, pydantic, prompt_toolkit, matplotlib-inline, markdown-it-py, jupyter-core, jedi, ipython-pygments-lexers, httpcore, cffi, beautifulsoup4, anyio, rich, matplotlib, jupyter-server-terminals, jupyter-client, jsonschema-specifications, ipython, httpx, arrow, argon2-cffi-bindings, alembic, typer, optuna, jsonschema, isoduration, ipywidgets, ipykernel, argon2-cffi, nbformat, jupyter-console, huggingface_hub, nbclient, jupyter-events, accelerate, nbconvert, jupyter-server, notebook-shim, jupyterlab-server, jupyter-lsp, jupyterlab, notebook, jupyter, ptyrad
+
+Successfully installed Mako-1.3.10 accelerate-1.13.0 alembic-1.18.4 annotated-doc-0.0.4 annotated-types-0.7.0 anyio-4.12.1 argon2-cffi-25.1.0 argon2-cffi-bindings-25.1.0 arrow-1.4.0 asttokens-3.0.1 async-lru-2.2.0 attrs-25.4.0 babel-2.18.0 beautifulsoup4-4.14.3 bleach-6.3.0 certifi-2026.2.25 cffi-2.0.0 charset_normalizer-3.4.5 click-8.3.1 colorlog-6.10.1 comm-0.2.3 contourpy-1.3.3 cycler-0.12.1 debugpy-1.8.20 decorator-5.2.1 defusedxml-0.7.1 executing-2.2.1 fastjsonschema-2.21.2 fonttools-4.62.0 fqdn-1.5.1 greenlet-3.3.2 h11-0.16.0 h5py-3.16.0 hf-xet-1.4.1 httpcore-1.0.9 httpx-0.28.1 huggingface_hub-1.6.0 idna-3.11 ipykernel-7.2.0 ipython-9.11.0 ipython-pygments-lexers-1.1.1 ipywidgets-8.1.8 isoduration-20.11.0 jedi-0.19.2 joblib-1.5.3 json5-0.13.0 jsonpointer-3.0.0 jsonschema-4.26.0 jsonschema-specifications-2025.9.1 jupyter-1.1.1 jupyter-client-8.8.0 jupyter-console-6.6.3 jupyter-core-5.9.1 jupyter-events-0.12.0 jupyter-lsp-2.3.0 jupyter-server-2.17.0 jupyter-server-terminals-0.5.4 jupyterlab-4.5.6 jupyterlab-pygments-0.3.0 jupyterlab-server-2.28.0 jupyterlab_widgets-3.0.16 kiwisolver-1.5.0 lark-1.3.1 markdown-it-py-4.0.0 matplotlib-3.10.8 matplotlib-inline-0.2.1 mdurl-0.1.2 mistune-3.2.0 nbclient-0.10.4 nbconvert-7.17.0 nbformat-5.10.4 nest-asyncio-1.6.0 notebook-7.5.5 notebook-shim-0.2.4 optuna-4.7.0 pandocfilters-1.5.1 parso-0.8.6 pexpect-4.9.0 platformdirs-4.9.4 prometheus-client-0.24.1 prompt_toolkit-3.0.52 psutil-7.2.2 ptyprocess-0.7.0 ptyrad-0.1.0b13.post1 pure-eval-0.2.3 pycparser-3.0 pydantic-2.12.5 pydantic-core-2.41.5 pygments-2.19.2 pyparsing-3.3.2 python-dateutil-2.9.0.post0 python-json-logger-4.0.0 pyyaml-6.0.3 pyzmq-27.1.0 referencing-0.37.0 requests-2.32.5 rfc3339-validator-0.1.4 rfc3986-validator-0.1.1 rfc3987-syntax-1.1.0 rich-14.3.3 rpds-py-0.30.0 safetensors-0.7.0 scikit-learn-1.8.0 scipy-1.17.1 send2trash-2.1.0 shellingham-1.5.4 six-1.17.0 soupsieve-2.8.3 sqlalchemy-2.0.48 stack_data-0.6.3 terminado-0.18.1 threadpoolctl-3.6.0 tifffile-2026.3.3 tinycss2-1.4.0 tornado-6.5.5 tqdm-4.67.3 traitlets-5.14.3 typer-0.24.1 typing-inspection-0.4.2 tzdata-2025.3 uri-template-1.3.0 urllib3-2.6.3 wcwidth-0.6.0 webcolors-25.10.0 webencodings-0.5.1 websocket-client-1.9.0 widgetsnbextension-4.0.15
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+--------------------------------------------------
+Environment : bench_ptyrad
+Python Path : /venv/bench_ptyrad/bin/python
+✅ Status     : Successfully imported ptyrad!
+🏷️ Version    : 0.1.0b13.post1
+--------------------------------------------------
+✅ Environment 'bench_ptyrad' setup successfully!
+To use it, run: conda activate bench_ptyrad
+### System information ###
+Platform: Linux-5.15.0-171-generic-x86_64-with-glibc2.39
+Operating System: Linux 5.15.0-171-generic
+OS Version: #181-Ubuntu SMP Fri Feb 6 22:44:50 UTC 2026
+Machine: x86_64
+Processor: x86_64
+Available CPU cores: 192
+Total Memory: 377.38 GB
+Available Memory: 364.81 GB
+ 
+### GPU information ###
+CUDA Available: True
+CUDA Version: 12.8
+Available CUDA GPUs: ['NVIDIA RTX PRO 6000 Blackwell Workstation Edition']
+CUDA Compute Capability: ['12.0']
+  INFO: For torch.compile with Triton, you'll need CUDA GPU with Compute Capability >= 7.0.
+        In addition, Triton does not directly support Windows.
+        For Windows users, please follow the instruction and download `triton-windows` from https://github.com/woct0rdho/triton-windows.
+MIG (Multi-Instance GPU) mode = False
+  INFO: MIG splits a physical GPU into multiple GPU slices, but multiGPU does not support these MIG slices.
+        In addition, multiGPU is currently only available on Linux due to the limited NCCL support.
+      -> If you're doing normal reconstruction/hypertune, you can safely ignore this.
+      -> If you want to do multiGPU, you must provide multiple 'full' GPUs that are not in MIG mode.
+ 
+### Python information ###
+Python Executable: /venv/bench_ptyrad/bin/python3.12
+Python Version: 3.12.13 | packaged by conda-forge | (main, Mar  5 2026, 16:50:00) [GCC 14.3.0]
+ 
+### Packages information ###
+Numpy Version (metadata): 2.3.5
+PyTorch Version (metadata): 2.7.1+cu128
+Optuna Version (metadata): 4.7.0
+Accelerate Version (metadata): 1.13.0
+PtyRAD Version (ptyrad/__init__.py): 0.1.0b13.post1
+PtyRAD is located at: /venv/bench_ptyrad/lib/python3.12/site-packages/ptyrad/__init__.py
+ 
+Setting up Phaser environment...
+🧹 Purging Conda and Pip caches to ensure a clean build...
+Will remove 23 (60.2 MB) tarball(s).
+Will remove 1 index cache(s).
+Will remove 23 (221.8 MB) package(s).
+There are no tempfile(s) to remove.
+There are no logfile(s) to remove.
+Files removed: 848
+✨ Creating Conda environment 'bench_phaser' with Python 3.12...
+Channels:
+ - conda-forge
+Platform: linux-64
+Collecting package metadata (repodata.json): - \ | / - \ | / - \ | / - \ | / done
+Solving environment: \ done
+
+
+==> WARNING: A newer version of conda exists. <==
+    current version: 25.11.0
+    latest version: 26.1.1
+
+Please update conda by running
+
+    $ conda update -n base -c conda-forge conda
+
+
+
+## Package Plan ##
+
+  environment location: /venv/bench_phaser
+
+  added / updated specs:
+    - python=3.12
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    _openmp_mutex-4.5          |           20_gnu          28 KB  conda-forge
+    bzip2-1.0.8                |       hda65f42_9         254 KB  conda-forge
+    ca-certificates-2026.2.25  |       hbd8a1cb_0         144 KB  conda-forge
+    icu-78.2                   |       h33c6efd_0        12.1 MB  conda-forge
+    ld_impl_linux-64-2.45.1    |default_hbd61a6d_101         709 KB  conda-forge
+    libexpat-2.7.4             |       hecca717_0          75 KB  conda-forge
+    libffi-3.5.2               |       h3435931_0          57 KB  conda-forge
+    libgcc-15.2.0              |      he0feb66_18        1017 KB  conda-forge
+    libgcc-ng-15.2.0           |      h69a702a_18          27 KB  conda-forge
+    libgomp-15.2.0             |      he0feb66_18         589 KB  conda-forge
+    liblzma-5.8.2              |       hb03c661_0         111 KB  conda-forge
+    libsqlite-3.52.0           |       hf4e2dac_0         929 KB  conda-forge
+    libstdcxx-15.2.0           |      h934c35e_18         5.6 MB  conda-forge
+    libuuid-2.41.3             |       h5347b49_0          39 KB  conda-forge
+    openssl-3.6.1              |       h35e630c_1         3.0 MB  conda-forge
+    packaging-26.0             |     pyhcf101f3_0          70 KB  conda-forge
+    pip-26.0.1                 |     pyh8b19718_0         1.1 MB  conda-forge
+    python-3.12.13             |hd63d673_0_cpython        30.1 MB  conda-forge
+    readline-8.3               |       h853b02a_0         337 KB  conda-forge
+    setuptools-82.0.1          |     pyh332efcf_0         625 KB  conda-forge
+    tk-8.6.13                  |noxft_h366c992_103         3.1 MB  conda-forge
+    tzdata-2025c               |       hc9c84f9_1         116 KB  conda-forge
+    wheel-0.46.3               |     pyhd8ed1ab_0          31 KB  conda-forge
+    ------------------------------------------------------------
+                                           Total:        60.2 MB
+
+The following NEW packages will be INSTALLED:
+
+  _openmp_mutex      conda-forge/linux-64::_openmp_mutex-4.5-20_gnu 
+  bzip2              conda-forge/linux-64::bzip2-1.0.8-hda65f42_9 
+  ca-certificates    conda-forge/noarch::ca-certificates-2026.2.25-hbd8a1cb_0 
+  icu                conda-forge/linux-64::icu-78.2-h33c6efd_0 
+  ld_impl_linux-64   conda-forge/linux-64::ld_impl_linux-64-2.45.1-default_hbd61a6d_101 
+  libexpat           conda-forge/linux-64::libexpat-2.7.4-hecca717_0 
+  libffi             conda-forge/linux-64::libffi-3.5.2-h3435931_0 
+  libgcc             conda-forge/linux-64::libgcc-15.2.0-he0feb66_18 
+  libgcc-ng          conda-forge/linux-64::libgcc-ng-15.2.0-h69a702a_18 
+  libgomp            conda-forge/linux-64::libgomp-15.2.0-he0feb66_18 
+  liblzma            conda-forge/linux-64::liblzma-5.8.2-hb03c661_0 
+  libnsl             conda-forge/linux-64::libnsl-2.0.1-hb9d3cd8_1 
+  libsqlite          conda-forge/linux-64::libsqlite-3.52.0-hf4e2dac_0 
+  libstdcxx          conda-forge/linux-64::libstdcxx-15.2.0-h934c35e_18 
+  libuuid            conda-forge/linux-64::libuuid-2.41.3-h5347b49_0 
+  libxcrypt          conda-forge/linux-64::libxcrypt-4.4.36-hd590300_1 
+  libzlib            conda-forge/linux-64::libzlib-1.3.1-hb9d3cd8_2 
+  ncurses            conda-forge/linux-64::ncurses-6.5-h2d0b736_3 
+  openssl            conda-forge/linux-64::openssl-3.6.1-h35e630c_1 
+  packaging          conda-forge/noarch::packaging-26.0-pyhcf101f3_0 
+  pip                conda-forge/noarch::pip-26.0.1-pyh8b19718_0 
+  python             conda-forge/linux-64::python-3.12.13-hd63d673_0_cpython 
+  readline           conda-forge/linux-64::readline-8.3-h853b02a_0 
+  setuptools         conda-forge/noarch::setuptools-82.0.1-pyh332efcf_0 
+  tk                 conda-forge/linux-64::tk-8.6.13-noxft_h366c992_103 
+  tzdata             conda-forge/noarch::tzdata-2025c-hc9c84f9_1 
+  wheel              conda-forge/noarch::wheel-0.46.3-pyhd8ed1ab_0 
+  zstd               conda-forge/linux-64::zstd-1.5.7-hb78ec9c_6 
+
+
+
+Downloading and Extracting Packages: ...working...python-3.12.13       | 30.1 MB   |            |   0% 
+icu-78.2             | 12.1 MB   |            |   0% [A
+
+libstdcxx-15.2.0     | 5.6 MB    |            |   0% [A[A
+
+
+tk-8.6.13            | 3.1 MB    |            |   0% [A[A[A
+
+
+
+openssl-3.6.1        | 3.0 MB    |            |   0% [A[A[A[A
+
+
+
+
+pip-26.0.1           | 1.1 MB    |            |   0% [A[A[A[A[A
+
+
+
+
+
+libgcc-15.2.0        | 1017 KB   |            |   0% [A[A[A[A[A[A
+
+
+
+
+
+
+libsqlite-3.52.0     | 929 KB    |            |   0% [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+ld_impl_linux-64-2.4 | 709 KB    |            |   0% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+setuptools-82.0.1    | 625 KB    |            |   0% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+libgomp-15.2.0       | 589 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+readline-8.3         | 337 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+bzip2-1.0.8          | 254 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+ca-certificates-2026 | 144 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+tzdata-2025c         | 116 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+liblzma-5.8.2        | 111 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libexpat-2.7.4       | 75 KB     |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+packaging-26.0       | 70 KB     |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libffi-3.5.2         | 57 KB     |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+tk-8.6.13            | 3.1 MB    |            |   0% [A[A[A
+icu-78.2             | 12.1 MB   |            |   0% [Apython-3.12.13       | 30.1 MB   |            |   0% 
+
+libstdcxx-15.2.0     | 5.6 MB    |            |   0% [A[A
+
+
+
+openssl-3.6.1        | 3.0 MB    |            |   1% [A[A[A[A
+icu-78.2             | 12.1 MB   | 9          |   9% [A
+
+
+tk-8.6.13            | 3.1 MB    | ####7      |  47% [A[A[Apython-3.12.13       | 30.1 MB   | 5          |   5% 
+
+libstdcxx-15.2.0     | 5.6 MB    | ##8        |  29% [A[A
+
+
+
+openssl-3.6.1        | 3.0 MB    | #####1     |  52% [A[A[A[A
+
+
+
+openssl-3.6.1        | 3.0 MB    | ########## | 100% [A[A[A[A
+
+
+tk-8.6.13            | 3.1 MB    | ########## | 100% [A[A[A
+icu-78.2             | 12.1 MB   | ###9       |  40% [Apython-3.12.13       | 30.1 MB   | ##         |  21% 
+
+libstdcxx-15.2.0     | 5.6 MB    | ########4  |  85% [A[A
+
+
+
+
+pip-26.0.1           | 1.1 MB    | 1          |   1% [A[A[A[A[A
+
+
+
+
+
+libgcc-15.2.0        | 1017 KB   | 1          |   2% [A[A[A[A[A[A
+
+
+
+
+pip-26.0.1           | 1.1 MB    | ########## | 100% [A[A[A[A[A
+icu-78.2             | 12.1 MB   | #######5   |  75% [Apython-3.12.13       | 30.1 MB   | ###5       |  36% 
+
+
+
+
+
+
+libsqlite-3.52.0     | 929 KB    | 1          |   2% [A[A[A[A[A[A[A
+
+
+
+
+
+libgcc-15.2.0        | 1017 KB   | ########## | 100% [A[A[A[A[A[A
+
+
+
+
+
+
+libsqlite-3.52.0     | 929 KB    | ########## | 100% [A[A[A[A[A[A[A
+
+libstdcxx-15.2.0     | 5.6 MB    | ########## | 100% [A[A
+
+
+
+
+
+
+
+ld_impl_linux-64-2.4 | 709 KB    | 2          |   2% [A[A[A[A[A[A[A[Apython-3.12.13       | 30.1 MB   | ####9      |  49% 
+
+
+
+
+
+
+
+ld_impl_linux-64-2.4 | 709 KB    | ########## | 100% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+setuptools-82.0.1    | 625 KB    | 2          |   3% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+libgomp-15.2.0       | 589 KB    | 2          |   3% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+setuptools-82.0.1    | 625 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+readline-8.3         | 337 KB    | 4          |   5% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+libgomp-15.2.0       | 589 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+readline-8.3         | 337 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[Apython-3.12.13       | 30.1 MB   | ######9    |  70% 
+
+
+
+
+
+
+
+
+
+
+
+bzip2-1.0.8          | 254 KB    | 6          |   6% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+ca-certificates-2026 | 144 KB    | #1         |  11% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+tzdata-2025c         | 116 KB    | #3         |  14% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+ca-certificates-2026 | 144 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+bzip2-1.0.8          | 254 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+tzdata-2025c         | 116 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+icu-78.2             | 12.1 MB   | ########## | 100% [A
+icu-78.2             | 12.1 MB   | ########## | 100% [A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+liblzma-5.8.2        | 111 KB    | #4         |  14% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libexpat-2.7.4       | 75 KB     | ##1        |  21% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+liblzma-5.8.2        | 111 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+packaging-26.0       | 70 KB     | ##2        |  23% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libexpat-2.7.4       | 75 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+packaging-26.0       | 70 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libffi-3.5.2         | 57 KB     | ##7        |  28% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[Apython-3.12.13       | 30.1 MB   | ########8  |  88% 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libffi-3.5.2         | 57 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+openssl-3.6.1        | 3.0 MB    | ########## | 100% [A[A[A[A
+
+
+
+openssl-3.6.1        | 3.0 MB    | ########## | 100% [A[A[A[A
+
+
+
+
+
+libgcc-15.2.0        | 1017 KB   | ########## | 100% [A[A[A[A[A[A
+
+
+
+
+
+libgcc-15.2.0        | 1017 KB   | ########## | 100% [A[A[A[A[A[A
+
+
+
+
+
+
+libsqlite-3.52.0     | 929 KB    | ########## | 100% [A[A[A[A[A[A[A
+
+
+
+
+
+
+libsqlite-3.52.0     | 929 KB    | ########## | 100% [A[A[A[A[A[A[A
+
+
+
+
+pip-26.0.1           | 1.1 MB    | ########## | 100% [A[A[A[A[A
+
+
+
+
+pip-26.0.1           | 1.1 MB    | ########## | 100% [A[A[A[A[A
+
+
+
+
+
+
+
+ld_impl_linux-64-2.4 | 709 KB    | ########## | 100% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+ld_impl_linux-64-2.4 | 709 KB    | ########## | 100% [A[A[A[A[A[A[A[A
+
+libstdcxx-15.2.0     | 5.6 MB    | ########## | 100% [A[Apython-3.12.13       | 30.1 MB   | ########## | 100% 
+
+
+
+
+
+
+
+
+
+libgomp-15.2.0       | 589 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+libgomp-15.2.0       | 589 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A
+
+
+tk-8.6.13            | 3.1 MB    | ########## | 100% [A[A[A
+
+
+tk-8.6.13            | 3.1 MB    | ########## | 100% [A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+ca-certificates-2026 | 144 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+ca-certificates-2026 | 144 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+readline-8.3         | 337 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+readline-8.3         | 337 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+bzip2-1.0.8          | 254 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+bzip2-1.0.8          | 254 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+setuptools-82.0.1    | 625 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+setuptools-82.0.1    | 625 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+liblzma-5.8.2        | 111 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+liblzma-5.8.2        | 111 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libexpat-2.7.4       | 75 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libexpat-2.7.4       | 75 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+packaging-26.0       | 70 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+packaging-26.0       | 70 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libffi-3.5.2         | 57 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+libffi-3.5.2         | 57 KB     | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ... (more hidden) ...[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+tzdata-2025c         | 116 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+tzdata-2025c         | 116 KB    | ########## | 100% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+icu-78.2             | 12.1 MB   | ########## | 100% [Apython-3.12.13       | 30.1 MB   | ########## | 100% 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A                                                     
+                                                     [A
+
+                                                     [A[A
+
+
+                                                     [A[A[A
+
+
+
+                                                     [A[A[A[A
+
+
+
+
+                                                     [A[A[A[A[A
+
+
+
+
+
+                                                     [A[A[A[A[A[A
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                     [A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A[A
+[A
+
+[A[A
+
+
+[A[A[A done
+Preparing transaction: / - done
+Verifying transaction: | / - \ | / - \ | done
+Executing transaction: - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / done
+#
+# To activate this environment, use
+#
+#     $ conda activate bench_phaser
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+🔄 Activating 'bench_phaser'...
+📦 Installing dependencies for phaser...
+Collecting jax[cuda12]
+  Downloading jax-0.9.1-py3-none-any.whl.metadata (13 kB)
+Collecting jaxlib<=0.9.1,>=0.9.1 (from jax[cuda12])
+  Downloading jaxlib-0.9.1-cp312-cp312-manylinux_2_27_x86_64.whl.metadata (1.3 kB)
+Collecting ml_dtypes>=0.5.0 (from jax[cuda12])
+  Downloading ml_dtypes-0.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.9 kB)
+Collecting numpy>=2.0 (from jax[cuda12])
+  Downloading numpy-2.4.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+Collecting opt_einsum (from jax[cuda12])
+  Downloading opt_einsum-3.4.0-py3-none-any.whl.metadata (6.3 kB)
+Collecting scipy>=1.13 (from jax[cuda12])
+  Downloading scipy-1.17.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+Collecting jax-cuda12-plugin<=0.9.1,>=0.9.1 (from jax-cuda12-plugin[with-cuda]<=0.9.1,>=0.9.1; extra == "cuda12"->jax[cuda12])
+  Downloading jax_cuda12_plugin-0.9.1-cp312-cp312-manylinux_2_27_x86_64.whl.metadata (2.0 kB)
+Collecting jax-cuda12-pjrt==0.9.1 (from jax-cuda12-plugin<=0.9.1,>=0.9.1->jax-cuda12-plugin[with-cuda]<=0.9.1,>=0.9.1; extra == "cuda12"->jax[cuda12])
+  Downloading jax_cuda12_pjrt-0.9.1-py3-none-manylinux_2_27_x86_64.whl.metadata (579 bytes)
+Collecting nvidia-cublas-cu12>=12.1.3.1 (from jax-cuda12-plugin[with-cuda]<=0.9.1,>=0.9.1; extra == "cuda12"->jax[cuda12])
+  Downloading nvidia_cublas_cu12-12.9.1.4-py3-none-manylinux_2_27_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cuda-cupti-cu12>=12.1.105 (from jax-cuda12-plugin[with-cuda]<=0.9.1,>=0.9.1; extra == "cuda12"->jax[cuda12])
+  Downloading nvidia_cuda_cupti_cu12-12.9.79-py3-none-manylinux_2_25_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-cuda-nvcc-cu12>=12.6.85 (from jax-cuda12-plugin[with-cuda]<=0.9.1,>=0.9.1; extra == "cuda12"->jax[cuda12])
+  Downloading nvidia_cuda_nvcc_cu12-12.9.86-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cuda-runtime-cu12>=12.1.105 (from jax-cuda12-plugin[with-cuda]<=0.9.1,>=0.9.1; extra == "cuda12"->jax[cuda12])
+  Downloading nvidia_cuda_runtime_cu12-12.9.79-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cudnn-cu12<10.0,>=9.8 (from jax-cuda12-plugin[with-cuda]<=0.9.1,>=0.9.1; extra == "cuda12"->jax[cuda12])
+  Downloading nvidia_cudnn_cu12-9.20.0.48-py3-none-manylinux_2_27_x86_64.whl.metadata (1.9 kB)
+Collecting nvidia-cufft-cu12>=11.0.2.54 (from jax-cuda12-plugin[with-cuda]<=0.9.1,>=0.9.1; extra == "cuda12"->jax[cuda12])
+  Downloading nvidia_cufft_cu12-11.4.1.4-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-cusolver-cu12>=11.4.5.107 (from jax-cuda12-plugin[with-cuda]<=0.9.1,>=0.9.1; extra == "cuda12"->jax[cuda12])
+  Downloading nvidia_cusolver_cu12-11.7.5.82-py3-none-manylinux_2_27_x86_64.whl.metadata (1.9 kB)
+Collecting nvidia-cusparse-cu12>=12.1.0.106 (from jax-cuda12-plugin[with-cuda]<=0.9.1,>=0.9.1; extra == "cuda12"->jax[cuda12])
+  Downloading nvidia_cusparse_cu12-12.5.10.65-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-nccl-cu12>=2.18.1 (from jax-cuda12-plugin[with-cuda]<=0.9.1,>=0.9.1; extra == "cuda12"->jax[cuda12])
+  Downloading nvidia_nccl_cu12-2.29.7-py3-none-manylinux_2_18_x86_64.whl.metadata (2.1 kB)
+Collecting nvidia-nvjitlink-cu12>=12.1.105 (from jax-cuda12-plugin[with-cuda]<=0.9.1,>=0.9.1; extra == "cuda12"->jax[cuda12])
+  Downloading nvidia_nvjitlink_cu12-12.9.86-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cuda-nvrtc-cu12>=12.1.55 (from jax-cuda12-plugin[with-cuda]<=0.9.1,>=0.9.1; extra == "cuda12"->jax[cuda12])
+  Downloading nvidia_cuda_nvrtc_cu12-12.9.86-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-nvshmem-cu12>=3.2.5 (from jax-cuda12-plugin[with-cuda]<=0.9.1,>=0.9.1; extra == "cuda12"->jax[cuda12])
+  Downloading nvidia_nvshmem_cu12-3.5.21-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.2 kB)
+Collecting nvidia-cuda-cccl-cu12 (from nvidia-nvshmem-cu12>=3.2.5->jax-cuda12-plugin[with-cuda]<=0.9.1,>=0.9.1; extra == "cuda12"->jax[cuda12])
+  Downloading nvidia_cuda_cccl_cu12-12.9.27-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)
+Downloading jax-0.9.1-py3-none-any.whl (3.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.1/3.1 MB 43.6 MB/s  0:00:00
+Downloading jax_cuda12_plugin-0.9.1-cp312-cp312-manylinux_2_27_x86_64.whl (5.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.7/5.7 MB 114.6 MB/s  0:00:00
+Downloading jax_cuda12_pjrt-0.9.1-py3-none-manylinux_2_27_x86_64.whl (156.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 156.0/156.0 MB 114.9 MB/s  0:00:01
+Downloading jaxlib-0.9.1-cp312-cp312-manylinux_2_27_x86_64.whl (82.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 82.5/82.5 MB 119.0 MB/s  0:00:00
+Downloading nvidia_cudnn_cu12-9.20.0.48-py3-none-manylinux_2_27_x86_64.whl (657.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 657.9/657.9 MB 100.7 MB/s  0:00:05
+Downloading ml_dtypes-0.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (5.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.0/5.0 MB 98.5 MB/s  0:00:00
+Downloading numpy-2.4.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.6/16.6 MB 113.1 MB/s  0:00:00
+Downloading nvidia_cublas_cu12-12.9.1.4-py3-none-manylinux_2_27_x86_64.whl (581.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 581.2/581.2 MB 86.1 MB/s  0:00:05
+Downloading nvidia_cuda_cupti_cu12-12.9.79-py3-none-manylinux_2_25_x86_64.whl (10.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.8/10.8 MB 115.0 MB/s  0:00:00
+Downloading nvidia_cuda_nvcc_cu12-12.9.86-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (40.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.5/40.5 MB 113.6 MB/s  0:00:00
+Downloading nvidia_cuda_nvrtc_cu12-12.9.86-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (89.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 89.6/89.6 MB 115.9 MB/s  0:00:00
+Downloading nvidia_cuda_runtime_cu12-12.9.79-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (3.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.5/3.5 MB 63.1 MB/s  0:00:00
+Downloading nvidia_cufft_cu12-11.4.1.4-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (200.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 200.9/200.9 MB 116.1 MB/s  0:00:01
+Downloading nvidia_cusolver_cu12-11.7.5.82-py3-none-manylinux_2_27_x86_64.whl (338.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 338.1/338.1 MB 109.2 MB/s  0:00:03
+Downloading nvidia_cusparse_cu12-12.5.10.65-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (366.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 366.5/366.5 MB 111.4 MB/s  0:00:03
+Downloading nvidia_nccl_cu12-2.29.7-py3-none-manylinux_2_18_x86_64.whl (293.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 293.6/293.6 MB 88.4 MB/s  0:00:03
+Downloading nvidia_nvjitlink_cu12-12.9.86-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (39.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 39.7/39.7 MB 111.7 MB/s  0:00:00
+Downloading nvidia_nvshmem_cu12-3.5.21-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (152.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 152.6/152.6 MB 113.0 MB/s  0:00:01
+Downloading scipy-1.17.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.2/35.2 MB 115.5 MB/s  0:00:00
+Downloading nvidia_cuda_cccl_cu12-12.9.27-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (3.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/3.2 MB 86.1 MB/s  0:00:00
+Downloading opt_einsum-3.4.0-py3-none-any.whl (71 kB)
+Installing collected packages: jax-cuda12-pjrt, opt_einsum, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-nvcc-cu12, nvidia-cuda-cupti-cu12, nvidia-cuda-cccl-cu12, nvidia-cublas-cu12, numpy, jax-cuda12-plugin, scipy, nvidia-nvshmem-cu12, nvidia-cusparse-cu12, nvidia-cufft-cu12, nvidia-cudnn-cu12, ml_dtypes, nvidia-cusolver-cu12, jaxlib, jax
+
+Successfully installed jax-0.9.1 jax-cuda12-pjrt-0.9.1 jax-cuda12-plugin-0.9.1 jaxlib-0.9.1 ml_dtypes-0.5.4 numpy-2.4.3 nvidia-cublas-cu12-12.9.1.4 nvidia-cuda-cccl-cu12-12.9.27 nvidia-cuda-cupti-cu12-12.9.79 nvidia-cuda-nvcc-cu12-12.9.86 nvidia-cuda-nvrtc-cu12-12.9.86 nvidia-cuda-runtime-cu12-12.9.79 nvidia-cudnn-cu12-9.20.0.48 nvidia-cufft-cu12-11.4.1.4 nvidia-cusolver-cu12-11.7.5.82 nvidia-cusparse-cu12-12.5.10.65 nvidia-nccl-cu12-2.29.7 nvidia-nvjitlink-cu12-12.9.86 nvidia-nvshmem-cu12-3.5.21 opt_einsum-3.4.0 scipy-1.17.1
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+Collecting optax
+  Downloading optax-0.2.7-py3-none-any.whl.metadata (7.9 kB)
+Collecting absl-py>=0.7.1 (from optax)
+  Downloading absl_py-2.4.0-py3-none-any.whl.metadata (3.3 kB)
+Requirement already satisfied: jax>=0.5.3 in /venv/bench_phaser/lib/python3.12/site-packages (from optax) (0.9.1)
+Requirement already satisfied: jaxlib>=0.5.3 in /venv/bench_phaser/lib/python3.12/site-packages (from optax) (0.9.1)
+Requirement already satisfied: numpy>=1.18.0 in /venv/bench_phaser/lib/python3.12/site-packages (from optax) (2.4.3)
+Requirement already satisfied: ml_dtypes>=0.5.0 in /venv/bench_phaser/lib/python3.12/site-packages (from jax>=0.5.3->optax) (0.5.4)
+Requirement already satisfied: opt_einsum in /venv/bench_phaser/lib/python3.12/site-packages (from jax>=0.5.3->optax) (3.4.0)
+Requirement already satisfied: scipy>=1.13 in /venv/bench_phaser/lib/python3.12/site-packages (from jax>=0.5.3->optax) (1.17.1)
+Downloading optax-0.2.7-py3-none-any.whl (399 kB)
+Downloading absl_py-2.4.0-py3-none-any.whl (135 kB)
+Installing collected packages: absl-py, optax
+
+Successfully installed absl-py-2.4.0 optax-0.2.7
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+Installing phaser from PyPI
+Collecting phaserEM
+  Downloading phaserem-0.2-py3-none-any.whl.metadata (7.8 kB)
+Requirement already satisfied: numpy<2.6,>=1.22 in /venv/bench_phaser/lib/python3.12/site-packages (from phaserEM) (2.4.3)
+Requirement already satisfied: scipy<1.19,>=1.7.0 in /venv/bench_phaser/lib/python3.12/site-packages (from phaserEM) (1.17.1)
+Collecting matplotlib~=3.8 (from phaserEM)
+  Downloading matplotlib-3.10.8-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (52 kB)
+Collecting h5py~=3.8 (from phaserEM)
+  Downloading h5py-3.16.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (3.0 kB)
+Collecting pyyaml>=5.3.1 (from phaserEM)
+  Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.4 kB)
+Collecting click~=8.1.0 (from phaserEM)
+  Downloading click-8.1.8-py3-none-any.whl.metadata (2.3 kB)
+Collecting rich<15,>=12.0.0 (from phaserEM)
+  Downloading rich-14.3.3-py3-none-any.whl.metadata (18 kB)
+Collecting tifffile>=2023.8.25 (from phaserEM)
+  Downloading tifffile-2026.3.3-py3-none-any.whl.metadata (31 kB)
+Collecting py-pane==0.11.3 (from phaserEM)
+  Downloading py_pane-0.11.3-py3-none-any.whl.metadata (4.3 kB)
+Collecting typing_extensions~=4.7 (from phaserEM)
+  Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting contourpy>=1.0.1 (from matplotlib~=3.8->phaserEM)
+  Downloading contourpy-1.3.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (5.5 kB)
+Collecting cycler>=0.10 (from matplotlib~=3.8->phaserEM)
+  Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+Collecting fonttools>=4.22.0 (from matplotlib~=3.8->phaserEM)
+  Downloading fonttools-4.62.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (117 kB)
+Collecting kiwisolver>=1.3.1 (from matplotlib~=3.8->phaserEM)
+  Downloading kiwisolver-1.5.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.1 kB)
+Requirement already satisfied: packaging>=20.0 in /venv/bench_phaser/lib/python3.12/site-packages (from matplotlib~=3.8->phaserEM) (26.0)
+Collecting pillow>=8 (from matplotlib~=3.8->phaserEM)
+  Downloading pillow-12.1.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.8 kB)
+Collecting pyparsing>=3 (from matplotlib~=3.8->phaserEM)
+  Downloading pyparsing-3.3.2-py3-none-any.whl.metadata (5.8 kB)
+Collecting python-dateutil>=2.7 (from matplotlib~=3.8->phaserEM)
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting markdown-it-py>=2.2.0 (from rich<15,>=12.0.0->phaserEM)
+  Downloading markdown_it_py-4.0.0-py3-none-any.whl.metadata (7.3 kB)
+Collecting pygments<3.0.0,>=2.13.0 (from rich<15,>=12.0.0->phaserEM)
+  Downloading pygments-2.19.2-py3-none-any.whl.metadata (2.5 kB)
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich<15,>=12.0.0->phaserEM)
+  Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Collecting six>=1.5 (from python-dateutil>=2.7->matplotlib~=3.8->phaserEM)
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Downloading phaserem-0.2-py3-none-any.whl (4.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.1/4.1 MB 29.9 MB/s  0:00:00
+Downloading py_pane-0.11.3-py3-none-any.whl (41 kB)
+Downloading click-8.1.8-py3-none-any.whl (98 kB)
+Downloading h5py-3.16.0-cp312-cp312-manylinux_2_28_x86_64.whl (5.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 110.6 MB/s  0:00:00
+Downloading matplotlib-3.10.8-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.7/8.7 MB 96.3 MB/s  0:00:00
+Downloading rich-14.3.3-py3-none-any.whl (310 kB)
+Downloading pygments-2.19.2-py3-none-any.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 62.8 MB/s  0:00:00
+Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+Downloading contourpy-1.3.3-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (362 kB)
+Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+Downloading fonttools-4.62.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.0/5.0 MB 108.5 MB/s  0:00:00
+Downloading kiwisolver-1.5.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 94.3 MB/s  0:00:00
+Downloading markdown_it_py-4.0.0-py3-none-any.whl (87 kB)
+Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Downloading pillow-12.1.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.0/7.0 MB 105.3 MB/s  0:00:00
+Downloading pyparsing-3.3.2-py3-none-any.whl (122 kB)
+Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+Downloading pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (807 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 65.0 MB/s  0:00:00
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading tifffile-2026.3.3-py3-none-any.whl (243 kB)
+Installing collected packages: typing_extensions, tifffile, six, pyyaml, pyparsing, pygments, pillow, mdurl, kiwisolver, h5py, fonttools, cycler, contourpy, click, python-dateutil, py-pane, markdown-it-py, rich, matplotlib, phaserEM
+
+Successfully installed click-8.1.8 contourpy-1.3.3 cycler-0.12.1 fonttools-4.62.0 h5py-3.16.0 kiwisolver-1.5.0 markdown-it-py-4.0.0 matplotlib-3.10.8 mdurl-0.1.2 phaserEM-0.2 pillow-12.1.1 py-pane-0.11.3 pygments-2.19.2 pyparsing-3.3.2 python-dateutil-2.9.0.post0 pyyaml-6.0.3 rich-14.3.3 six-1.17.0 tifffile-2026.3.3 typing_extensions-4.15.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+--------------------------------------------------
+Environment : bench_phaser
+Python Path : /venv/bench_phaser/bin/python
+✅ Status     : Successfully imported phaser!
+--------------------------------------------------
+✅ Environment 'bench_phaser' setup successfully!
+To use it, run: conda activate bench_phaser
+----------------------------------------
+ Phase 2: Benchmark Execution
+----------------------------------------
+Starting PtyRAD Benchmark...
+### Log nvidia-smi and pip list info ###
+Fri Mar 13 01:34:13 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 590.48.01              Driver Version: 590.48.01      CUDA Version: 13.1     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX PRO 6000 Blac...    On  |   00000000:41:00.0 Off |                  Off |
+| 30%   31C    P8             13W /  600W |       2MiB /  97887MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Package                   Version
+------------------------- --------------
+accelerate                1.13.0
+alembic                   1.18.4
+annotated-doc             0.0.4
+annotated-types           0.7.0
+anyio                     4.12.1
+argon2-cffi               25.1.0
+argon2-cffi-bindings      25.1.0
+arrow                     1.4.0
+asttokens                 3.0.1
+async-lru                 2.2.0
+attrs                     25.4.0
+babel                     2.18.0
+beautifulsoup4            4.14.3
+bleach                    6.3.0
+certifi                   2026.2.25
+cffi                      2.0.0
+charset-normalizer        3.4.5
+click                     8.3.1
+colorlog                  6.10.1
+comm                      0.2.3
+contourpy                 1.3.3
+cycler                    0.12.1
+debugpy                   1.8.20
+decorator                 5.2.1
+defusedxml                0.7.1
+executing                 2.2.1
+fastjsonschema            2.21.2
+filelock                  3.20.0
+fonttools                 4.62.0
+fqdn                      1.5.1
+fsspec                    2025.12.0
+greenlet                  3.3.2
+h11                       0.16.0
+h5py                      3.16.0
+hf-xet                    1.4.1
+httpcore                  1.0.9
+httpx                     0.28.1
+huggingface_hub           1.6.0
+idna                      3.11
+ipykernel                 7.2.0
+ipython                   9.11.0
+ipython_pygments_lexers   1.1.1
+ipywidgets                8.1.8
+isoduration               20.11.0
+jedi                      0.19.2
+Jinja2                    3.1.6
+joblib                    1.5.3
+json5                     0.13.0
+jsonpointer               3.0.0
+jsonschema                4.26.0
+jsonschema-specifications 2025.9.1
+jupyter                   1.1.1
+jupyter_client            8.8.0
+jupyter-console           6.6.3
+jupyter_core              5.9.1
+jupyter-events            0.12.0
+jupyter-lsp               2.3.0
+jupyter_server            2.17.0
+jupyter_server_terminals  0.5.4
+jupyterlab                4.5.6
+jupyterlab_pygments       0.3.0
+jupyterlab_server         2.28.0
+jupyterlab_widgets        3.0.16
+kiwisolver                1.5.0
+lark                      1.3.1
+Mako                      1.3.10
+markdown-it-py            4.0.0
+MarkupSafe                3.0.2
+matplotlib                3.10.8
+matplotlib-inline         0.2.1
+mdurl                     0.1.2
+mistune                   3.2.0
+mpmath                    1.3.0
+nbclient                  0.10.4
+nbconvert                 7.17.0
+nbformat                  5.10.4
+nest-asyncio              1.6.0
+networkx                  3.6.1
+notebook                  7.5.5
+notebook_shim             0.2.4
+numpy                     2.3.5
+nvidia-cublas-cu12        12.8.3.14
+nvidia-cuda-cupti-cu12    12.8.57
+nvidia-cuda-nvrtc-cu12    12.8.61
+nvidia-cuda-runtime-cu12  12.8.57
+nvidia-cudnn-cu12         9.7.1.26
+nvidia-cufft-cu12         11.3.3.41
+nvidia-cufile-cu12        1.13.0.11
+nvidia-curand-cu12        10.3.9.55
+nvidia-cusolver-cu12      11.7.2.55
+nvidia-cusparse-cu12      12.5.7.53
+nvidia-cusparselt-cu12    0.6.3
+nvidia-nccl-cu12          2.26.2
+nvidia-nvjitlink-cu12     12.8.61
+nvidia-nvtx-cu12          12.8.55
+optuna                    4.7.0
+packaging                 26.0
+pandocfilters             1.5.1
+parso                     0.8.6
+pexpect                   4.9.0
+pillow                    12.0.0
+pip                       26.0.1
+platformdirs              4.9.4
+prometheus_client         0.24.1
+prompt_toolkit            3.0.52
+psutil                    7.2.2
+ptyprocess                0.7.0
+ptyrad                    0.1.0b13.post1
+pure_eval                 0.2.3
+pycparser                 3.0
+pydantic                  2.12.5
+pydantic_core             2.41.5
+Pygments                  2.19.2
+pyparsing                 3.3.2
+python-dateutil           2.9.0.post0
+python-json-logger        4.0.0
+PyYAML                    6.0.3
+pyzmq                     27.1.0
+referencing               0.37.0
+requests                  2.32.5
+rfc3339-validator         0.1.4
+rfc3986-validator         0.1.1
+rfc3987-syntax            1.1.0
+rich                      14.3.3
+rpds-py                   0.30.0
+safetensors               0.7.0
+scikit-learn              1.8.0
+scipy                     1.17.1
+Send2Trash                2.1.0
+setuptools                82.0.1
+shellingham               1.5.4
+six                       1.17.0
+soupsieve                 2.8.3
+SQLAlchemy                2.0.48
+stack-data                0.6.3
+sympy                     1.14.0
+terminado                 0.18.1
+threadpoolctl             3.6.0
+tifffile                  2026.3.3
+tinycss2                  1.4.0
+torch                     2.7.1+cu128
+torchaudio                2.7.1+cu128
+torchvision               0.22.1+cu128
+tornado                   6.5.5
+tqdm                      4.67.3
+traitlets                 5.14.3
+triton                    3.3.1
+typer                     0.24.1
+typing_extensions         4.15.0
+typing-inspection         0.4.2
+tzdata                    2025.3
+uri-template              1.3.0
+urllib3                   2.6.3
+wcwidth                   0.6.0
+webcolors                 25.10.0
+webencodings              0.5.1
+websocket-client          1.9.0
+wheel                     0.46.3
+widgetsnbextension        4.0.15
+Fri Mar 13 01:38:57 UTC 2026
+PtyRAD Benchmark Complete.
+Starting Phaser Benchmark...
+### Log nvidia-smi and pip list info ###
+Fri Mar 13 01:38:57 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 590.48.01              Driver Version: 590.48.01      CUDA Version: 13.1     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX PRO 6000 Blac...    On  |   00000000:41:00.0 Off |                  Off |
+| 33%   48C    P0             88W /  600W |       2MiB /  97887MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Package                  Version
+------------------------ -----------
+absl-py                  2.4.0
+click                    8.1.8
+contourpy                1.3.3
+cycler                   0.12.1
+fonttools                4.62.0
+h5py                     3.16.0
+jax                      0.9.1
+jax-cuda12-pjrt          0.9.1
+jax-cuda12-plugin        0.9.1
+jaxlib                   0.9.1
+kiwisolver               1.5.0
+markdown-it-py           4.0.0
+matplotlib               3.10.8
+mdurl                    0.1.2
+ml_dtypes                0.5.4
+numpy                    2.4.3
+nvidia-cublas-cu12       12.9.1.4
+nvidia-cuda-cccl-cu12    12.9.27
+nvidia-cuda-cupti-cu12   12.9.79
+nvidia-cuda-nvcc-cu12    12.9.86
+nvidia-cuda-nvrtc-cu12   12.9.86
+nvidia-cuda-runtime-cu12 12.9.79
+nvidia-cudnn-cu12        9.20.0.48
+nvidia-cufft-cu12        11.4.1.4
+nvidia-cusolver-cu12     11.7.5.82
+nvidia-cusparse-cu12     12.5.10.65
+nvidia-nccl-cu12         2.29.7
+nvidia-nvjitlink-cu12    12.9.86
+nvidia-nvshmem-cu12      3.5.21
+opt_einsum               3.4.0
+optax                    0.2.7
+packaging                26.0
+phaserEM                 0.2
+pillow                   12.1.1
+pip                      26.0.1
+py-pane                  0.11.3
+Pygments                 2.19.2
+pyparsing                3.3.2
+python-dateutil          2.9.0.post0
+PyYAML                   6.0.3
+rich                     14.3.3
+scipy                    1.17.1
+setuptools               82.0.1
+six                      1.17.0
+tifffile                 2026.3.3
+typing_extensions        4.15.0
+wheel                    0.46.3
+Phaser Benchmark Complete.
+========================================
+ All Benchmarks Finished!
+========================================
+Fri Mar 13 01:44:03 UTC 2026
+Reminder: Don't forget to rsync the 'logs/' directory back to your local machine before destroying the instance!

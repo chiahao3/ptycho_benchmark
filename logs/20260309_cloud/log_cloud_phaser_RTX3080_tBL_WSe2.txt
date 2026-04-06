@@ -1,0 +1,330 @@
+### System information ###
+Platform: Linux-5.15.0-139-generic-x86_64-with-glibc2.39
+Operating System: Linux 5.15.0-139-generic
+OS Version: #149~20.04.1-Ubuntu SMP Wed Apr 16 08:29:56 UTC 2025
+Machine: x86_64
+Processor: x86_64
+Available CPU cores: 48
+Memory information will be available after `conda install conda-forge::psutil`
+ 
+### GPU information ###
+--- PyTorch Backend ---
+WARNING: No GPU information because PyTorch can't be imported.
+         Please install PyTorch because it's the crucial dependency of PtyRAD.
+         See https://github.com/chiahao3/ptyrad for PtyRAD installation guide.
+--- JAX Backend ---
+Available JAX Backends: dict_keys(['cpu', 'cuda'])
+Available JAX GPUs: ['NVIDIA GeForce RTX 3080']
+ 
+### Python information ###
+Python Executable: /venv/bench_phaser/bin/python
+Python Version: 3.12.13 | packaged by conda-forge | (main, Mar  5 2026, 16:50:00) [GCC 14.3.0]
+ 
+### Packages information ###
+Numpy Version (metadata): 2.4.3
+Cupy not found in the environment.
+Jax Version (metadata): 0.9.1
+PyTorch not found in the environment.
+Optuna not found in the environment.
+Accelerate not found in the environment.
+PtyRAD not found locally
+phaser imported, but no __version__ attribute found.
+py4DSTEM not found locally
+quantem not found locally
+ 
+### Running (round_idx, batch, pmode, slice) = (1, 512, 6, 6) ###
+INFO:root:Executing plan...
+INFO:root:Initializing reconstruction...
+INFO:root:dtype: <class 'numpy.float32'> array backend: jax.numpy
+INFO:root:jax backend: gpu devices: [CudaDevice(id=0)]
+INFO:root:Loading with detector flips: [1, 0, 0] [y, x, transpose]
+INFO:phaser.hooks.io.empad:Scaling patterns by ADU (151.0)
+INFO:root:Initializing probe...
+INFO:phaser.hooks.probe:Making probe, conv_angle 24.94 mrad, defocus 0.0 A
+INFO:root:Initializing scan...
+INFO:root:Initializing object...
+INFO:root:Initialized reconstruction in 00:05.331
+INFO:root:Preparing for engine #1...
+INFO:root:Initializing engine...
+INFO:phaser.engines.common.simulation:Bandwidth limit: 139.75 mrad
+INFO:phaser.utils.num:JIT-compiling kernel 'dry_run'...
+INFO:phaser.engines.gradient.run:Pre-calculated intensities
+INFO:phaser.engines.gradient.run:Rescaling initial probe intensity by 8.95e+04
+INFO:root:Engine initialized
+INFO:phaser.utils.num:JIT-compiling kernel 'run_group'...
+INFO:phaser.utils.num:JIT-compiling kernel 'run_model'...
+INFO:phaser.utils.num:JIT-compiling kernel 'clamp_amplitude'...
+INFO:root:Finished iter  1/10 [00:13.539] Error: 1.299e+07
+INFO:root:Finished iter  2/10 [00:05.901] Error: 2.954e+06
+INFO:root:Finished iter  3/10 [00:05.905] Error: 2.898e+06
+INFO:root:Finished iter  4/10 [00:05.890] Error: 2.646e+06
+INFO:root:Finished iter  5/10 [00:05.859] Error: 2.428e+06
+INFO:root:Finished iter  6/10 [00:05.864] Error: 2.273e+06
+INFO:root:Finished iter  7/10 [00:05.865] Error: 2.183e+06
+INFO:root:Finished iter  8/10 [00:05.853] Error: 2.109e+06
+INFO:root:Finished iter  9/10 [00:05.867] Error: 2.046e+06
+INFO:root:Finished iter 10/10 [00:05.852] Error: 2.006e+06
+INFO:root:Engine finished!
+INFO:root:Total engine time: 00:01:12.112
+INFO:root:Finished reconstruction!
+INFO:root:Total reconstruction time: 00:01:13.473
+INFO:root:Reconstruction finished!
+### Running (round_idx, batch, pmode, slice) = (1, 256, 6, 6) ###
+INFO:root:Executing plan...
+INFO:root:Initializing reconstruction...
+INFO:root:dtype: <class 'numpy.float32'> array backend: jax.numpy
+INFO:root:jax backend: gpu devices: [CudaDevice(id=0)]
+INFO:root:Loading with detector flips: [1, 0, 0] [y, x, transpose]
+INFO:phaser.hooks.io.empad:Scaling patterns by ADU (151.0)
+INFO:root:Initializing probe...
+INFO:phaser.hooks.probe:Making probe, conv_angle 24.94 mrad, defocus 0.0 A
+INFO:root:Initializing scan...
+INFO:root:Initializing object...
+INFO:root:Initialized reconstruction in 00:04.555
+INFO:root:Preparing for engine #1...
+INFO:root:Initializing engine...
+INFO:phaser.engines.common.simulation:Bandwidth limit: 139.75 mrad
+INFO:phaser.utils.num:JIT-compiling kernel 'dry_run'...
+INFO:phaser.engines.gradient.run:Pre-calculated intensities
+INFO:phaser.engines.gradient.run:Rescaling initial probe intensity by 8.95e+04
+INFO:root:Engine initialized
+INFO:phaser.utils.num:JIT-compiling kernel 'run_group'...
+INFO:phaser.utils.num:JIT-compiling kernel 'run_model'...
+INFO:phaser.utils.num:JIT-compiling kernel 'clamp_amplitude'...
+INFO:root:Finished iter  1/10 [00:12.557] Error: 3.804e+06
+INFO:root:Finished iter  2/10 [00:05.724] Error: 1.069e+06
+INFO:root:Finished iter  3/10 [00:05.691] Error: 1.039e+06
+INFO:root:Finished iter  4/10 [00:05.676] Error: 9.810e+05
+INFO:root:Finished iter  5/10 [00:05.709] Error: 9.263e+05
+INFO:root:Finished iter  6/10 [00:05.647] Error: 8.742e+05
+INFO:root:Finished iter  7/10 [00:05.664] Error: 8.421e+05
+INFO:root:Finished iter  8/10 [00:05.717] Error: 8.168e+05
+INFO:root:Finished iter  9/10 [00:05.686] Error: 7.961e+05
+INFO:root:Finished iter 10/10 [00:05.686] Error: 7.859e+05
+INFO:root:Engine finished!
+INFO:root:Total engine time: 00:01:09.161
+INFO:root:Finished reconstruction!
+INFO:root:Total reconstruction time: 00:01:10.186
+INFO:root:Reconstruction finished!
+### Running (round_idx, batch, pmode, slice) = (1, 128, 6, 6) ###
+INFO:root:Executing plan...
+INFO:root:Initializing reconstruction...
+INFO:root:dtype: <class 'numpy.float32'> array backend: jax.numpy
+INFO:root:jax backend: gpu devices: [CudaDevice(id=0)]
+INFO:root:Loading with detector flips: [1, 0, 0] [y, x, transpose]
+INFO:phaser.hooks.io.empad:Scaling patterns by ADU (151.0)
+INFO:root:Initializing probe...
+INFO:phaser.hooks.probe:Making probe, conv_angle 24.94 mrad, defocus 0.0 A
+INFO:root:Initializing scan...
+INFO:root:Initializing object...
+INFO:root:Initialized reconstruction in 00:04.752
+INFO:root:Preparing for engine #1...
+INFO:root:Initializing engine...
+INFO:phaser.engines.common.simulation:Bandwidth limit: 139.75 mrad
+INFO:phaser.utils.num:JIT-compiling kernel 'dry_run'...
+INFO:phaser.engines.gradient.run:Pre-calculated intensities
+INFO:phaser.engines.gradient.run:Rescaling initial probe intensity by 8.95e+04
+INFO:root:Engine initialized
+INFO:phaser.utils.num:JIT-compiling kernel 'run_group'...
+INFO:phaser.utils.num:JIT-compiling kernel 'run_model'...
+INFO:phaser.utils.num:JIT-compiling kernel 'clamp_amplitude'...
+INFO:root:Finished iter  1/10 [00:12.610] Error: 1.177e+06
+INFO:root:Finished iter  2/10 [00:05.836] Error: 4.255e+05
+INFO:root:Finished iter  3/10 [00:05.849] Error: 3.981e+05
+INFO:root:Finished iter  4/10 [00:05.839] Error: 3.774e+05
+INFO:root:Finished iter  5/10 [00:05.859] Error: 3.637e+05
+INFO:root:Finished iter  6/10 [00:05.833] Error: 3.562e+05
+INFO:root:Finished iter  7/10 [00:05.848] Error: 3.488e+05
+INFO:root:Finished iter  8/10 [00:05.796] Error: 3.447e+05
+INFO:root:Finished iter  9/10 [00:05.863] Error: 3.419e+05
+INFO:root:Finished iter 10/10 [00:05.879] Error: 3.380e+05
+INFO:root:Engine finished!
+INFO:root:Total engine time: 00:01:10.570
+INFO:root:Finished reconstruction!
+INFO:root:Total reconstruction time: 00:01:11.647
+INFO:root:Reconstruction finished!
+### Running (round_idx, batch, pmode, slice) = (1, 64, 6, 6) ###
+INFO:root:Executing plan...
+INFO:root:Initializing reconstruction...
+INFO:root:dtype: <class 'numpy.float32'> array backend: jax.numpy
+INFO:root:jax backend: gpu devices: [CudaDevice(id=0)]
+INFO:root:Loading with detector flips: [1, 0, 0] [y, x, transpose]
+INFO:phaser.hooks.io.empad:Scaling patterns by ADU (151.0)
+INFO:root:Initializing probe...
+INFO:phaser.hooks.probe:Making probe, conv_angle 24.94 mrad, defocus 0.0 A
+INFO:root:Initializing scan...
+INFO:root:Initializing object...
+INFO:root:Initialized reconstruction in 00:04.769
+INFO:root:Preparing for engine #1...
+INFO:root:Initializing engine...
+INFO:phaser.engines.common.simulation:Bandwidth limit: 139.75 mrad
+INFO:phaser.utils.num:JIT-compiling kernel 'dry_run'...
+INFO:phaser.engines.gradient.run:Pre-calculated intensities
+INFO:phaser.engines.gradient.run:Rescaling initial probe intensity by 8.95e+04
+INFO:root:Engine initialized
+INFO:phaser.utils.num:JIT-compiling kernel 'run_group'...
+INFO:phaser.utils.num:JIT-compiling kernel 'run_model'...
+INFO:phaser.utils.num:JIT-compiling kernel 'clamp_amplitude'...
+INFO:root:Finished iter  1/10 [00:13.300] Error: 3.933e+05
+INFO:root:Finished iter  2/10 [00:06.514] Error: 1.813e+05
+INFO:root:Finished iter  3/10 [00:06.506] Error: 1.693e+05
+INFO:root:Finished iter  4/10 [00:06.472] Error: 1.642e+05
+INFO:root:Finished iter  5/10 [00:06.504] Error: 1.622e+05
+INFO:root:Finished iter  6/10 [00:06.507] Error: 1.605e+05
+INFO:root:Finished iter  7/10 [00:06.562] Error: 1.589e+05
+INFO:root:Finished iter  8/10 [00:06.499] Error: 1.581e+05
+INFO:root:Finished iter  9/10 [00:06.546] Error: 1.573e+05
+INFO:root:Finished iter 10/10 [00:06.494] Error: 1.569e+05
+INFO:root:Engine finished!
+INFO:root:Total engine time: 00:01:17.506
+INFO:root:Finished reconstruction!
+INFO:root:Total reconstruction time: 00:01:18.601
+INFO:root:Reconstruction finished!
+### Running (round_idx, batch, pmode, slice) = (1, 32, 6, 6) ###
+INFO:root:Executing plan...
+INFO:root:Initializing reconstruction...
+INFO:root:dtype: <class 'numpy.float32'> array backend: jax.numpy
+INFO:root:jax backend: gpu devices: [CudaDevice(id=0)]
+INFO:root:Loading with detector flips: [1, 0, 0] [y, x, transpose]
+INFO:phaser.hooks.io.empad:Scaling patterns by ADU (151.0)
+INFO:root:Initializing probe...
+INFO:phaser.hooks.probe:Making probe, conv_angle 24.94 mrad, defocus 0.0 A
+INFO:root:Initializing scan...
+INFO:root:Initializing object...
+INFO:root:Initialized reconstruction in 00:04.814
+INFO:root:Preparing for engine #1...
+INFO:root:Initializing engine...
+INFO:phaser.engines.common.simulation:Bandwidth limit: 139.75 mrad
+INFO:phaser.utils.num:JIT-compiling kernel 'dry_run'...
+INFO:phaser.engines.gradient.run:Pre-calculated intensities
+INFO:phaser.engines.gradient.run:Rescaling initial probe intensity by 8.95e+04
+INFO:root:Engine initialized
+INFO:phaser.utils.num:JIT-compiling kernel 'run_group'...
+INFO:phaser.utils.num:JIT-compiling kernel 'run_model'...
+INFO:phaser.utils.num:JIT-compiling kernel 'clamp_amplitude'...
+INFO:root:Finished iter  1/10 [00:14.002] Error: 1.435e+05
+INFO:root:Finished iter  2/10 [00:07.258] Error: 8.279e+04
+INFO:root:Finished iter  3/10 [00:07.268] Error: 7.998e+04
+INFO:root:Finished iter  4/10 [00:07.261] Error: 7.892e+04
+INFO:root:Finished iter  5/10 [00:07.255] Error: 7.816e+04
+INFO:root:Finished iter  6/10 [00:07.296] Error: 7.767e+04
+INFO:root:Finished iter  7/10 [00:07.292] Error: 7.737e+04
+INFO:root:Finished iter  8/10 [00:07.294] Error: 7.719e+04
+INFO:root:Finished iter  9/10 [00:07.296] Error: 7.717e+04
+INFO:root:Finished iter 10/10 [00:07.261] Error: 7.699e+04
+INFO:root:Engine finished!
+INFO:root:Total engine time: 00:01:25.262
+INFO:root:Finished reconstruction!
+INFO:root:Total reconstruction time: 00:01:26.320
+INFO:root:Reconstruction finished!
+### Running (round_idx, batch, pmode, slice) = (1, 16, 6, 6) ###
+INFO:root:Executing plan...
+INFO:root:Initializing reconstruction...
+INFO:root:dtype: <class 'numpy.float32'> array backend: jax.numpy
+INFO:root:jax backend: gpu devices: [CudaDevice(id=0)]
+INFO:root:Loading with detector flips: [1, 0, 0] [y, x, transpose]
+INFO:phaser.hooks.io.empad:Scaling patterns by ADU (151.0)
+INFO:root:Initializing probe...
+INFO:phaser.hooks.probe:Making probe, conv_angle 24.94 mrad, defocus 0.0 A
+INFO:root:Initializing scan...
+INFO:root:Initializing object...
+INFO:root:Initialized reconstruction in 00:04.523
+INFO:root:Preparing for engine #1...
+INFO:root:Initializing engine...
+INFO:phaser.engines.common.simulation:Bandwidth limit: 139.75 mrad
+INFO:phaser.utils.num:JIT-compiling kernel 'dry_run'...
+INFO:phaser.engines.gradient.run:Pre-calculated intensities
+INFO:phaser.engines.gradient.run:Rescaling initial probe intensity by 8.95e+04
+INFO:root:Engine initialized
+INFO:phaser.utils.num:JIT-compiling kernel 'run_group'...
+INFO:phaser.utils.num:JIT-compiling kernel 'run_model'...
+INFO:phaser.utils.num:JIT-compiling kernel 'clamp_amplitude'...
+INFO:root:Finished iter  1/10 [00:15.127] Error: 5.853e+04
+INFO:root:Finished iter  2/10 [00:08.349] Error: 4.041e+04
+INFO:root:Finished iter  3/10 [00:08.291] Error: 3.986e+04
+INFO:root:Finished iter  4/10 [00:08.345] Error: 3.953e+04
+INFO:root:Finished iter  5/10 [00:08.320] Error: 3.938e+04
+INFO:root:Finished iter  6/10 [00:08.460] Error: 3.948e+04
+INFO:root:Finished iter  7/10 [00:08.312] Error: 3.934e+04
+INFO:root:Finished iter  8/10 [00:08.280] Error: 3.944e+04
+INFO:root:Finished iter  9/10 [00:08.314] Error: 3.932e+04
+INFO:root:Finished iter 10/10 [00:08.305] Error: 3.943e+04
+INFO:root:Engine finished!
+INFO:root:Total engine time: 00:01:35.855
+INFO:root:Finished reconstruction!
+INFO:root:Total reconstruction time: 00:01:36.969
+INFO:root:Reconstruction finished!
+### Running (round_idx, batch, pmode, slice) = (1, 8, 6, 6) ###
+INFO:root:Executing plan...
+INFO:root:Initializing reconstruction...
+INFO:root:dtype: <class 'numpy.float32'> array backend: jax.numpy
+INFO:root:jax backend: gpu devices: [CudaDevice(id=0)]
+INFO:root:Loading with detector flips: [1, 0, 0] [y, x, transpose]
+INFO:phaser.hooks.io.empad:Scaling patterns by ADU (151.0)
+INFO:root:Initializing probe...
+INFO:phaser.hooks.probe:Making probe, conv_angle 24.94 mrad, defocus 0.0 A
+INFO:root:Initializing scan...
+INFO:root:Initializing object...
+INFO:root:Initialized reconstruction in 00:04.884
+INFO:root:Preparing for engine #1...
+INFO:root:Initializing engine...
+INFO:phaser.engines.common.simulation:Bandwidth limit: 139.75 mrad
+INFO:phaser.utils.num:JIT-compiling kernel 'dry_run'...
+INFO:phaser.engines.gradient.run:Pre-calculated intensities
+INFO:phaser.engines.gradient.run:Rescaling initial probe intensity by 8.95e+04
+INFO:root:Engine initialized
+INFO:phaser.utils.num:JIT-compiling kernel 'run_group'...
+INFO:phaser.utils.num:JIT-compiling kernel 'run_model'...
+INFO:phaser.utils.num:JIT-compiling kernel 'clamp_amplitude'...
+INFO:root:Finished iter  1/10 [00:16.697] Error: 2.618e+04
+INFO:root:Finished iter  2/10 [00:10.057] Error: 2.073e+04
+INFO:root:Finished iter  3/10 [00:09.878] Error: 2.075e+04
+INFO:root:Finished iter  4/10 [00:09.956] Error: 2.061e+04
+INFO:root:Finished iter  5/10 [00:10.024] Error: 2.056e+04
+INFO:root:Finished iter  6/10 [00:10.093] Error: 2.061e+04
+INFO:root:Finished iter  7/10 [00:10.153] Error: 2.042e+04
+INFO:root:Finished iter  8/10 [00:10.033] Error: 2.060e+04
+INFO:root:Finished iter  9/10 [00:09.809] Error: 2.054e+04
+INFO:root:Finished iter 10/10 [00:10.033] Error: 2.045e+04
+INFO:root:Engine finished!
+INFO:root:Total engine time: 00:01:52.685
+INFO:root:Finished reconstruction!
+INFO:root:Total reconstruction time: 00:01:53.805
+INFO:root:Reconstruction finished!
+### Running (round_idx, batch, pmode, slice) = (1, 4, 6, 6) ###
+INFO:root:Executing plan...
+INFO:root:Initializing reconstruction...
+INFO:root:dtype: <class 'numpy.float32'> array backend: jax.numpy
+INFO:root:jax backend: gpu devices: [CudaDevice(id=0)]
+INFO:root:Loading with detector flips: [1, 0, 0] [y, x, transpose]
+INFO:phaser.hooks.io.empad:Scaling patterns by ADU (151.0)
+INFO:root:Initializing probe...
+INFO:phaser.hooks.probe:Making probe, conv_angle 24.94 mrad, defocus 0.0 A
+INFO:root:Initializing scan...
+INFO:root:Initializing object...
+INFO:root:Initialized reconstruction in 00:04.614
+INFO:root:Preparing for engine #1...
+INFO:root:Initializing engine...
+INFO:phaser.engines.common.simulation:Bandwidth limit: 139.75 mrad
+INFO:phaser.utils.num:JIT-compiling kernel 'dry_run'...
+INFO:phaser.engines.gradient.run:Pre-calculated intensities
+INFO:phaser.engines.gradient.run:Rescaling initial probe intensity by 8.95e+04
+INFO:root:Engine initialized
+INFO:phaser.utils.num:JIT-compiling kernel 'run_group'...
+INFO:phaser.utils.num:JIT-compiling kernel 'run_model'...
+INFO:phaser.utils.num:JIT-compiling kernel 'clamp_amplitude'...
+INFO:root:Finished iter  1/10 [00:17.015] Error: 1.269e+04
+INFO:root:Finished iter  2/10 [00:11.134] Error: 1.120e+04
+INFO:root:Finished iter  3/10 [00:11.048] Error: 1.115e+04
+INFO:root:Finished iter  4/10 [00:11.117] Error: 1.109e+04
+INFO:root:Finished iter  5/10 [00:11.034] Error: 1.111e+04
+INFO:root:Finished iter  6/10 [00:11.217] Error: 1.109e+04
+INFO:root:Finished iter  7/10 [00:11.395] Error: 1.110e+04
+INFO:root:Finished iter  8/10 [00:11.332] Error: 1.113e+04
+INFO:root:Finished iter  9/10 [00:11.233] Error: 1.115e+04
+INFO:root:Finished iter 10/10 [00:11.172] Error: 1.105e+04
+INFO:root:Engine finished!
+INFO:root:Total engine time: 00:02:04.993
+INFO:root:Finished reconstruction!
+INFO:root:Total reconstruction time: 00:02:06.100
+INFO:root:Reconstruction finished!
